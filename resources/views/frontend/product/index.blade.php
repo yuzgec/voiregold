@@ -246,7 +246,7 @@
                                                                     <span class="tooltiptext tooltip-top"></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="product-price">@convert($Detay->price)₺ - <del>@convert($Detay->old_price)₺</del></div>
+                                                            <div class="product-price">@convert($item->price)₺ - <del>@convert($item->old_price)₺</del></div>
                                                         </div>
                                                     </div>
                                                     @endforeach

@@ -350,236 +350,47 @@
             <div class="col-xl-3 mb-4">
                 <div class="widget widget-products widget-products-bordered h-100">
                     <div class="widget-body br-sm h-100">
-                        <h4 class="title-sm title-underline font-weight-bolder ls-normal mb-2">Top 20 Best
-                            Seller</h4>
+                        <h4 class="title title-link font-weight-bold">En Çok Satanlar</h4>
                         <div class="swiper">
-                            <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
+                            <div class="swiper nav-top">
+                                <div class="swiper-container swiper-theme nav-top" data-swiper-options = "{
                                                 'slidesPerView': 1,
                                                 'spaceBetween': 20,
-                                                'breakpoints': {
-                                                    '576': {
-                                                        'slidesPerView': 2
-                                                    },
-                                                    '1200': {
-                                                        'slidesPerView': 3
-                                                    },
-                                                    '1300': {
-                                                        'slidesPerView': 1
-                                                    }
+                                                'navigation': {
+                                                    'prevEl': '.swiper-button-prev',
+                                                    'nextEl': '.swiper-button-next'
                                                 }
                                             }">
-                                <div class="swiper-wrapper row cols-lg-1 cols-md-3">
-                                    <div class="swiper-slide product-widget-wrap">
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo3/products/1-1.jpg"
-                                                         alt="Product" width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Fashionable Leather
-                                                        Satchel</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 80%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
+                                    <div class="swiper-wrapper">
+                                        <div class="widget-col swiper-slide">
+                                            @foreach($Product->where('bestselling', 1) as $item)
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
+                                                            <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'small') }}" alt="{{ $item->title }}" width="150" height="150">
+                                                            @foreach($item->getMedia('gallery')->take(1) as $img)
+                                                                {{ $img->img('small')->attributes(['class' => 'product-image-hover', 'alt' => $item->title]) }}
+                                                            @endforeach
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">{{ $item->title }}</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 100%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">@convert($item->price)₺ - <del>@convert($item->old_price)₺</del></div>
                                                     </div>
                                                 </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$25.68</ins>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo3/products/1-2.jpg"
-                                                         alt="Product" width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Mini Wireless Earphone</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 80%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$29.99 - $49.00</ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-widget">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo3/products/1-3.jpg"
-                                                         alt="Product" width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Women's Comforter</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 60%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$24.00</ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide product-widget-wrap">
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-4.jpg"
-                                                         alt="Product" width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Latest Speaker</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 60%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$250.68</ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-5.jpg"
-                                                         alt="Product" width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Men's Black Wrist Watch</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 100%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$135.60</ins><del
-                                                        class="old-price">$155.70</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-widget">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-6.jpg" alt="Product"
-                                                         width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Wash Machine</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 100%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$215.68</ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide product-widget-wrap">
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-7.jpg" alt="Product"
-                                                         width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Security Guard</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 100%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$320.00</ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-widget bb-no">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-8.jpg" alt="Product"
-                                                         width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">Apple Super Notecom</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 100%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$243.30</ins><del
-                                                        class="old-price">$253.50</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-widget">
-                                            <figure class="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="/frontend//images/demos/demo1/products/2-9.jpg" alt="Product"
-                                                         width="105" height="118" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h4 class="product-name">
-                                                    <a href="product-default.html">HD Television</a>
-                                                </h4>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 60%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$450.68</ins><del
-                                                        class="old-price">$500.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
-                                <button class="swiper-button-next"></button>
-                                <button class="swiper-button-prev"></button>
                             </div>
                         </div>
 
