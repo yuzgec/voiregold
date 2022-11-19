@@ -129,18 +129,18 @@
                                             </button>
                                         </div>
                                     </div>
-
-                                    <hr class="product-divider">
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings " style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top "></span>
+                                    @if($Detay->get_comment_count > 0)
+                                        <hr class="product-divider">
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings " style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top "></span>
+                                            </div>
+                                            <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                         </div>
-                                        <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - (3 Yorum)</a>
-                                    </div>
 
 
-                                    <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
+                                        <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
                                                 'slidesPerView': 1,
                                                 'spaceBetween': 20,
                                                 'breakpoints': {
@@ -152,66 +152,32 @@
                                                     }
                                                 }
                                             }">
-                                        <div class="swiper-wrapper row cols-lg-3 cols-sm-2 cols-1">
-                                            <div class="swiper-slide testimonial-wrap">
-                                                <div class="testimonial testimonial-centered testimonial-shadow">
-                                                    <div class="testimonial-info">
-                                                        <div class="ratings-container">
-                                                            <div class="ratings-full">
-                                                                <span class="ratings" style="width: 100%;"></span>
+                                            <div class="swiper-wrapper row cols-lg-3 cols-sm-2 cols-1">
+                                                @foreach($Detay->getComment as $comment)
+                                                    <div class="swiper-slide testimonial-wrap">
+                                                        <div class="testimonial testimonial-centered testimonial-shadow">
+                                                            <div class="testimonial-info">
+                                                                <div class="ratings-container">
+                                                                    <div class="ratings-full">
+                                                                        <span class="ratings" style="width: 100%;"></span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+                                                            <blockquote>
+                                                                {!! $comment->comment !!}
+                                                            </blockquote>
+                                                            <cite>
+                                                                {{ $comment->name }}
+                                                            </cite>
                                                         </div>
                                                     </div>
-                                                    <blockquote>
-                                                        Lorem ipsum dolor sit amet, consectetuered doPellentesque
-                                                        aliquet nib Nullam mollis urna.
-                                                    </blockquote>
-                                                    <cite>
-                                                        Victoria Ventura
-                                                    </cite>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide testimonial-wrap">
-                                                <div class="testimonial testimonial-centered testimonial-shadow">
-                                                    <div class="testimonial-info">
-                                                        <div class="ratings-container">
-                                                            <div class="ratings-full">
-                                                                <span class="ratings" style="width: 100%;"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <blockquote>
-                                                        Lorem ipsum dolor sit amet, consectetuered doPellentesque
-                                                        aliquet nib Nullam mollis urna.
-                                                    </blockquote>
-                                                    <cite>
-                                                        Victoria Ventura
-                                                    </cite>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide testimonial-wrap">
-                                                <div class="testimonial testimonial-centered testimonial-shadow">
-                                                    <div class="testimonial-info">
-                                                        <div class="ratings-container">
-                                                            <div class="ratings-full">
-                                                                <span class="ratings" style="width: 100%;"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <blockquote>
-                                                        Lorem ipsum dolor sit amet, consectetuered doPellentesque
-                                                        aliquet nib Nullam mollis urna.
-                                                    </blockquote>
-                                                    <cite>
-                                                        Victoria Ventura
-                                                    </cite>
-                                                </div>
-                                            </div>
+                                                @endforeach
 
+
+                                            </div>
+                                            <div class="swiper-pagination"></div>
                                         </div>
-                                        <div class="swiper-pagination"></div>
-                                    </div>
-
+                                    @endif
                                 </div>
                             </div>
                         </div>

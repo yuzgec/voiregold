@@ -41,10 +41,10 @@ class HomeController extends Controller
         return view('frontend.index', compact('Slider',  'Pivot'));
     }
     public function urun($url){
-        $Detay = Product::with(['getCategory'])
+        $Detay = Product::with(['getCategory','getComment'])->withCount('getComment')
             ->where('sku', \request('urunno'))
             ->firstOrFail();
-
+        //dd($Detay);
         foreach ($Detay->getCategory as $item){
             $cat[] = $item->category_id;
         }

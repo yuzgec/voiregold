@@ -28,7 +28,7 @@ class Product extends Model implements HasMedia,Viewable
     }
 
     public function getComment(){
-        return $this->belongsTo(Comment::class, 'id', 'product_id');
+        return $this->hasmany(Comment::class, 'product_id', 'id');
     }
 
     public function registerMediaConversions(Media $media = null): void

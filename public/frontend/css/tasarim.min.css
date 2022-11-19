@@ -4583,7 +4583,7 @@ blockquote{
     content:""
 }
 .form .form-control{
-    margin-bottom:2rem
+    margin-bottom:1rem
 }
 input:-internal-autofill-selected{
     background-color:#fff!important;
