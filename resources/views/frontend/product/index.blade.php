@@ -109,7 +109,7 @@
                                 </div>
 
                                 <div class="product-short-desc lh-2">
-
+                                    {!! $Detay->short !!}
                                 </div>
 
                                 <hr class="product-divider">
