@@ -130,7 +130,6 @@
                                     <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                 </div>
 
-
                                 <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
                                                 'slidesPerView': 1,
                                                 'spaceBetween': 20,

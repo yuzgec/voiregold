@@ -6826,12 +6826,13 @@ body .product-popup{
     opacity:1
 }
 .product-image-gap{
-    padding:0.9rem;
+    padding:0.1rem;
     border:1px solid #eee;
     background-color:#fff
 }
 .product-image-gap .product-details{
-    padding:1.8rem 1rem 1rem
+    padding:1.8rem 1rem 1rem;
+    text-align: center;
 }
 .product-image-gap.product-classic .product-action{
     left:0;
@@ -8542,7 +8543,7 @@ body .product-popup{
 .title-link-wrapper .title{
     position:relative;
     margin-bottom:0.8rem;
-    padding:0.8rem 0
+    padding:.1rem 0
 }
 .title-link-wrapper a{
     margin-bottom:0.7rem;
@@ -8706,11 +8707,11 @@ body .product-popup{
 }
 @media (max-width:575px){
     .title-link-wrapper{
-        flex-direction:column;
+        flex-direction:row;
         align-items:flex-start
     }
     .title-link-wrapper .title-link{
-        margin-bottom:2rem
+        margin-bottom:1rem
     }
     .title-link-wrapper a{
         margin-left:0

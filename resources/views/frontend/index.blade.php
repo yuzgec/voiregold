@@ -103,15 +103,12 @@
     </div>
 
     @foreach($Product_Categories as $item)
-    <div class="title-link-wrapper title-deals appear-animate mb-2">
+    <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
         <h2 class="title title-link">{{ $item->title }}</h2>
-        <div
-            class="product-countdown-container font-size-sm text-white bg-secondary align-items-center mr-auto">
-        </div>
         <a href="{{  route('kategori', [$item->slug, 'id' =>$item->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
     </div>
     <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
-            'spaceBetween': 20,
+            'spaceBetween': 10,
             'slidesPerView': 2,
             'breakpoints': {
                 '576': {
