@@ -2863,6 +2863,7 @@
 				img.src = item.src;// + '?a=' + Math.random();
 				img.alt = item.alt || 'Voiregold Online Takı ve Aksusuar Satış Sitesi';
                 img.style.background = 'white';
+                img.className = 'img-fluid';
 
 				return img;
 			},
@@ -3159,7 +3160,8 @@
 						img = framework.createEl('pswp__img', 'img');
 						img.style.opacity = 1;
 						img.style.background = "white";
-						img.src = item.src;
+                        img.className = 'img-fluid';
+                        img.src = item.src;
 						_setImageSize(item, img);
 						_appendImage(index, item, baseDiv, img, true);
 					}

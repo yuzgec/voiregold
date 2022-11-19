@@ -100,10 +100,10 @@
 
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width: 80%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
+                                        <span class="ratings " style="width: 100%;"></span>
+                                        <span class="tooltiptext tooltip-top "></span>
                                     </div>
-                                    <a href="#product-tab-reviews" class="rating-reviews">(3 Reviews)</a>
+                                    <a href="#product-tab-reviews" class="rating-reviews">(3 Yorum)</a>
                                 </div>
 
                                 <div class="product-short-desc lh-2 short">
@@ -145,104 +145,72 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-3">
-                                                            <label class="form-label">
-                                                                Adınız
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
-                                                            @if($errors->has('name'))
-                                                                <div class="invalid-feedback">{{$errors->first('name')}}</div>
-                                                            @endif
-                                                        </div>
+                                                        <label class="form-label">Adınız<span class="text-danger">*</span> </label>
+                                                        <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
+                                                        @if($errors->has('name'))
+                                                            <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                                        @endif
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-3">
-                                                            <label class="form-label">
-                                                                Soyadınız
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
-                                                            @if($errors->has('surname'))
-                                                                <div class="invalid-feedback">{{$errors->first('surname')}}</div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-100"></div>
-                                                    <div class="col-md-6">
-                                                        <div class="js-form-message mb-3">
-                                                            <label class="form-label">
-                                                                Email Adresiniz
-                                                            </label>
-                                                            <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email. Zorunlu Değildir">
-                                                            @if($errors->has('email'))
-                                                                <div class="invalid-feedback">{{$errors->first('email')}}</div>
-                                                            @endif
-                                                        </div>
+                                                        <label class="form-label"> Soyadınız <span class="text-danger">*</span></label>
+                                                        <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
+                                                        @if($errors->has('surname'))
+                                                            <div class="invalid-feedback">{{$errors->first('surname')}}</div>
+                                                        @endif
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-2">
-                                                            <label class="form-label">
-                                                                Telefon Numaranız <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
-                                                            @if($errors->has('phone'))
-                                                                <div class="invalid-feedback">{{$errors->first('phone')}}</div>
-                                                            @endif
-                                                        </div>
+                                                        <label class="form-label"> Email Adresiniz</label>
+                                                        <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email. Zorunlu Değildir">
+                                                        @if($errors->has('email'))
+                                                            <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                                                        @endif
                                                     </div>
 
-                                                    <div class="form-group mt-2">
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Telefon Numaranız <span class="text-danger">*</span></label>
+                                                        <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
+                                                        @if($errors->has('phone'))
+                                                            <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                                                        @endif
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label class="form-label">
                                                             Açık Adresiniz<span class="text-danger">*</span>
                                                         </label>
-                                                        <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="4" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
+                                                        <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="3" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
                                                         @if($errors->has('address'))
                                                             <div class="invalid-feedback">{{$errors->first('address')}}</div>
                                                         @endif
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-2">
-                                                            <label class="form-label">
-                                                                İl
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <select class="form-control @if($errors->has('province')) is-invalid @endif" name="province">
-                                                                <option value="">İl Seçiniz</option>
-                                                                @foreach($Province as $item)
-                                                                    <option value="{{ $item->sehir_title }}" {{ (old('province') == $item->sehir_title) ? 'selected' : null }} }}>{{ $item->sehir_title }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @if($errors->has('province'))
-                                                                <div class="invalid-feedback">{{$errors->first('province')}}</div>
-                                                            @endif
-                                                        </div>
+                                                        <label class="form-label"> İl <span class="text-danger">*</span></label>
+                                                        <select class="form-control @if($errors->has('province')) is-invalid @endif" name="province">
+                                                            <option value="">İl Seçiniz</option>
+                                                            @foreach($Province as $item)
+                                                                <option value="{{ $item->sehir_title }}" {{ (old('province') == $item->sehir_title) ? 'selected' : null }} }}>{{ $item->sehir_title }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @if($errors->has('province'))
+                                                            <div class="invalid-feedback">{{$errors->first('province')}}</div>
+                                                        @endif
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-1">
-                                                            <label class="form-label">
-                                                                İlçe <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
-                                                            @if($errors->has('city'))
-                                                                <div class="invalid-feedback">{{$errors->first('city')}}</div>
-                                                            @endif
-                                                        </div>
+                                                        <label class="form-label">İlçe <span class="text-danger">*</span></label>
+                                                        <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
+                                                        @if($errors->has('city'))
+                                                            <div class="invalid-feedback">{{$errors->first('city')}}</div>
+                                                        @endif
                                                     </div>
 
-
-                                                    <div class="form-group mt-1">
-                                                        <label class="form-label">
-                                                            Sipariş Notu
-                                                        </label>
+                                                    <div class="form-group mt-1"><label class="form-label"> Sipariş Notu </label>
                                                         <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
-
                                                     </div>
 
-                                                    <div class="form-group place-order pt-6">
+                                                    <div class="form-group place-order">
                                                         <button type="submit" class="btn btn-dark btn-block btn-rounded">
                                                             {{ ($Detay->price == 0) ? 'KAMPANYAYA KATIL' : 'SİPARİŞİ TAMAMLA' }}
                                                         </button>

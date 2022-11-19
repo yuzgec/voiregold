@@ -7,7 +7,7 @@
             @endforeach
         </a>
         <div class="product-label-group">
-            <label class="product-label label-discount">İndirimli Ürün</label>
+            <label class="product-label label-discount">%{{ abs(round( $item->price * 100 /$item->old_price - 100)) }} indirim</label>
         </div>
 
         <div class="product-action">

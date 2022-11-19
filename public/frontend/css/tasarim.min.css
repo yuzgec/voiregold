@@ -877,7 +877,7 @@ blockquote{
 .list-type-check li{
     position:relative;
     padding-left:2rem;
-    line-height:2
+    line-height:1.5;
 }
 .list-type-check li:before{
     position:absolute;
