@@ -6,179 +6,532 @@
     </div>
 
     <div class="page-content" style="margin-top:20px">
-            <div class="container">
-                <div class="row gutter-lg">
-                    <div class="main-content">
-                        <div class="product product-single row">
-                            <div class="col-md-6 mb-6">
-                                <div class="product-gallery product-gallery-sticky product-gallery-video">
-                                    <div class="swiper-container product-single-swiper swiper-theme nav-inner" data-swiper-options="{
+        <div class="container">
+            <div class="row">
+
+                <div class="product product-single row">
+
+
+
+
+                    <div class="col-md-4 mb-6">
+                        <div class="product-gallery product-gallery-sticky product-gallery-video">
+                            <div class="swiper-container product-single-swiper swiper-theme nav-inner" data-swiper-options="{
                                         'navigation': {
                                             'nextEl': '.swiper-button-next',
                                             'prevEl': '.swiper-button-prev'
                                         }
                                     }">
-                                        <div class="swiper-wrapper row cols-1 gutter-no">
+                                <div class="swiper-wrapper row cols-1 gutter-no">
 
-                                            <div class="swiper-slide">
-                                                <figure class="product-image">
-                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
-                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
-                                                         alt="{{ $Detay->title }}">
-                                                </figure>
-                                            </div>
-                                            @foreach($Detay->getMedia('gallery') as $item)
-                                                <div class="swiper-slide">
-                                                    <figure class="product-image">
-                                                        <img src="{{ $item->getUrl('img') }}"
-                                                             data-zoom-image="{{ $item->getUrl('img') }}"
-                                                             alt="{{ $Detay->title }}">
-                                                    </figure>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                        <button class="swiper-button-next"></button>
-                                        <button class="swiper-button-prev"></button>
-                                        <a href="#" class="product-gallery-btn product-image-full">
-                                            <i class="w-icon-zoom"></i>
-                                        </a>
-                                        <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+                                    <div class="swiper-slide">
+                                        <figure class="product-image">
+                                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
+                                                 data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
+                                                 alt="{{ $Detay->title }}">
+                                        </figure>
                                     </div>
-                                    <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
+                                    @foreach($Detay->getMedia('gallery') as $item)
+                                        <div class="swiper-slide">
+                                            <figure class="product-image">
+                                                <img src="{{ $item->getUrl('img') }}"
+                                                     data-zoom-image="{{ $item->getUrl('img') }}"
+                                                     alt="{{ $Detay->title }}">
+                                            </figure>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <button class="swiper-button-next"></button>
+                                <button class="swiper-button-prev"></button>
+                                <a href="#" class="product-gallery-btn product-image-full">
+                                    <i class="w-icon-zoom"></i>
+                                </a>
+                                <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+                            </div>
+                            <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {
                                         'nextEl': '.swiper-button-next',
                                         'prevEl': '.swiper-button-prev'
                                     }
                                 }">
-                                        <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                                            <div class="product-thumb swiper-slide">
-                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'small')}}"
-                                                     alt="Product Thumb" width="150" height="150">
-                                            </div>
-                                            @foreach($Detay->getMedia('gallery') as $item)
-                                                <div class="product-thumb swiper-slide">
-                                                    <img src="{{ $item->getUrl('small') }}"
-                                                         alt="{{ $Detay->title }}"
-                                                         width="150" height="150">
-                                                </div>
-                                            @endforeach
+                                <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                    <div class="product-thumb swiper-slide">
+                                        <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'small')}}"
+                                             alt="Product Thumb" width="150" height="150">
+                                    </div>
+                                    @foreach($Detay->getMedia('gallery') as $item)
+                                        <div class="product-thumb swiper-slide">
+                                            <img src="{{ $item->getUrl('small') }}"
+                                                 alt="{{ $Detay->title }}"
+                                                 width="150" height="150">
                                         </div>
-                                        <button class="swiper-button-next"></button>
-                                        <button class="swiper-button-prev"></button>
+                                    @endforeach
+                                </div>
+                                <button class="swiper-button-next"></button>
+                                <button class="swiper-button-prev"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="product-details">
+                            <h1 class="product-title">{{ $Detay->title }}</h1>
+                            <div class="product-bm-wrapper">
+                                <figure class="brand">
+                                    <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}"
+                                         width="105" />
+                                </figure>
+                                <div class="product-meta">
+                                    <div class="product-categories">
+                                        Kategori:
+                                        @foreach($Category as $cat)
+                                            <span class="product-category"><a href="{{ route('kategori',[$cat->slug, 'id' => $cat->id]) }}">{{ $cat->title }}</a></span>
+                                        @endforeach
+                                    </div>
+                                    <div class="product-sku">
+                                        Ürün Kodu:
+                                        <span>{{ $Detay->sku }}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="product-details">
-                                    <h1 class="product-title">{{ $Detay->title }}</h1>
-                                    <div class="product-bm-wrapper">
-                                        <figure class="brand">
-                                            <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}"
-                                                 width="105" />
-                                        </figure>
-                                        <div class="product-meta">
-                                            <div class="product-categories">
-                                                Kategori:
-                                                @foreach($Category as $cat)
-                                                    <span class="product-category"><a href="{{ route('kategori',[$cat->slug, 'id' => $cat->id]) }}">{{ $cat->title }}</a></span>
-                                                @endforeach
-                                            </div>
-                                            <div class="product-sku">
-                                                Ürün Kodu:
-                                                <span>{{ $Detay->sku }}</span>
+
+                            <hr class="product-divider">
+
+
+
+
+
+                            <div class="product-price">
+                                <ins class="new-price">@convert($Detay->price)₺</ins>
+                                <del>@convert($Detay->old_price)₺</del>
+                                <span class="tip tip-hot" style="font-size: 16px">
+                                    %{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim
+                                </span>
+                            </div>
+
+                            <div class="ratings-container">
+                                <div class="ratings-full">
+                                    <span class="ratings " style="width: 100%;"></span>
+                                    <span class="tooltiptext tooltip-top "></span>
+                                </div>
+                                <a href="#product-tab-reviews" class="rating-reviews">(3 Yorum)</a>
+                            </div>
+
+                            <div class="product-short-desc lh-2 short">
+                                {!! $Detay->short !!}
+                            </div>
+
+                            <hr class="product-divider">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12" id="siparis" style="border:1px solid #f4f4f4;border-radius: 5px;padding: 10px">
+                        <div class="mb-2">
+
+                            <form action="{{ route('kaydet') }}" method="POST" class="form checkout-form">
+                                @csrf()
+                                <input type="hidden" name="id" value="{{$Detay->id}}">
+                                <input type="hidden" name="kampanya" value="1">
+                                <input type="hidden" name="medium" value="{{$Detay->external}}">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="pb-2 mb-2">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Adınız<span class="text-danger">*</span> </label>
+                                                    <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
+                                                    @if($errors->has('name'))
+                                                        <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label"> Soyadınız <span class="text-danger">*</span></label>
+                                                    <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
+                                                    @if($errors->has('surname'))
+                                                        <div class="invalid-feedback">{{$errors->first('surname')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label"> Email Adresiniz</label>
+                                                    <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email Zorunlu Değildir">
+                                                    @if($errors->has('email'))
+                                                        <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Telefon Numaranız <span class="text-danger">*</span></label>
+                                                    <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
+                                                    @if($errors->has('phone'))
+                                                        <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label">
+                                                        Açık Adresiniz<span class="text-danger">*</span>
+                                                    </label>
+                                                    <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="3" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
+                                                    @if($errors->has('address'))
+                                                        <div class="invalid-feedback">{{$errors->first('address')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label"> İl <span class="text-danger">*</span></label>
+                                                    <select class="form-control @if($errors->has('province')) is-invalid @endif" name="province">
+                                                        <option value="">İl Seçiniz</option>
+                                                        @foreach($Province as $item)
+                                                            <option value="{{ $item->sehir_title }}" {{ (old('province') == $item->sehir_title) ? 'selected' : null }} }}>{{ $item->sehir_title }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if($errors->has('province'))
+                                                        <div class="invalid-feedback">{{$errors->first('province')}}</div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">İlçe <span class="text-danger">*</span></label>
+                                                    <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
+                                                    @if($errors->has('city'))
+                                                        <div class="invalid-feedback">{{$errors->first('city')}}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group mt-1"><label class="form-label"> Sipariş Notu </label>
+                                                    <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
+                                                </div>
+
+                                                <div class="form-group place-order">
+                                                    <button type="submit" class="btn btn-dark btn-block btn-rounded">
+                                                        {{ ($Detay->offer == 1) ? 'KAMPANYAYA KATIL' : 'SİPARİŞİ TAMAMLA' }}
+                                                    </button>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-                                    <hr class="product-divider">
+                @if(@auth()->user()->is_admin == 1)
+                    <a href="{{ route('product.edit', $Detay->id) }}" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
+                @endif
 
-                                    <div class="product-price">
-                                        <ins class="new-price">@convert($Detay->price)₺</ins>
-                                        <del>@convert($Detay->old_price)₺</del>
-                                        <span class="tip tip-hot" style="font-size: 16px">%{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim</span>
+                <div class="tab tab-nav-boxed tab-nav-underline product-tabs mt-3">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a href="#product-tab-description" class="nav-link active">Ürün Açıklaması</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="product-tab-description">
+                            <div class="row mb-4">
+                                <div class="col-md-8 col-12 mb-3 font-size-md">
+                                    {!! $Detay->desc !!}
+                                </div>
+
+                                <div class="col-md-4 col-12 mb-5">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="vendor-product-section">
+                    <div class="title-link-wrapper mb-4">
+                        <h4 class="title text-left">More Products From This Vendor</h4>
+                        <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
+                            Products<i class="w-icon-long-arrow-right"></i></a>
+                    </div>
+                    <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'spaceBetween': 20,
+                            'slidesPerView': 2,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 3
+                                },
+                                '768': {
+                                    'slidesPerView': 4
+                                },
+                                '992': {
+                                    'slidesPerView': 4
+                                }
+                            }
+                        }">
+                        <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/1-1.jpg" alt="Product"
+                                             width="300" height="338" />
+                                        <img src="/frontend/images/products/default/1-2.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
                                     </div>
-
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
+                                    </div>
+                                    <h4 class="product-name"><a href="product-default.html">Sticky Pencil</a>
+                                    </h4>
                                     <div class="ratings-container">
                                         <div class="ratings-full">
-                                            <span class="ratings " style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top "></span>
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="#product-tab-reviews" class="rating-reviews">(3 Yorum)</a>
+                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
                                     </div>
-
-                                    <div class="product-short-desc lh-2 short">
-                                        {!! $Detay->short !!}
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">$20.00</div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/2.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
 
-                                    <hr class="product-divider">
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Electronics</a>
+                                    </div>
+                                    <h4 class="product-name"><a href="product-default.html">Mini
+                                            Multi-Functional Cooker</a></h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 80%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">
+                                            <ins class="new-price">$480.00</ins><del
+                                                class="old-price">$534.00</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/3.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
 
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Sports</a></div>
+                                    <h4 class="product-name"><a href="product-default.html">Skate Pan</a></h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">
+                                            <ins class="new-price">$278.00</ins><del
+                                                class="old-price">$310.00</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/4-1.jpg" alt="Product"
+                                             width="300" height="338" />
+                                        <img src="/frontend/images/products/default/4-2.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
+                                    </div>
+                                    <h4 class="product-name"><a href="product-default.html">Clip Attachment</a>
+                                    </h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">$40.00</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+                </section>
+                <section class="related-product-section">
+                    <div class="title-link-wrapper mb-4">
+                        <h4 class="title">Related Products</h4>
+                        <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
+                            Products<i class="w-icon-long-arrow-right"></i></a>
+                    </div>
+                    <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'spaceBetween': 20,
+                            'slidesPerView': 2,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 3
+                                },
+                                '768': {
+                                    'slidesPerView': 4
+                                },
+                                '992': {
+                                    'slidesPerView': 4
+                                }
+                            }
+                        }">
+                        <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/5.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
 
-                    <aside class="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
-                        <div class="sidebar-overlay"></div>
-                        <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
-                        <a href="#" class="sidebar-toggle d-flex d-lg-none"><i class="fas fa-chevron-left"></i></a>
-                        <div class="sidebar-content scrollable">
-                            <div class="sticky-sidebar">
-
-                                <div class="widget widget-products">
-                                    <div class="title-link-wrapper mb-2">
-                                        <h4 class="title title-link font-weight-bold">En Çok Satanlar</h4>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
                                     </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h4 class="product-name"><a href="product-default.html">Drone</a></h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">$632.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/6.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
 
-                                    <div class="swiper nav-top">
-                                        <div class="swiper-container swiper-theme nav-top" data-swiper-options = "{
-                                                'slidesPerView': 1,
-                                                'spaceBetween': 20,
-                                                'navigation': {
-                                                    'prevEl': '.swiper-button-prev',
-                                                    'nextEl': '.swiper-button-next'
-                                                }
-                                            }">
-                                            <div class="swiper-wrapper">
-                                                <div class="widget-col swiper-slide">
-                                                    @foreach($Product->where('bestselling', 1) as $item)
-                                                        <div class="product product-widget">
-                                                            <figure class="product-media">
-                                                                <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
-                                                                    <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'small') }}" alt="{{ $item->title }}" width="150" height="150">
-                                                                    @foreach($item->getMedia('gallery')->take(1) as $img)
-                                                                        {{ $img->img('small')->attributes(['class' => 'product-image-hover', 'alt' => $item->title]) }}
-                                                                    @endforeach
-                                                                </a>
-                                                            </figure>
-                                                            <div class="product-details">
-                                                                <h4 class="product-name">
-                                                                    <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">{{ $item->title }}</a>
-                                                                </h4>
-                                                                <div class="ratings-container">
-                                                                    <div class="ratings-full">
-                                                                        <span class="ratings" style="width: 100%;"></span>
-                                                                        <span class="tooltiptext tooltip-top"></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-price">@convert($item->price)₺ - <del>@convert($item->old_price)₺</del></div>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                            <button class="swiper-button-next"></button>
-                                            <button class="swiper-button-prev"></button>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h4 class="product-name"><a href="product-default.html">Official Camera</a>
+                                    </h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">
+                                            <ins class="new-price">$263.00</ins><del
+                                                class="old-price">$300.00</del>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/7-1.jpg" alt="Product"
+                                             width="300" height="338" />
+                                        <img src="/frontend/images/products/default/7-2.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h4 class="product-name"><a href="product-default.html">Phone Charge Pad</a>
+                                    </h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 80%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(8 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">$23.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product">
+                                <figure class="product-media">
+                                    <a href="product-default.html">
+                                        <img src="/frontend/images/products/default/8.jpg" alt="Product"
+                                             width="300" height="338" />
+                                    </a>
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                            View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h4 class="product-name"><a href="product-default.html">Fashionalble
+                                            Pencil</a></h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 100%;"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" class="rating-reviews">(9 reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">$50.00</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </aside>
-                    <!-- End of Sidebar -->
-                </div>
+                    </div>
+                </section>
+
             </div>
         </div>
+    </div>
 
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>

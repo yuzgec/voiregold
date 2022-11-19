@@ -53,10 +53,6 @@ class HomeController extends Controller
             ->whereIn('id',$cat)
             ->get();
 
-        $OtherCategory = ProductCategory::select('title', 'slug', 'id','desc')
-            ->where('slug',request()->segment(2))
-            ->first();
-
         SEOTools::setTitle($Detay->title.' | Türkiye’nin online takı ve aksesuar satış sitesi');
         SEOTools::setDescription($Detay->seo_desc);
         SEOTools::opengraph()->setUrl(url()->current());
@@ -92,11 +88,11 @@ class HomeController extends Controller
                     'url' => url()->full()
                 ]
             ]);
-
-        if($Detay->offer != 1){
-            return view('frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'OtherCategory', 'Province'));
+        //dd($Detay->offer);
+        if($Detay->offer == 1){
+            return view('frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
         }
-        return view('frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'OtherCategory', 'Province'));
+        return view('frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
     }
     public function kategori($url){
         $Detay = ProductCategory::where('id', \request('id'))->select('id','title','slug')->first();

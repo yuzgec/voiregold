@@ -15,6 +15,7 @@
         </div>
     </figure>
 
+
     <div class="product-details">
         <div class="product-cat">
             @foreach($item->getCategory->take(1) as $category)
