@@ -267,6 +267,7 @@
                                             'slidesPerView': 1
                                         }">
                             <div class="swiper-wrapper row cols-1 gutter-no">
+                                @foreach($Product->take(1) as $item)
                                 <div class="swiper-slide">
                                     <div class="product product-single row">
                                         <div class="col-md-6">
@@ -275,104 +276,49 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo3/products/1-1-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo3/products/1-1-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
+                                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
                                                         </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo3/products/1-2-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo3/products/1-2-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo3/products/1-3-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo3/products/1-3-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo3/products/1-4-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo3/products/1-4-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
+
                                                     </div>
-                                                    <button class="swiper-button-next"></button>
-                                                    <button class="swiper-button-prev"></button>
+
                                                     <div class="product-label-group">
-                                                        <label class="product-label label-discount">25% Off</label>
-                                                    </div>
-                                                </div>
-                                                <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
-                                                                    'breakpoints': {
-                                                                        '992': {
-                                                                            'direction': 'vertical',
-                                                                            'slidesPerView': 'auto'
-                                                                        }
-                                                                    }
-                                                                }">
-                                                    <div class="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo3/products/1-1-600x675.jpg" alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo3/products/1-2-600x675.jpg" alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo3/products/1-3-600x675.jpg" alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo3/products/1-4-600x675.jpg" alt="Product thumb" width="60" height="68" />
-                                                        </div>
+                                                        <label class="product-label gold">%{{ abs(round( $item->price * 100 /$item->old_price - 100)) }} indirim</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="product-details scrollable pl-0">
-                                                <h2 class="product-title mb-1"><a href="product-default.html">Red
-                                                        Cap Sound Marker</a></h2>
+                                                <h2 class="product-title mb-1">
+                                                    <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
+                                                        {{ $item->title }}
+                                                    </a>
+                                                </h2>
 
                                                 <hr class="product-divider">
 
-                                                <div class="product-price"><ins class="new-price ls-50">$129.43 -
-                                                        $143.88</ins></div>
+                                                <div class="product-price">
+                                                    <ins class="new-price ls-50"> {{ $item->price }}₺ -
+                                                        <del>@convert($item->old_price)₺</del>
+                                                    </ins>
+                                                </div>
 
                                                 <div class="product-countdown-container flex-wrap">
-                                                    <label class="mr-2 text-default">Offer Ends In:</label>
-                                                    <div class="product-countdown countdown-compact"
-                                                         data-until="2022, 12, 31" data-compact="true">
-                                                        629 days, 11: 59: 52</div>
+                                                    <label class="mr-2 text-default">Kampanya Bitiş Tarihi:</label>
                                                 </div>
-
+                                                @if($item->get_comment_count > 0)
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
-                                                        <span class="ratings" style="width: 80%;"></span>
+                                                        <span class="ratings" style="width: 100%;"></span>
                                                         <span class="tooltiptext tooltip-top"></span>
                                                     </div>
-                                                    <a href="#" class="rating-reviews">(3 Reviews)</a>
+                                                    <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}" class="rating-reviews">({{ $item->get_comment_count }} yorum)</a>
                                                 </div>
+                                                @endif
 
-                                                <div
-                                                    class="product-form product-variation-form product-size-swatch mb-3">
-                                                    <label class="mb-1">Size:</label>
-                                                    <div
-                                                        class="flex-wrap d-flex align-items-center product-variations">
-                                                        <a href="#" class="size">Small</a>
-                                                        <a href="#" class="size">Medium</a>
-                                                        <a href="#" class="size">Large</a>
-                                                        <a href="#" class="size">Extra Large</a>
-                                                    </div>
-                                                    <a href="#" class="product-variation-clean">Clean All</a>
-                                                </div>
-
-                                                <div class="product-variation-price">
-                                                    <span></span>
+                                                <div class="product-short-desc lh-2 short">
+                                                    {!! $item->short !!}
                                                 </div>
 
                                                 <div class="product-form pt-4">
@@ -386,7 +332,7 @@
                                                     </div>
                                                     <button class="btn btn-primary btn-cart">
                                                         <i class="w-icon-cart"></i>
-                                                        <span>Add to Cart</span>
+                                                        <span>Ürünü İncele</span>
                                                     </button>
                                                 </div>
 
@@ -394,165 +340,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="product product-single row">
-                                        <div class="col-md-6">
-                                            <div class="product-gallery product-gallery-sticky product-gallery-vertical">
-                                                <div class="swiper-container product-single-swiper swiper-theme nav-inner">
-                                                    <div class="swiper-wrapper row cols-1 gutter-no">
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo6/products/2-1-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo6/products/2-1-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo6/products/2-2-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo6/products/2-2-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo6/products/2-3-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo6/products/2-3-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
-                                                                <img src="/frontend//images/demos/demo6/products/2-4-600x675.jpg"
-                                                                     data-zoom-image="/frontend//images/demos/demo6/products/2-4-800x900.jpg"
-                                                                     alt="Product Image" width="800" height="900">
-                                                            </figure>
-                                                        </div>
-                                                    </div>
-                                                    <button class="swiper-button-next"></button>
-                                                    <button class="swiper-button-prev"></button>
-                                                    <div class="product-label-group">
-                                                        <label class="product-label label-discount">25% Off</label>
-                                                    </div>
-                                                </div>
-                                                <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
-                                                                    'breakpoints': {
-                                                                        '992': {
-                                                                            'direction': 'vertical',
-                                                                            'slidesPerView': 'auto'
-                                                                        }
-                                                                    }
-                                                                }">
-                                                    <div class="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo6/products/2-1-600x675.jpg"
-                                                                 alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo6/products/2-2-600x675.jpg"
-                                                                 alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo6/products/2-3-600x675.jpg"
-                                                                 alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                        <div class="product-thumb swiper-slide">
-                                                            <img src="/frontend//images/demos/demo6/products/2-4-600x675.jpg"
-                                                                 alt="Product thumb" width="60" height="68" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="product-details scrollable pl-0">
-                                                <h2 class="product-title mb-1"><a href="product-default.html">White
-                                                        School Bag</a></h2>
-
-                                                <hr class="product-divider">
-
-                                                <div class="product-price"><ins class="new-price ls-50">$26.00</ins>
-                                                </div>
-
-                                                <div class="product-countdown-container flex-wrap">
-                                                    <label class="mr-2 text-default">Offer Ends In:</label>
-                                                    <div class="product-countdown countdown-compact"
-                                                         data-until="2022, 12, 31" data-compact="true">
-                                                        629 days, 11: 59: 52</div>
-                                                </div>
-
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width: 80%;"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                    <a href="#product-tab-reviews" class="rating-reviews">(3
-                                                        Reviews)</a>
-                                                </div>
-
-                                                <div
-                                                    class="product-form product-variation-form product-size-swatch mb-3">
-                                                    <label class="mb-1">Size:</label>
-                                                    <div
-                                                        class="flex-wrap d-flex align-items-center product-variations">
-                                                        <a href="#" class="size">Small</a>
-                                                        <a href="#" class="size">Medium</a>
-                                                        <a href="#" class="size">Large</a>
-                                                        <a href="#" class="size">Extra Large</a>
-                                                    </div>
-                                                    <a href="#" class="product-variation-clean">Clean All</a>
-                                                </div>
-
-                                                <div class="product-variation-price">
-                                                    <span></span>
-                                                </div>
-
-                                                <div class="product-form pt-4">
-                                                    <div class="product-qty-form mb-2 mr-2">
-                                                        <div class="input-group">
-                                                            <input class="quantity form-control" type="number"
-                                                                   min="1" max="10000000">
-                                                            <button class="quantity-plus w-icon-plus"></button>
-                                                            <button class="quantity-minus w-icon-minus"></button>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-primary btn-cart">
-                                                        <i class="w-icon-cart"></i>
-                                                        <span>Add to Cart</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="social-links-wrapper mt-1">
-                                                    <div class="social-links">
-                                                        <div class="social-icons social-no-color border-thin">
-                                                            <a href="#"
-                                                               class="social-icon social-facebook w-icon-facebook"></a>
-                                                            <a href="#"
-                                                               class="social-icon social-twitter w-icon-twitter"></a>
-                                                            <a href="#"
-                                                               class="social-icon social-pinterest fab fa-pinterest-p"></a>
-                                                            <a href="#"
-                                                               class="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                                            <a href="#"
-                                                               class="social-icon social-youtube fab fa-linkedin-in"></a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="divider d-xs-show"></span>
-                                                    <div class="product-link-wrapper d-flex">
-                                                        <a href="#"
-                                                           class="btn-product gold-icon btn-wishlist w-icon-heart"><span></span></a>
-                                                        <a href="#"
-                                                           class="btn-product gold-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <button class="swiper-button-next"></button>
-                            <button class="swiper-button-prev"></button>
+
                         </div>
                     </div>
                 </div>

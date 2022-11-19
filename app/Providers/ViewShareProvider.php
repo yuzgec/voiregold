@@ -34,7 +34,7 @@ class ViewShareProvider extends ServiceProvider
             $Page_Categories = PageCategory::all();
             $Product_Categories = ProductCategory::with('cat')->where('status', 1)->get()->toFlatTree();
             $Product = Product::with(['getCategory','getComment'])->withCount('getComment')
-                ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer')
+                ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short')
                 ->where('status',1)
                 ->orderBy('created_at','desc')
 /*                ->inRandomOrder()*/

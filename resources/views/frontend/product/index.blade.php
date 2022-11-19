@@ -12,7 +12,7 @@
                         <div class="product product-single row">
 
                             <div class="alert alert-success alert-cart-product mb-2">
-                                <a href="cart.html" class="btn btn-success btn-rounded">Sepetim</a>
+                                <a href="{{ route('sepet') }}" class="btn btn-success btn-rounded">Sepetim</a>
                                 <p class="mb-0 ls-normal"> {{ $Detay->title }} adlı ürün sepetinize eklendi</p>
                                 <a href="#" class="btn btn-link btn-close" aria-label="button"><i class="close-icon"></i></a>
                             </div>
