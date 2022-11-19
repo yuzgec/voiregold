@@ -107,7 +107,6 @@ class HomeController extends Controller
         SEOTools::opengraph()->addProperty('type', 'category');
         SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
 
-
         $coksatan = request('coksatan')  ? request('coksatan') : 0;
         $fiyat = request('fiyat')  ? request('fiyat') : 'desc';
         $indirim = request('indirim')  ? request('indirim') : 0;
@@ -131,7 +130,7 @@ class HomeController extends Controller
             ->where('products.status', 1)
             ->where(['category_id' => $Detay->id])
             ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
-            ->paginate(18);
+            ->paginate(100);
         //dd($ProductList);
 
 
