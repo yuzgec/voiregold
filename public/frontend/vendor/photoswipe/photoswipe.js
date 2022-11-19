@@ -3158,6 +3158,7 @@
 						// image object is created every time, due to bugs of image loading & delay when switching images
 						img = framework.createEl('pswp__img', 'img');
 						img.style.opacity = 1;
+						img.style.background = "white";
 						img.src = item.src;
 						_setImageSize(item, img);
 						_appendImage(index, item, baseDiv, img, true);
