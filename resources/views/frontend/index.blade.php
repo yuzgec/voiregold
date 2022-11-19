@@ -14,7 +14,7 @@
                         }">
                 <div class="swiper-wrapper row gutter-no cols-1">
                     <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/slider01.png); background-color: #DDE1E2;">
+                         style="background-image: url(/Slider01.png); background-color: #DDE1E2;">
                         <div class="banner-content y-50">
                             <div class="slide-animate" data-animation-options="{
                                             'name': 'zoomIn', 'duration': '1s'
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/slider02.png); background-color: #DDE1E2;">
+                         style="background-image: url(/Slider02.png); background-color: #DDE1E2;">
                         <div class="banner-content y-50">
                             <div class="slide-animate" data-animation-options="{
                                             'name': 'zoomIn', 'duration': '1s'
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/slider03.png); background-color: #DDE1E2;">
+                         style="background-image: url(/Slider03.png); background-color: #DDE1E2;">
                         <div class="banner-content y-50">
                             <div class="slide-animate" data-animation-options="{
                                             'name': 'zoomIn', 'duration': '1s'
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/slider04.png); background-color: #DDE1E2;">
+                         style="background-image: url(/Slider04.png); background-color: #DDE1E2;">
                         <div class="banner-content y-50">
                             <div class="slide-animate" data-animation-options="{
                                             'name': 'zoomIn', 'duration': '1s'
