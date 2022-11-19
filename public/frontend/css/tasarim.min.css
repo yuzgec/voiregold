@@ -6395,22 +6395,22 @@ body .product-popup{
     flex-direction:column;
     align-items:flex-start;
     position:absolute;
-    left:2rem;
-    top:2rem;
+    left:.5rem;
+    top:.5rem;
     max-width:11rem;
     z-index:1
 }
 .product-label{
     display:inline-block;
     text-align:center;
-    margin-bottom:0.5rem;
     font-size:1.2em;
     letter-spacing:-0.005em;
     color:#fff;
-    line-height:1;
-    padding:0.6rem 1rem;
+    line-height:.5;
+    padding:0.4rem .4rem;
     border-radius:0.3rem;
-    text-transform:uppercase
+    text-transform:uppercase;
+    border:1px solid #f4f4f4
 }
 .product-label.label-new{
     background:#ac832f;
@@ -11710,7 +11710,7 @@ aside .sp-sidebar-banner span{
     font-weight:800
 }
 .intro-banner figure img{
-    height:24.5rem;
+    height:20.5rem;
     min-height:20rem
 }
 .intro-banner .content-bottom{
@@ -12121,7 +12121,6 @@ aside .sp-sidebar-banner span{
     .notification-wrapper{
         display:block;
         text-align:center;
-        padding:2rem
     }
     .notification-wrapper p{
         margin:1rem 0 1.5rem;

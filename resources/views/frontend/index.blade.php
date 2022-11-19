@@ -62,10 +62,8 @@
             <div class="row">
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
-                        <figure>
-                            <img src="/resimyok.jpg"
-                                 alt="Category Banner" width="350" height="200"
-                                 style="background-color: #1B1612;" />
+                        <figure  style="border:2px solid #1B1612;" >
+                            <img src="/resimyok.jpg" />
                         </figure>
                         <div class="banner-content content-bottom">
                             <h5 class="banner-subtitle text-uppercase font-weight-bold mb-0">New In</h5>
@@ -79,10 +77,8 @@
                 </div>
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
-                        <figure>
-                            <img src="/resimyok.jpg"
-                                 alt="Category Banner" width="350" height="200"
-                                 style="background-color: #1B1612;" />
+                        <figure  style="border:2px solid #1B1612;" >
+                            <img src="/resimyok.jpg" />
                         </figure>
                         <div class="banner-content content-top">
                             <div
@@ -135,7 +131,6 @@
                     <x-shop.product-item :item="$item"/>
                 </div>
             @endforeach
-
         </div>
     </div>
 

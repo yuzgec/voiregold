@@ -113,7 +113,7 @@ class HomeController extends Controller
                 ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
                 ->where('product_category_pivots.category_id',  $Detay->id)
                 ->where('products.status', 1)
-                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug')
+                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug', 'products.sku')
                 ->orderBy("price", $fiyat )
                 ->paginate(18);
             return view('frontend.category.index', compact('Detay', 'ProductList'));
@@ -125,7 +125,7 @@ class HomeController extends Controller
             ->where('product_category_pivots.category_id',  $Detay->id)
             ->where('products.status', 1)
             ->where(['category_id' => $Detay->id])
-            ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
+            ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id')
             ->paginate(100);
         //dd($ProductList);
 

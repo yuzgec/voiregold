@@ -263,7 +263,7 @@
                                                     @foreach($Product->where('bestselling', 1) as $item)
                                                     <div class="product product-widget">
                                                         <figure class="product-media">
-                                                            <a href="#">
+                                                            <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
                                                                 <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'small') }}" alt="{{ $item->title }}" width="150" height="150">
                                                                 @foreach($item->getMedia('gallery')->take(1) as $img)
                                                                     {{ $img->img('small')->attributes(['class' => 'product-image-hover', 'alt' => $item->title]) }}

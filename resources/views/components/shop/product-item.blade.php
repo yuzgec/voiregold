@@ -7,7 +7,7 @@
             @endforeach
         </a>
         <div class="product-label-group">
-            <label class="product-label label-discount">%{{ abs(round( $item->price * 100 /$item->old_price - 100)) }} indirim</label>
+            <label class="product-label gold">%{{ abs(round( $item->price * 100 /$item->old_price - 100)) }} indirim</label>
         </div>
 
         <div class="product-action">
@@ -20,7 +20,8 @@
         <div class="product-cat">
             @foreach($item->getCategory->take(1) as $category)
                 @php $name = \App\Models\ProductCategory::select('id','title', 'slug')->find($category->category_id) @endphp
-                <a href="{{ route('kategori', [$name->slug, 'id' => $name->id]) }}">{{ $name->title }}</a>
+                <a href="{{ route('kategori', [$name->slug, 'id' => $name->id]) }}">{{ $name->title}}</a>
+                <span class="">/ Ürün Kodu : {{$item->sku}}</span>
             @endforeach
         </div>
         <h4 class="product-name">
@@ -31,7 +32,6 @@
         <div class="ratings-container">
             <div class="ratings-full">
                 <span class="ratings" style="width: 100%;"></span>
-                <span class="tooltiptext tooltip-top"></span>
             </div>
             <a href="{{ route('home') }}" class="rating-reviews">(3 yorum)</a>
         </div>

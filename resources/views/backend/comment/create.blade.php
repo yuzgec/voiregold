@@ -28,7 +28,7 @@
     <script type="text/javascript">
 
         CKEDITOR.replace( 'aciklama', {
-            filebrowserUploadUrl: "{{ route('video.postUpload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadUrl: "{{ route('page.postUpload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
             height : 200,
             toolbar: [
