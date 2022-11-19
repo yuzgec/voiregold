@@ -63,8 +63,8 @@
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
                         <figure>
-                            <img src="/frontend//images/demos/demo6/categories/1-1.jpg"
-                                 alt="Category Banner" width="347" height="245"
+                            <img src="/resimyok.jpg"
+                                 alt="Category Banner" width="350" height="200"
                                  style="background-color: #1B1612;" />
                         </figure>
                         <div class="banner-content content-bottom">
@@ -80,9 +80,9 @@
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
                         <figure>
-                            <img src="/frontend//images/demos/demo6/categories/1-2.jpg"
-                                 alt="Category Banner" width="347" height="245"
-                                 style="background-color: #E9E9EB;" />
+                            <img src="/resimyok.jpg"
+                                 alt="Category Banner" width="350" height="200"
+                                 style="background-color: #1B1612;" />
                         </figure>
                         <div class="banner-content content-top">
                             <div
@@ -103,7 +103,7 @@
     </div>
 
     <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip Takı Modelleri ile dikkatler üzerinizde olacak.</p>
+        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
 
     @foreach($Product_Categories as $item)

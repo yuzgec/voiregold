@@ -1,13 +1,11 @@
 @extends('frontend.layout.app')
 @section('content')
 
-    <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip Takı Modelleri ile dikkatler üzerinizde olacak.</p>
+    <div class="notification-wrapper appear-animate gold mt-2">
+        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
 
-
-
-    <div class="page-content" style="margin-top:30px">
+    <div class="page-content" style="margin-top:20px">
         <div class="container">
             <div class="row">
 
@@ -106,7 +104,7 @@
                                     <a href="#product-tab-reviews" class="rating-reviews">(3 Reviews)</a>
                                 </div>
 
-                                <div class="product-short-desc lh-2">
+                                <div class="product-short-desc lh-2 short">
                                     {!! $Detay->short !!}
                                 </div>
 
@@ -117,7 +115,7 @@
                                         <div class="product-qty-form">
                                             <div class="input-group">
                                                 <input class="quantity form-control" type="number" min="1"
-                                                       max="10000000">
+                                                       max="10">
                                                 <button class="quantity-plus w-icon-plus"></button>
                                                 <button class="quantity-minus w-icon-minus"></button>
                                             </div>
@@ -131,7 +129,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4 col-12" id="siparis">
+                        <div class="col-md-4 col-12" id="siparis" style="border:1px solid #f4f4f4;border-radius: 5px;padding: 10px">
                             <div class="mb-2">
 
                                 <form action="{{ route('kaydet') }}" method="POST" class="form checkout-form">
@@ -142,9 +140,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="pb-2 mb-2">
-                                                <div class="border-bottom border-color-1 mb-5">
-                                                    <h3 class="section-title mb-0 pb-2 font-size-25">Online Kayıt <b>Formu</b></h3>
-                                                </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -186,7 +181,7 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-3">
+                                                        <div class="js-form-message mb-2">
                                                             <label class="form-label">
                                                                 Telefon Numaranız <span class="text-danger">*</span>
                                                             </label>
@@ -197,7 +192,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group mt-3">
+                                                    <div class="form-group mt-2">
                                                         <label class="form-label">
                                                             Açık Adresiniz<span class="text-danger">*</span>
                                                         </label>
@@ -208,7 +203,7 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-6">
+                                                        <div class="js-form-message mb-2">
                                                             <label class="form-label">
                                                                 İl
                                                                 <span class="text-danger">*</span>
@@ -225,7 +220,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="js-form-message mb-3">
+                                                        <div class="js-form-message mb-1">
                                                             <label class="form-label">
                                                                 İlçe <span class="text-danger">*</span>
                                                             </label>
@@ -234,6 +229,15 @@
                                                                 <div class="invalid-feedback">{{$errors->first('city')}}</div>
                                                             @endif
                                                         </div>
+                                                    </div>
+
+
+                                                    <div class="form-group mt-1">
+                                                        <label class="form-label">
+                                                            Sipariş Notu
+                                                        </label>
+                                                        <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
+
                                                     </div>
 
                                                     <div class="form-group place-order pt-6">
@@ -249,12 +253,11 @@
                                 </form>
                             </div>
                         </div>
-
                     </div>
 
 
                 @if(@auth()->user()->is_admin == 1)
-                    <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
+                    <a href="{{ route('product.edit', $Detay->id) }}" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
                 @endif
 
                 <div class="tab tab-nav-boxed tab-nav-underline product-tabs mt-3">
@@ -266,9 +269,12 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="product-tab-description">
                             <div class="row mb-4">
-                                <div class="col-md-12 mb-5">
+                                <div class="col-md-8 col-12 mb-3 font-size-md">
                                     {!! $Detay->desc !!}
-                                        Açıklama
+                                </div>
+
+                                <div class="col-md-4 col-12 mb-5">
+
                                 </div>
                             </div>
                         </div>
@@ -600,7 +606,7 @@
     <script>
     </script><script>
         $(document).ready(function() {
-            $("ul").addClass("list-type-check list-style-none");
+            $(".short ul").addClass("list-type-check list-style-none");
         })
     </script>
     </script>
