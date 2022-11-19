@@ -109,7 +109,7 @@
                                 </div>
 
                                 <div class="product-short-desc lh-2">
-                                    {!! $Detay->short !!}
+
                                 </div>
 
                                 <hr class="product-divider">
@@ -592,3 +592,13 @@
         </div>
     </div>
     @endsection
+
+@section('customJS')
+    <script>
+    </script><script>
+        $(document).ready(function() {
+            $("ul").addClass("list-type-check list-style-none");
+        })
+    </script>
+    </script>
+@endsection
