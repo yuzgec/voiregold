@@ -93,6 +93,9 @@ class HomeController extends Controller
                 ]
             ]);
 
+        if($Detay->offer == 1){
+            return view('frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'OtherCategory', 'Province'));
+        }
         return view('frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'OtherCategory', 'Province'));
     }
     public function kategori($url){
