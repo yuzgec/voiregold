@@ -112,7 +112,7 @@
         <div
             class="product-countdown-container font-size-sm text-white bg-secondary align-items-center mr-auto">
         </div>
-        <a href="#" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
+        <a href="{{  route('kategori', [$item->slug, 'id' =>$item->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
     </div>
     <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
             'spaceBetween': 20,

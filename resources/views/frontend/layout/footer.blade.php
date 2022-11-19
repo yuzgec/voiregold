@@ -11,19 +11,24 @@
                         </div>
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white text-uppercase font-weight-bold">Subscribe To
-                                Our Newsletter</h4>
-                            <p class="text-white">Get all the latest information on Events, Sales and Offers.
+                                VoireGold Abone Bülteni</h4>
+                            <p class="text-white">Kampanya ve yeni gelen ürünlerimizden ilk siz haberdar olun
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
-                    <form action="#" method="get"
-                          class="input-wrapper input-wrapper-inline input-wrapper-rounded">
-                        <input type="email" class="form-control mr-2 bg-white" name="email" id="email"
-                               placeholder="Your E-mail Address" />
-                        <button class="btn btn-dark btn-rounded" type="submit">Subscribe<i
-                                class="w-icon-long-arrow-right"></i></button>
+                    <form action="{{ route('mailsubcribes') }}" method="POST" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
+                        @csrf
+                        <input type="email" value="{{old('email_address')}}" class="form-control mr-2 bg-white" name="email" id="email" placeholder="Email Adresinizi Giriniz" />
+                        <button class="btn btn-dark btn-rounded" type="submit">Abonel Ol<i class="w-icon-long-arrow-right"></i></button>
+
+                        @if($errors->has('email_address'))
+                            <div class="invalid-feedback"
+                                 style="display: block;color:white">
+                                {{$errors->first('email_address')}}
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>
