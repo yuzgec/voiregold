@@ -57,7 +57,7 @@ class HomeController extends Controller
             ->where('slug',request()->segment(2))
             ->first();
 
-        SEOTools::setTitle($Detay->title.' | Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir.');
+        SEOTools::setTitle($Detay->title.' | Türkiye’nin online takı ve aksesuar satış sitesi');
         SEOTools::setDescription($Detay->seo_desc);
         SEOTools::opengraph()->setUrl(url()->current());
         SEOTools::setCanonical(route('urun', $Detay->slug));
@@ -100,7 +100,7 @@ class HomeController extends Controller
     }
     public function kategori($url){
         $Detay = ProductCategory::where('id', \request('id'))->select('id','title','slug')->first();
-        SEOTools::setTitle($Detay->title.' | Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir.');
+        SEOTools::setTitle($Detay->title.' | Türkiye’nin online takı ve aksesuar satış sitesi');
         SEOTools::setDescription($Detay->seo_desc);
         SEOTools::opengraph()->setUrl(url()->current());
         SEOTools::setCanonical(route('urun', $Detay->slug));
@@ -140,7 +140,7 @@ class HomeController extends Controller
 
     public function sepet(){
         SEOTools::setTitle("Sepetim | ". config('app.name'));
-        SEOTools::setDescription('Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir. |  Sepetim Sayfası');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi |  Sepetim Sayfası');
 
         if (Cart::instance('shopping')->content()->count() === 0){
             return redirect()->route('home');
@@ -160,7 +160,7 @@ class HomeController extends Controller
     {
 
         SEOTools::setTitle("Ödeme | ". config('app.name'));
-        SEOTools::setDescription('Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir.');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
 
         if (request()->isMethod('get')) {
             return redirect()->route('home');
@@ -316,7 +316,7 @@ class HomeController extends Controller
     public function search(SearchRequest $request){
 
         SEOTools::setTitle($request->q." ile ilgili arama sonuçları | Kuatek Berber ve Kuaför Ürünleri");
-        SEOTools::setDescription('Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir.');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
 
         $search = $request->q;
 
@@ -392,7 +392,7 @@ class HomeController extends Controller
     }
     public function favori(){
         SEOTools::setTitle('Favori Listem | '. config('app.name'));
-        SEOTools::setDescription('Türkiye’nin ilk ve Tek Berber ve Kuaförlere özel pazaryeridir.');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
 
         $Favorite = Favorite::select('product_id')->where('user_id', auth()->user()->id)->get()->toArray();
         $FavoriteBooks = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')

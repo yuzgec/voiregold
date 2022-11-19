@@ -79,7 +79,7 @@
 
                     <div class="row ">
                         <div class="col-12 d-flex align-items-center justify-content-center">
-                            {{ $ProductList->appends(['siralama' => 'urunler' ]) }}
+                            {{ $ProductList->appends(['id'=> $Detay->id,'siralama' => 'urunler' ]) }}
                         </div>
                     </div>
 
