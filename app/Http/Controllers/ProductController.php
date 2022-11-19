@@ -39,7 +39,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        //dd($request->bg);
+
         DB::transaction(function () use ($request){
             $New = new Product;
             $New->title = $request->title;
@@ -254,8 +254,8 @@ class ProductController extends Controller
     public function deleteGaleriDelete($id){
 
         $Delete = Product::find($id);
-        $Delete->clearMediaCollection('page');
-        $Delete->clearMediaCollection('gallery');
+        $Delete->media()->where('id', \request('image_id'))->delete();
+
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('product.edit', $id);
     }
