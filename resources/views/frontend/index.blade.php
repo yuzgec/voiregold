@@ -103,7 +103,7 @@
     </div>
 
     <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center" >Download our new app today! Enjoy our mobile application with Android Play.</p>
+        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip Takı Modelleri ile dikkatler üzerinizde olacak.</p>
     </div>
 
     @foreach($Product_Categories as $item)

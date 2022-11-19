@@ -2,12 +2,10 @@
 @section('content')
 
     <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center" >Download our new app today! Enjoy our mobile application with Android Play.</p>
+        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip Takı Modelleri ile dikkatler üzerinizde olacak.</p>
     </div>
 
-    @if(@auth()->user()->is_admin == 1)
-        <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
-    @endif
+
 
     <div class="page-content" style="margin-top:30px">
         <div class="container">
@@ -253,6 +251,11 @@
                         </div>
 
                     </div>
+
+
+                @if(@auth()->user()->is_admin == 1)
+                    <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
+                @endif
 
                 <div class="tab tab-nav-boxed tab-nav-underline product-tabs mt-3">
                     <ul class="nav nav-tabs" role="tablist">
