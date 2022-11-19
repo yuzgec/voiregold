@@ -22,7 +22,7 @@
 
                                         <div class="swiper-slide">
                                             <figure class="product-image">
-                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'thumb')}}"
+                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
                                                      data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
                                                      alt="{{ $Detay->title }}">
                                             </figure>
@@ -124,7 +124,7 @@
                                                 <button class="quantity-minus w-icon-minus"></button>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-cart">
+                                        <button class="btn gold text-white btn-cart">
                                             <i class="w-icon-cart"></i>
                                             <span>Sepete Ekle</span>
                                         </button>
@@ -558,11 +558,6 @@
                         </div>
                     </div>
                 </section>
-
-
-
-
-
 
             </div>
         </div>
