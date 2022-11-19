@@ -5,6 +5,10 @@
         <p class="text-center" >Download our new app today! Enjoy our mobile application with Android Play.</p>
     </div>
 
+    @if(@auth()->user()->is_admin == 1)
+        <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-primary btn-block text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
+    @endif
+
     <div class="page-content" style="margin-top:30px">
         <div class="container">
             <div class="row">
@@ -105,11 +109,7 @@
                                 </div>
 
                                 <div class="product-short-desc lh-2">
-                                    <ul class="list-type-check list-style-none">
-                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
-                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
-                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
-                                    </ul>
+                                    {!! $Detay->short !!}
                                 </div>
 
                                 <hr class="product-divider">

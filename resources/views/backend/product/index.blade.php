@@ -27,9 +27,9 @@
                     <thead>
                     <tr>
                         <th>Resim</th>
+                        <th>DCS</th>
                         <th>Başlık</th>
                         <th>Durum</th>
-                        <th>DCS</th>
                         <th class="d-none d-lg-table-cell">Fiyat</th>
                         <th class="d-none d-lg-table-cell">Oluşturma Tarihi</th>
                         <th class="w-1"></th>
@@ -46,6 +46,9 @@
                                     @endforeach
                                 </div>
                             </td>
+                            <td class="d-none d-lg-table-cell">
+                                {{ $item->sku }}
+                            </td>
                             <td>
                                 <div class="font-weight-medium"><a href="{{ route('product.edit', $item->id) }}" title="{{ $item->title }} -  Düzenle">{{ $item->title }}</a></div>
                             </td>
@@ -61,9 +64,7 @@
                                 @endif
                             </td>
 
-                            <td class="d-none d-lg-table-cell">
-                                {{ $item->sku }}
-                            </td>
+
                             <td class="d-none d-lg-table-cell">
                                 {{ $item->created_at->diffForHumans() }}
                             </td>
