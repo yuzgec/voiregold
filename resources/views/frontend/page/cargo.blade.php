@@ -2,23 +2,17 @@
 @section('title', 'Detaylı Arama | '.config('app.name'))
 @section('content')
 
-
-    <div class="bg-gray-13 bg-md-transparent">
+    <form method="GET">
         <div class="container">
-            <div class="my-md-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Anasayfa</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page"><b class="mr-2">Kargo Sorgulama</b></li>
-                    </ol>
-                </nav>
+            <div class="row mt-5 mb-5">
+                <small><b>Telefon numaranızı başında 0 olmadan giriniz...</b></small>
+                <div class="col-md-6">
+                    <input type="text" name="har_kod" class="form-control form-control-lg " placeholder="10 Haneli Telefon Numarası Giriniz..." required>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary btn-block" type="submit" name="action">Kargo Sorgula</button>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="container">
-        <iframe src="https://kargotakip.sendeo.com.tr/kargo-takip-popup" scrolling="no" width="110%" height="1500px" style="margin-top:-100px;border:0px"></iframe>
-    </div>
-
+    </form>
 @endsection

@@ -11,7 +11,8 @@
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
                     <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
-                <form method="get" action="#"
+
+                <form action="{{ route('search') }}" method="GET"
                       class="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
                     <div class="select-box">
                         <select id="category" name="category">
@@ -21,7 +22,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <input type="text" class="form-control" name="search" id="search" placeholder="Ürün Adı veya kodu giriniz..."
+                    <input type="text" class="form-control" name="q" id="search" placeholder="Ürün Adı veya kodu giriniz..."
                            required />
                     <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
                     </button>
@@ -131,14 +132,14 @@
                             <li class="active"><a href="{{ route('home') }}">Anasayfa</a></li>
                             <li class=""><a href="{{ route('home') }}">Hakkımızda</a></li>
                             <li class=""><a href="{{ route('home') }}">Sizden Gelenler</a></li>
-                            <li class=""><a href="{{ route('home') }}">Kampanyalarımız</a></li>
-                            <li class=""><a href="{{ route('home') }}">Bize Ulaşın</a></li>
+                            <li class=""><a href="{{ route('kargosorgulama') }}">Kampanyalarımız</a></li>
+                            <li class=""><a href="{{ route('iletisim') }}">Bize Ulaşın</a></li>
                         </ul>
                     </nav>
                 </div>
 
                 <div class="header-right">
-                    <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Kargo Sorgulama</a>
+                    <a href="{{ route('kargosorgulama') }}" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Kargo Sorgulama</a>
                     <a href="#"><i class="w-icon-sale"></i>Günün Fırsatı</a>
                 </div>
             </div>

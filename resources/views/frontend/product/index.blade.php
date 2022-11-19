@@ -79,7 +79,9 @@
                                     <div class="product-meta">
                                         <div class="product-categories">
                                             Kategori:
-                                            <span class="product-category"><a href="#">Fashion</a></span>
+                                            @foreach($Category as $cat)
+                                                <span class="product-category"><a href="{{ route('kategori',[$cat->slug, 'id' => $cat->id]) }}">{{ $cat->title }}</a></span>
+                                            @endforeach
                                         </div>
                                         <div class="product-sku">
                                             Ürün Kodu:

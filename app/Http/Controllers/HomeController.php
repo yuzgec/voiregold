@@ -77,7 +77,7 @@ class HomeController extends Controller
                 ->get();
 
         $Pivot = ProductCategoryPivot::with('productCategory')->get();
-        $Province = Product::all();
+        $Province = DB::table('sehir')->get();
         Cart::instance('lastLook')->add(
             [
                 'id' => $Detay->id,
@@ -319,6 +319,7 @@ class HomeController extends Controller
 
         $Result  = Product::where('title','like','%'.$search.'%')
             ->orWhere('slug','like','%'.$search.'%')
+            ->orWhere('sku','like', $search.'%')
             ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
             ->paginate(12);
 

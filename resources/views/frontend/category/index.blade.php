@@ -11,7 +11,6 @@
         </div>
     </nav>
 
-
     <div class="page-content mb-10 mt-5">
         <div class="container">
             <div class="shop-content row gutter-lg">
