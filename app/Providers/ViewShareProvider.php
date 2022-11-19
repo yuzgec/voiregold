@@ -36,7 +36,7 @@ class ViewShareProvider extends ServiceProvider
             $Product = Product::with('getCategory')
                 ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
                 ->where('status',1)
-                ->orderBy('rank')
+                ->orderBy('created_at','desc')
 /*                ->inRandomOrder()*/
                 ->paginate(30)
                 ->fragment('urunler');
