@@ -22,7 +22,7 @@
 
                                         <div class="swiper-slide">
                                             <figure class="product-image">
-                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
+                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'thumb')}}"
                                                      data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
                                                      alt="{{ $Detay->title }}">
                                             </figure>
