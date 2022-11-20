@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends(config('app.tema').'/frontend.layout.app')
+
 
 @section('content')
 <div class="container">
