@@ -151,151 +151,133 @@ class HomeController extends Controller
         }
         return view('frontend.shop.siparis');
     }
-    public function odeme(OrderRequest $gelen)
-    {
 
-        SEOTools::setTitle("Ödeme | ". config('app.name'));
-        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+    public function kaydet(OrderRequest $request){
 
-        if (request()->isMethod('get')) {
-            return redirect()->route('home');
+        $p = Product::find($request->id);
+        if ($request->kampanya == 1){
+            Cart::destroy();
+            Cart::add(
+                [
+                    'id' => $p->id,
+                    'name' => $p->title,
+                    'price' => $p->price,
+                    'weight' => 0,
+                    'qty' => 1,
+                    'options' => [
+                        'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                        'cargo' => 0,
+                        'campagin' => 0,
+                    ]
+                ]);
         }
+        $Cart_Id = time();
+        DB::transaction(function () use ($request, $Cart_Id) {
 
-        session($gelen->all());
-        $sepetId    = time();
-
-        $options = new Options;
-        $options->setApiKey(env('SET_API_KEY_IZYICO'));
-        $options->setSecretKey(env('SET_SECRET_KEY_IZYICO'));
-        $options->setBaseUrl(env('SET_IYZICO_URL'));
-
-        $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
-        $request->setConversationId($sepetId);
-        $request->setPrice(Cart::instance('shopping')->total());
-        $request->setPaidPrice(1);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
-        $request->setBasketId($sepetId);
-        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setCallbackUrl(route('cekim',['sepetId'=> $sepetId]));
-        $request->setEnabledInstallments(array(2, 3, 6, 9));
-
-        $buyer = new Buyer;
-        $buyer->setId(rand(1,9));
-        $buyer->setName($gelen->input('name'));
-        $buyer->setSurname($gelen->input('surname'));
-        $buyer->setGsmNumber($gelen->input('phone'));
-        $buyer->setEmail($gelen->input('email'));
-        $buyer->setIdentityNumber("74300864791");
-        $buyer->setLastLoginDate("2015-10-05 12:43:35");
-        $buyer->setRegistrationDate("2013-04-21 15:12:09");
-        $buyer->setRegistrationAddress($gelen->input('address'));
-        $buyer->setIp($_SERVER["REMOTE_ADDR"]);
-        $buyer->setCity('İstanbul');
-        $buyer->setCountry("Türkiye");
-        $buyer->setZipCode("34000");
-
-        $request->setBuyer($buyer);
-
-        $shippingAddress = new \Iyzipay\Model\Address();
-        $shippingAddress->setContactName($gelen->input('name').' '.$gelen->input('surname'));
-        $shippingAddress->setCity('İstanbul');
-        $shippingAddress->setCountry("Türkiye");
-        $shippingAddress->setAddress($gelen->input('address'));
-        $shippingAddress->setZipCode("34000");
-        $request->setShippingAddress($shippingAddress);
-
-        $billingAddress = new \Iyzipay\Model\Address();
-        $billingAddress->setContactName($gelen->input('name').' '.$gelen->input('name'));
-        $billingAddress->setCity('İstanbul');
-        $billingAddress->setCountry("Türkiye");
-        $billingAddress->setAddress($gelen->input('address'));
-        $billingAddress->setZipCode('34000');
-        $request->setBillingAddress($billingAddress);
-
-        $cartcount = 0;
-        $basketItems = [];
-
-        foreach(Cart::instance('shopping')->content() as $cart){
-            $BasketItem = new BasketItem;
-            $BasketItem->setId($cart->id);
-            $BasketItem->setName($cart->name);
-            $BasketItem->setCategory1('Kategori');
-            $BasketItem->setCategory2("Kategori");
-            $BasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
-            $BasketItem->setPrice( money($cart->price * $cart->qty));
-            $basketItems[$cartcount] = $BasketItem;
-            $cartcount++;
-        }
-
-        $request->setBasketItems($basketItems);
-
-        $form = CheckoutFormInitialize::create($request, $options);
-
-        return view('frontend.shop.odeme', compact('form', 'gelen'));
-    }
-    public function cekim(Request $gelen){
-
-        if (request()->isMethod('get')) {
-            return redirect()->to('/');
-        }
-
-        $token = $gelen->input('token');
-
-        $options = new Options;
-        $options->setApiKey(env('SET_API_KEY_IZYICO'));
-        $options->setSecretKey(env('SET_SECRET_KEY_IZYICO'));
-        $options->setBaseUrl(env('SET_IYZICO_URL'));
-
-        $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
-        $request->setConversationId(request('sepetId'));
-        $request->setToken($token);
-
-        $payment = \Iyzipay\Model\CheckoutForm::retrieve($request, $options);
-
-        if($payment->getPaymentStatus() == "SUCCESS"){
-            if (request()->isMethod('post')) {
-
-                DB::transaction(function () use($payment){
-                    $ShopCart = new ShopCart;
-                    $ShopCart->cart_id          = $payment->getBasketId();
-                    $ShopCart->user_id          = (auth::check()) ? auth()->user()->id : $payment->getBasketId();
-                    $ShopCart->basket_total	    = cargoToplam(Cart::instance('shopping')->total());
-                    $ShopCart->order_cargo	    = cargo(Cart::instance('shopping')->total());
-                    $ShopCart->name             = session()->get('name');
-                    $ShopCart->surname          = session()->get('surname');
-                    $ShopCart->email            = session()->get('email');
-                    $ShopCart->phone            = session()->get('phone');
-                    $ShopCart->address          = session()->get('address');
-                    $ShopCart->province         = session()->get('province');
-                    $ShopCart->city             = session()->get('city');
-                    $ShopCart->note             = session()->get('note');
-                    $ShopCart->save();
-
-                    foreach (Cart::instance('shopping')->content() as $c) {
-                        $Order                  = new Order;
-                        $Order->cart_id         = $payment->getBasketId();
-                        $Order->product_id      = $c->id;
-                        $Order->name            = $c->name;
-                        $Order->qty             = $c->qty;
-                        $Order->price           = $c->price;
-                        $Order->save();
-                    }
-
-                    Cart::instance('shopping')->destroy();
-                    session()->flush();
-
-
-                    $Summary  = Order::where('cart_id',request('sepetId') )->get();
-                    $Customer = ShopCart::where('cart_id',request('sepetId'))->firstOrFail();
-
-                    return view('frontend.shop.sonuc', compact('Summary', 'Customer'));
-
-                });
+            if($request->medium){
+                $medium = 'voiregold '.$request->medium;
+            }else{
+                $medium = 'voiregold voiregold.com';
             }
-        }
+
+            $ShopCart                   = new ShopCart;
+            $ShopCart->cart_id          = $Cart_Id ;
+            $ShopCart->user_id          = $Cart_Id ;
+            $ShopCart->basket_total     = cargoToplam(Cart::total());
+
+            $ShopCart->name             = $request->name;
+            $ShopCart->surname          = $request->surname;
+            $ShopCart->email            = $request->email;
+            $ShopCart->phone            = $request->phone;
+            $ShopCart->address          = $request->address;
+            $ShopCart->city             = $request->province;
+            $ShopCart->province         = $request->city;
+            $ShopCart->note             = $request->note;
+            $ShopCart->order_medium     = $medium;
+            $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
+
+            $details = [];
+            foreach (Cart::content() as $c) {
+                $details[] = 'Ürün : '.$c->name.' x '. $c->qty;
+            }
+
+            $ShopCart->order_details    = implode(',', $details);
+
+            $ShopCart->save();
+
+            foreach (Cart::content() as $c) {
+                $Order                  = new Order;
+                $Order->cart_id         = $Cart_Id;
+                $Order->product_id      = $c->id;
+                $Order->name            = $c->name;
+                $Order->qty             = $c->qty;
+                $Order->price           = $c->price;
+                $Order->save();
+            }
+
+            $Cart = Cart::content();
+
+            Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
+                $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
+            });
+
+            $Sms = 'Siparişiniz başarıyla oluşturulmuştur. Sipariş onayı için '.config('settings.telefon2').' nolu telefondan aranacaksınız. Hayırlı günler dileriz.';
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://panel.nac.com.tr/api/json/syncreply/SendInstantSms',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 5,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>'{
+                    "Credential": {
+                        "Username":'.env("SMS_USER_NAME").',
+                        "Password":'.env("SMS_PASSWORD").',
+                        "ResellerID":'.env("SMS_RESELLER_ID").'
+                    },
+                    "Sms": {
+                        "ToMsisdns":
+                        [
+                            {
+                                "Msisdn": '.$ShopCart->phone.',
+                                "Name": "",
+                                "Surname": "",
+                                "CustomField1": "[Mesaj1]:'.$Sms.'"
+                            }
+                        ],
+                        "ToGroups":
+                            [
+                                0
+                            ],
+                        "IsCreateFromTeplate": true,
+                        "SmsTitle": '.env("SMS_SENDER_NO").',
+                        "SmsContent": "[Mesaj1]",
+                        "SmsSendingType": "ByNumber",
+                        "SmsCoding": "SmsCoding",
+                        "SenderName": '.env("SMS_SENDER_NO").',
+                        "DataCoding": "Default"
+                    }
+				}',
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json'
+                ),
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $Stock = DB::table('campagin_stock')->decrement('stock');
+            $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 30)->update(['stock' => 299]);
+
+            Cart::destroy();
+        });
+
+        return redirect()->route('sonuc',['no'=>$Cart_Id]);
     }
+
 
     public function cartdelete($rowId){
         Cart::instance('shopping')->remove($rowId);
@@ -312,30 +294,24 @@ class HomeController extends Controller
 
         SEOTools::setTitle($request->q." ile ilgili arama sonuçları | Kuatek Berber ve Kuaför Ürünleri");
         SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
-
         $search = $request->q;
-
         $Result  = Product::where('title','like','%'.$search.'%')
             ->orWhere('slug','like','%'.$search.'%')
             ->orWhere('sku','like', $search.'%')
             ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
             ->paginate(12);
-
         Search::create(['key' => $search]);
-
         return view('frontend.shop.search', compact('Result'));
 
     }
 
-
-    public function addtocart(Request $request){
-
-        if(auth()->check()){
-            Favorite::where('user_id', auth()->user()->id)->where('product_id',$request->id)->delete();
-        }
+    public function addtocart(Request $request)
+    {
+        //dd($request->all());
 
         $p = Product::find($request->id);
         Basket::create(['product_id' => $p->id, 'basket_name' => 'Sepet']);
+
         Cart::instance('shopping')->add(
             [
                 'id' => $p->id,
@@ -352,7 +328,8 @@ class HomeController extends Controller
             ]);
 
         toast(SWEETALERT_MESSAGE_CREATE,'success');
-        return redirect()->route('sepet');
+        return redirect()->back()->with('success', $request->all());
+
     }
     public function hizlisatinal(Request $request){
 

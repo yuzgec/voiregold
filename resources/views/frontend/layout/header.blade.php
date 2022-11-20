@@ -40,7 +40,7 @@
 
                 <a class="wishlist label-down link d-xs-show" href="wishlist.html">
                     <i class="w-icon-user"></i>
-                    <span class="wishlist-label d-lg-show">Giriş Yap</span>
+                    <span class="wishlist-label d-lg-show">Giriş Yap </span>
                 </a>
 
                 <a class="wishlist label-down link d-xs-show" href="wishlist.html">
@@ -52,7 +52,7 @@
                     <div class="cart-overlay"></div>
                     <a href="#" class="cart-toggle label-down link">
                         <i class="w-icon-cart">
-                            <span class="cart-count">2</span>
+                            <span class="cart-count">{{ Cart::instance('shopping')->content()->count() }}</span>
                         </i>
                         <span class="cart-label">Sepet</span>
                     </a>
@@ -61,35 +61,33 @@
                             <span>Sepetim</span>
                             <a href="#" class="btn-close">Kapat<i class="w-icon-long-arrow-right"></i></a>
                         </div>
-
+                        @foreach(Cart::content() as $c)
                         <div class="products">
                             <div class="product product-cart">
                                 <div class="product-detail">
-                                    <a href="product-default.html" class="product-name">Beige knitted
-                                        elas<br>tic
-                                        runner shoes</a>
+                                    <a href="{{ route('urun', $c->options->url) }}" class="product-name">{{$c->name}}</a>
+
                                     <div class="price-box">
-                                        <span class="product-quantity">1</span>
-                                        <span class="product-price">$25.68</span>
+                                        <span class="product-quantity">{{$c->qty}}</span>
+                                        <span class="product-price">{{$c->price}}</span>
                                     </div>
                                 </div>
                                 <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
-                                             width="94" />
+                                    <a href="{{ route('urun', $c->options->url) }}" class="product-image">
+                                        <img src="{{ $c->options->image }}" alt="{{$c->name}}" height="80px">
                                     </a>
                                 </figure>
-                                <button class="btn btn-link btn-close" aria-label="button">
+                                <form id="form" method="post" action="{{route('sepetcikar',$c->rowId )}}">
+                                @csrf
+                                <a href="javascript:{}" onclick="document.getElementById('form').submit()" class="btn btn-link btn-close" aria-label="button">
                                     <i class="fas fa-times"></i>
-                                </button>
+                                </a>
                             </div>
-
-
                         </div>
-
+                        @endforeach
                         <div class="cart-total">
                             <label>Ara Toplam:</label>
-                            <span class="price">$58.67</span>
+                            <span class="price">Toplam</span>
                         </div>
 
                         <div class="cart-action">

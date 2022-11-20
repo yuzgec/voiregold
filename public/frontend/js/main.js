@@ -2219,7 +2219,7 @@ window.Wolmart = {};
                     imageSrc: $product.find('.product-media img, .product-image:first-child img').attr('src'),
                     imageLink: $product.find('.product-name > a').attr('href'),
                     message: '<p>has been added to cart:</p>',
-                    actionTemplate: '<a href="cart.html" class="btn btn-rounded btn-sm">Sepetim</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Ödeme</a>'
+                    actionTemplate: '<a href="cart.html" class="btn btn-rounded btn-sm">Sepetim</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
                 });
             }, 500);
         });

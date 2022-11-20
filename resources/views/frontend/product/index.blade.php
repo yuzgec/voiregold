@@ -11,11 +11,11 @@
                     <div class="main-content">
                         <div class="product product-single row">
 
-                            <div class="alert alert-success alert-cart-product mb-2">
+                        {{--    <div class="alert alert-success alert-cart-product mb-2">
                                 <a href="{{ route('sepet') }}" class="btn btn-success btn-rounded">Sepetim</a>
                                 <p class="mb-0 ls-normal"> {{ $Detay->title }} adlı ürün sepetinize eklendi</p>
                                 <a href="#" class="btn btn-link btn-close" aria-label="button"><i class="close-icon"></i></a>
-                            </div>
+                            </div>--}}
 
                             <div class="col-md-6 mb-6">
                                 <div class="product-gallery product-gallery-sticky product-gallery-video">
@@ -99,13 +99,11 @@
 
                                     <hr class="product-divider">
 
-
                                     <div class="product-price">
                                         <ins class="new-price">@convert($Detay->price)₺</ins>
                                         <del>@convert($Detay->old_price)₺</del>
                                         <span class="tip tip-hot" style="font-size: 16px">%{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim</span>
                                     </div>
-
 
                                     <div class="product-short-desc lh-2 short">
                                         {!! $Detay->short !!}
@@ -113,22 +111,16 @@
 
                                     <hr class="product-divider">
 
-                                    <div class="fix-bottom product-sticky-content sticky-content">
-                                        <div class="product-form container">
-                                            <div class="product-qty-form">
-                                                <div class="input-group">
-                                                    <input class="quantity form-control" type="number" min="1"
-                                                           max="10">
-                                                    <button class="quantity-plus w-icon-plus"></button>
-                                                    <button class="quantity-minus w-icon-minus"></button>
-                                                </div>
-                                            </div>
-                                            <button class="btn gold text-white btn-cart">
-                                                <i class="w-icon-cart"></i>
-                                                <span>Sepete Ekle</span>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <form action="{{ route('sepeteekle') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-shadow btn-block">
+                                            <span><i class="icon-shopping-cart"></i> Sepete Ekle</span>
+                                        </button>
+                                    </form>
+
+
+
                                     @if($Detay->get_comment_count > 0)
                                         <hr class="product-divider">
                                         <div class="ratings-container">
