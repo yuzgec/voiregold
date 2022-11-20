@@ -1,14 +1,9 @@
 @extends(config('app.tema').'/frontend.layout.app')
-
 @section('content')
-
-    @include(config('app.tema').'/frontend.layout.slogan')
-
 
     <div class="page-content" style="margin-top:20px">
         <div class="container">
             <div class="row">
-
                 <div class="product product-single row">
 
                     <div class="col-md-4 mb-6">

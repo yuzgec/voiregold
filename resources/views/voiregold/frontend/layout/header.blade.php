@@ -6,7 +6,7 @@
                 <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
                 </a>
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
-                    <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}" width="200"  />
+                    <img src="/frontend/{{ config('app.tema') }}/images/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
 
                 <form action="{{ route('search') }}" method="GET"
@@ -31,16 +31,16 @@
                     <div class="call-info d-lg-show">
                         <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
                             <a href="mailto:#" class="text-capitalize">Sipariş Hattı</a></h4>
-                        <a href="tel:#" class="phone-number font-weight-bolder ls-50">0 212 222 22 22</a>
+                        <a href="tel:#" class="phone-number font-weight-bolder ls-50">{{ config('settings.telefon1') }}</a>
                     </div>
                 </div>
 
-                <a class="wishlist label-down link d-xs-show" href="wishlist.html">
+                <a class="wishlist label-down link d-xs-show" href="{{ route('login') }}">
                     <i class="w-icon-user"></i>
                     <span class="wishlist-label d-lg-show">Giriş Yap </span>
                 </a>
 
-                <a class="wishlist label-down link d-xs-show" href="wishlist.html">
+                <a class="wishlist label-down link d-xs-show" href="{{ route('favori') }}">
                     <i class="w-icon-heart"></i>
                     <span class="wishlist-label d-lg-show">Favori</span>
                 </a>
@@ -89,8 +89,7 @@
                         </div>
 
                         <div class="cart-action">
-                            <a href="cart.html" class="btn btn-dark btn-outline btn-rounded">Sepetim</a>
-                            <a href="checkout.html" class="btn btn-primary  btn-rounded">Sipariş Tamamla</a>
+                            <a href="{{ route('sepet') }}" class="btn btn-dark btn-outline btn-rounded btn-block">Sepetim</a>
                         </div>
                     </div>
 
