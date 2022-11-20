@@ -1,4 +1,5 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
+
 @section('title', Auth::user()->name.' | Yönetim Anasayfa')
 @section('content')
 

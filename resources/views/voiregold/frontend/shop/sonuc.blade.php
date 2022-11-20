@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
 @section('content')
     <div class="page-content mb-10 pb-2" style="margin-top:10px">
         <div class="container">

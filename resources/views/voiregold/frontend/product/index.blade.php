@@ -1,12 +1,10 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
+
 @section('content')
 
     <div class="notification-wrapper appear-animate gold mt-2">
         <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
-
-
-
 
     <div class="page-content" style="margin-top:20px">
             <div class="container">

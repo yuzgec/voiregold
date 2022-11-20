@@ -1,8 +1,5 @@
 <header class="header">
-    <div class="header-top">
-        <div class="container">
-        </div>
-    </div>
+
     <div class="header-middle">
         <div class="container">
             <div class="header-left mr-md-4">
@@ -101,6 +98,7 @@
             </div>
         </div>
     </div>
+
     <div class="header-bottom sticky-content fix-top sticky-header">
         <div class="container">
             <div class="inner-wrap">
@@ -112,20 +110,13 @@
                             <i class="w-icon-category"></i>
                             <span>KATEGORİLERİMİZ </span>
                         </a>
-
                         <div class="dropdown-box">
-
                             <ul class="menu vertical-menu category-menu">
-                                @foreach($Product_Categories as $item)
-                                <li><a href="{{ route('kategori', [$item->slug,'id' => $item->id]) }}">{{ $item->title }}</a></li>
-                                @endforeach
-                                <li><a href="{{ route('home') }}">Kampanyalı Ürünler</a></li>
-                                <li><a href="{{ route('home') }}">İndirimli Ürünler</a></li>
-                                <li><a href="{{ route('home') }}">Çok Satanlar</a></li>
-                                <li><a href="{{ route('home') }}">69TL Altı Ürünler</a></li>
+                                @include(config('app.tema').'/frontend.layout.sidemenu')
                             </ul>
                         </div>
                     </div>
+
                     <nav class="main-nav ml-4">
                         <ul class="menu active-underline">
                             <li class="active"><a href="{{ route('home') }}">Anasayfa</a></li>

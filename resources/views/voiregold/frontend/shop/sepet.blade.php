@@ -1,7 +1,5 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
 @section('content')
-
-
     <div class="page-content" style="margin-top:50px">
         <div class="container">
             <div class="row gutter-lg mb-10">
@@ -77,7 +75,6 @@
 
                             <form action="{{ route('kaydet') }}" method="POST" class="form checkout-form">
                                 @csrf()
-                                <input type="hidden" name="kampanya" value="1">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="pb-2 mb-2">

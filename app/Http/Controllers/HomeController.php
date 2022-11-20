@@ -25,10 +25,6 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Artesaos\SEOTools\Facades\SEOTools;
-use Iyzipay\Model\BasketItem;
-use Iyzipay\Model\Buyer;
-use Iyzipay\Model\CheckoutFormInitialize;
-use Iyzipay\Options;
 
 class HomeController extends Controller
 {
@@ -38,7 +34,7 @@ class HomeController extends Controller
         $Slider = Slider::with('getProduct')->where('status', 1)->get();
         $Pivot = \App\Models\ProductCategoryPivot::with('productCategory')->get();
 
-        return view('frontend.index', compact('Slider',  'Pivot'));
+        return view(config('app.tema').'/frontend.index', compact('Slider',  'Pivot'));
     }
     public function urun($url){
 
@@ -75,7 +71,7 @@ class HomeController extends Controller
 
         $Pivot = ProductCategoryPivot::with('productCategory')->get();
         $Province = DB::table('sehir')->get();
-   /*     Cart::instance('lastLook')->add(
+       Cart::instance('lastLook')->add(
             [
                 'id' => $Detay->id,
                 'name' => $Detay->title,
@@ -88,12 +84,11 @@ class HomeController extends Controller
                     'campagin' => null,
                     'url' => url()->full()
                 ]
-            ]);*/
-        //dd($Detay->offer);
+            ]);
         if($Detay->offer == 1){
-            return view('frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
+            return view(config('app.tema').'/frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
         }
-        return view('frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
+        return view(config('app.tema').'/frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
     }
     public function kategori($url){
         $Detay = ProductCategory::where('id', \request('id'))->select('id','title','slug')->first();
@@ -117,7 +112,7 @@ class HomeController extends Controller
                 ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug', 'products.sku')
                 ->orderBy("price", $fiyat )
                 ->paginate(18);
-            return view('frontend.category.index', compact('Detay', 'ProductList'));
+            return view(config('app.tema').'/frontend.category.index', compact('Detay', 'ProductList'));
         }
 
         $ProductList = Product::with(['getCategory'])
@@ -131,7 +126,7 @@ class HomeController extends Controller
         //dd($ProductList);
 
 
-        return view('frontend.category.index', compact('Detay', 'ProductList'));
+        return view(config('app.tema').'/frontend.category.index', compact('Detay', 'ProductList'));
     }
     public function sepet(){
         SEOTools::setTitle("Sepetim | ". config('app.name'));
@@ -144,13 +139,13 @@ class HomeController extends Controller
         $Province = DB::table('sehir')->get();
 
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->orderBy('rank')->get();
-        return view('frontend.shop.sepet',compact('Products','Province'));
+        view(config('app.tema').'/frontend.shop.sepet',compact('Products','Province'));
     }
     public function siparis(){
         if (Cart::instance('shopping')->content()->count() === 0){
             return redirect()->route('home');
         }
-        return view('frontend.shop.siparis');
+        return view(config('app.tema').'/frontend.shop.siparis');
     }
     public function kaydet(OrderRequest $request){
         //dd($request->all());
@@ -281,7 +276,7 @@ class HomeController extends Controller
     }
 
     public function sonuc(){
-        return view('frontend.shop.sonuc');
+        return view(config('app.tema').'/frontend.shop.sonuc');
     }
     public function cartdelete($rowId){
         Cart::instance('shopping')->remove($rowId);
@@ -305,7 +300,7 @@ class HomeController extends Controller
             ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
             ->paginate(12);
         Search::create(['key' => $search]);
-        return view('frontend.shop.search', compact('Result'));
+        return view(config('app.tema').'/frontend.shop.search', compact('Result'));
 
     }
     public function addtocart(Request $request)
@@ -372,7 +367,7 @@ class HomeController extends Controller
         $Favorite = Favorite::select('product_id')->where('user_id', auth()->user()->id)->get()->toArray();
         $FavoriteBooks = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
         ->whereIn('id', $Favorite)->get();
-        return view('frontend.shop.favori', compact('Favorite', 'FavoriteBooks'));
+        return view(config('app.tema').'/frontend.shop.favori', compact('Favorite', 'FavoriteBooks'));
     }
     public function favoricikar($id){
         $Delete = Favorite::where('product_id',$id)->where('user_id', auth()->user()->id)->delete();
@@ -397,17 +392,17 @@ class HomeController extends Controller
         SEOTools::opengraph()->addProperty('type', 'page');
         SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
 
-        return view('frontend.page.index', compact('Detay'));
+        return view(config('app.tema').'/frontend.page.index', compact('Detay'));
     }
     public function iletisim(){
 
         SEOTools::setTitle("İletişim | ". config('app.name'));
         SEOTools::setDescription('Kuatek İletişim Sayfası');
 
-        return view('frontend.page.contactus');
+        return view(config('app.tema').'/frontend.page.contactus');
     }
     public function kargosorgulama(){
-        return view('frontend.page.cargo');
+        return view(config('app.tema').'/frontend.page.cargo');
     }
     public function profilim(){
 
@@ -418,6 +413,6 @@ class HomeController extends Controller
         $FavoriteBooks = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling','status')
             ->whereIn('id', $Favorite)->get();
 
-        return view('frontend.dashboard.index', compact('FavoriteBooks'));
+        return view(config('app.tema').'/frontend.dashboard.index', compact('FavoriteBooks'));
     }
 }

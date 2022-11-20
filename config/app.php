@@ -17,6 +17,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'tema' => env('APP_TEMA', 'voiregold'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

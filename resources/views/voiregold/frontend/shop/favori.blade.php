@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
 @section('content')
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">

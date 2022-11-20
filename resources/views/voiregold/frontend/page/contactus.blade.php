@@ -1,4 +1,5 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
+
 @section('title', 'İletişim Bilgileri - TB Kitap')
 @section('content')
 

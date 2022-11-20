@@ -1,4 +1,5 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
+
 @section('content')
 
     <div class="notification-wrapper appear-animate gold mt-2">

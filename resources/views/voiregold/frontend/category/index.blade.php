@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
 @section('content')
     @include('backend.layout.alert')
 
@@ -8,20 +8,16 @@
                 <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                     <div class="sidebar-overlay"></div>
                     <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
-                    <div class="sidebar-content scrollable">
+                    <div class="sidebar-content scrollable" style="border:1px solid #f4f4f4">
                         <div class="sticky-sidebar">
-                            <div class="widget widget-collapsible">
-                                <h3 class="widget-title"><span>KATEGORİLERİMİZ</span></h3>
-                                <ul class="widget-body filter-items search-ul">
-                                    @foreach($Product_Categories as $item)
-                                        <li><a href="{{ route('kategori', [$item->slug,'id' => $item->id]) }}" class="font-size-lg">{{ $item->title }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                            <ul class="menu vertical-menu category-menu">
+                              @include(config('app.tema').'/frontend.layout.sidemenu')
+                            </ul>
 
                         </div>
                     </div>
                 </aside>
+
 
                 <div class="main-content">
                     <div class="shop-default-banner shop-boxed-banner banner d-flex align-items-center mb-6 br-xs"

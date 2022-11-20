@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends(config('app.tema').'/frontend.layout.app')
 @section('title', 'Arama Sonuçları | '.config('app.name'))
 @section('content')
 
