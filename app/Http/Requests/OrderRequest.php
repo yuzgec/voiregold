@@ -10,13 +10,13 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                 => 'required|min:3|max:30|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ]+$/',
-            'surname'              => 'required|min:2|max:30|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ]+$/',
+            'name'                 => 'required|min:3|max:30|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ\s]+$/',
+            'surname'              => 'required|min:2|max:30|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ\s]+$/',
             'phone'                => 'required|numeric|digits_between:10,11',
             'address'              => 'required|min:25',
-            'email'                => 'required|email',
+            'email'                => 'nullable|email',
             'province'             => 'required',
-            'city'                 => 'required|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ]+$/',
+            'city'                 => 'required|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ\s]+$/',
         ];
     }
 
@@ -31,17 +31,16 @@ class OrderRequest extends FormRequest
             'surname.required'         => 'Soyisim alanı boş bırakılamaz',
             'surname.max'              => 'Soyisim en fazla 30 karakter olabilir',
             'surname.min'              => 'Soyisim en az 2 karakter olabilir',
-            'surname.regex'            =>  'Geçerli bir soyisim giriniz',
+            'surname.regex'            => 'Geçerli bir soyisim giriniz',
 
             'phone.required'           => 'Telefon alanı boş bırakılamaz',
-            'phone.numeric'            => 'Telefon sadece rakamlardan oluşabilir',
-            'phone.digits_between'     => 'Geçerli bir telefon numarası giriniz',
+            'phone.numeric'            => 'Telefon numaranızı birleşik olarak yazınız. Örnek : 5551234567',
+            'phone.digits_between'     => 'Telefon numaranızı birleşik olarak yazınız. Örnek : 5551234567',
 
             'address.required'         => 'Adres alanı boş bırakılamaz',
             'address.min'              => 'Adres en az 25 karakterden oluşmalıdır',
 
             'email.email'              => 'Geçerli bir email giriniz',
-            'email.required'           => 'Email alanı boş bırakılamaz',
 
             'province.required'        => 'İl alanı boş bırakılamaz',
             'city.required'            => 'İlçe alanı boş bırakılamaz',
@@ -50,4 +49,10 @@ class OrderRequest extends FormRequest
 
         ];
     }
+
+    protected function getRedirectUrl()
+    {
+        return parent::getRedirectUrl() .'#siparis';
+    }
+
 }

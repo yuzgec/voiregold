@@ -5,6 +5,9 @@
         <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
 
+
+
+
     <div class="page-content" style="margin-top:20px">
             <div class="container">
                 <div class="row gutter-lg">
@@ -111,14 +114,28 @@
 
                                     <hr class="product-divider">
 
+
                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $Detay->id }}">
-                                        <button type="submit" class="btn btn-primary btn-rounded btn-shadow btn-block">
-                                            <span><i class="icon-shopping-cart"></i> Sepete Ekle</span>
-                                        </button>
-                                    </form>
+                                        <div class="fix-bottom product-sticky-content sticky-content">
+                                            <div class="product-form container">
+                                                <div class="product-qty-form">
+                                                    <div class="input-group">
+                                                        <input class="quantity form-control" type="number" min="1"
+                                                               max="10">
+                                                        <button class="quantity-plus w-icon-plus"></button>
+                                                        <button class="quantity-minus w-icon-minus"></button>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary"  type="submit">
+                                                    <i class="w-icon-cart"></i>
+                                                    <span> Sepete Ekle</span>
+                                                </button>
+                                            </div>
+                                        </div>
 
+                                    </form>
 
 
                                     @if($Detay->get_comment_count > 0)
@@ -130,7 +147,6 @@
                                             </div>
                                             <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                         </div>
-
 
                                         <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
                                                 'slidesPerView': 1,

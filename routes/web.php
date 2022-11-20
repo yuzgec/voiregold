@@ -30,7 +30,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('/odeme', 'HomeController@odeme')->name('odeme');
     Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
 
-    Route::match(['post','get'], '/siparis/cekim','HomeController@cekim')->name('cekim');
     Route::match(['post','get'],'/siparis/sonuc', 'HomeController@sonuc')->name('sonuc');
 
     Route::get('/mail', function (){

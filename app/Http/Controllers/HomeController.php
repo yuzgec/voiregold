@@ -41,6 +41,7 @@ class HomeController extends Controller
         return view('frontend.index', compact('Slider',  'Pivot'));
     }
     public function urun($url){
+
         $Detay = Product::with(['getCategory','getComment'])->withCount('getComment')
             ->where('sku', \request('urunno'))
             ->firstOrFail();
@@ -74,7 +75,7 @@ class HomeController extends Controller
 
         $Pivot = ProductCategoryPivot::with('productCategory')->get();
         $Province = DB::table('sehir')->get();
-        Cart::instance('lastLook')->add(
+   /*     Cart::instance('lastLook')->add(
             [
                 'id' => $Detay->id,
                 'name' => $Detay->title,
@@ -87,7 +88,7 @@ class HomeController extends Controller
                     'campagin' => null,
                     'url' => url()->full()
                 ]
-            ]);
+            ]);*/
         //dd($Detay->offer);
         if($Detay->offer == 1){
             return view('frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
@@ -132,7 +133,6 @@ class HomeController extends Controller
 
         return view('frontend.category.index', compact('Detay', 'ProductList'));
     }
-
     public function sepet(){
         SEOTools::setTitle("Sepetim | ". config('app.name'));
         SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi |  Sepetim Sayfası');
@@ -141,9 +141,10 @@ class HomeController extends Controller
             return redirect()->route('home');
         }
         //dd(Cart::content());
+        $Province = DB::table('sehir')->get();
 
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->orderBy('rank')->get();
-        return view('frontend.shop.sepet',compact('Products'));
+        return view('frontend.shop.sepet',compact('Products','Province'));
     }
     public function siparis(){
         if (Cart::instance('shopping')->content()->count() === 0){
@@ -151,13 +152,14 @@ class HomeController extends Controller
         }
         return view('frontend.shop.siparis');
     }
-
     public function kaydet(OrderRequest $request){
-
+        //dd($request->all());
         $p = Product::find($request->id);
         if ($request->kampanya == 1){
-            Cart::destroy();
-            Cart::add(
+
+            Cart::instance('shopping')->destroy();
+
+            Cart::instance('shopping')->add(
                 [
                     'id' => $p->id,
                     'name' => $p->title,
@@ -205,7 +207,7 @@ class HomeController extends Controller
 
             $ShopCart->save();
 
-            foreach (Cart::content() as $c) {
+            foreach (Cart::instance('shopping')->content() as $c) {
                 $Order                  = new Order;
                 $Order->cart_id         = $Cart_Id;
                 $Order->product_id      = $c->id;
@@ -217,9 +219,9 @@ class HomeController extends Controller
 
             $Cart = Cart::content();
 
-            Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
+      /*      Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
                 $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
-            });
+            });*/
 
             $Sms = 'Siparişiniz başarıyla oluşturulmuştur. Sipariş onayı için '.config('settings.telefon2').' nolu telefondan aranacaksınız. Hayırlı günler dileriz.';
 
@@ -278,7 +280,9 @@ class HomeController extends Controller
         return redirect()->route('sonuc',['no'=>$Cart_Id]);
     }
 
-
+    public function sonuc(){
+        return view('frontend.shop.sonuc');
+    }
     public function cartdelete($rowId){
         Cart::instance('shopping')->remove($rowId);
         toast(SWEETALERT_MESSAGE_DELETE,'success');
@@ -304,7 +308,6 @@ class HomeController extends Controller
         return view('frontend.shop.search', compact('Result'));
 
     }
-
     public function addtocart(Request $request)
     {
         //dd($request->all());
@@ -328,9 +331,9 @@ class HomeController extends Controller
             ]);
 
         toast(SWEETALERT_MESSAGE_CREATE,'success');
-        return redirect()->back()->with('success', $request->all());
-
+        return redirect()->route('sepet');
     }
+
     public function hizlisatinal(Request $request){
 
         Cart::instance('shopping')->destroy();

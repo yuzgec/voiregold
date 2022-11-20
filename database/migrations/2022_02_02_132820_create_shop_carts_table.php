@@ -28,6 +28,7 @@ class CreateShopCartsTable extends Migration
             $table->string('order_campaign')->nullable();
             $table->string('order_influcer')->nullable();
             $table->string('order_medium')->nullable();
+            $table->longText('order_details')->nullable();
 
             $table->double('order_cargo',10,2)->nullable();
 
