@@ -123,7 +123,16 @@
             }
         }">
         <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-            @foreach($Product->where('category', $row->id) as $item)
+
+            @php
+                $ProductList = \App\Models\Product::with(['getCategory'])
+                    ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
+                    ->where('product_category_pivots.category_id',  $row->id)
+                    ->where('products.status', 1)
+                    ->orderBy("created_at", 'asc')
+                    ->get();
+            @endphp
+            @foreach($ProductList as $item)
                 <div class="swiper-slide product-wrap">
                     <x-shop.product-item :item="$item"/>
                 </div>

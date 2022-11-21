@@ -27,6 +27,21 @@ class ProductCategory extends Model implements HasMedia
         return $this->hasMany('App\Models\ProductCategoryPivot', 'category_id');
     }
 
+    public function product()
+    {
+        return $this->hasManyThrough(
+        // required
+            'App\Models\Product', // the related model
+            'App\Models\ProductCategoryPivot', // the pivot model
+
+            // optional
+            'product_id', // the current model id in the pivot
+            'id', // the id of related model
+            'id', // the id of current model
+            'product_id' // the related model id in the pivot
+        );
+    }
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('img')->width(1000)->optimize();
