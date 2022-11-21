@@ -6,7 +6,7 @@
                 <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
                 </a>
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
-                    <img src="/frontend/{{ config('app.tema') }}/images/logo.png" alt="{{ config('app.name') }}" width="200"  />
+                    <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
 
                 <form action="{{ route('search') }}" method="GET"
