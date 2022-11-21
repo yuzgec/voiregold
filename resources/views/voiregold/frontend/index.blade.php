@@ -123,7 +123,7 @@
             }
         }">
         <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-            @foreach($Product as $item)
+            @foreach($Product->where('product_category_pivots.category_id',  1) as $item)
                 <div class="swiper-slide product-wrap">
                     <x-shop.product-item :item="$item"/>
                 </div>

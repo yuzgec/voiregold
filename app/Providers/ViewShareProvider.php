@@ -35,13 +35,16 @@ class ViewShareProvider extends ServiceProvider
             $Product_Categories = ProductCategory::with('cat')->where('status', 1)->get()->toFlatTree();
 
             $Product = Product::with(['getCategory','getComment'])->withCount('getComment')
-                ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short')
-                ->where('status',1)
-                ->orderBy('created_at','desc')
+                ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
+                ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
+
+                ->where('products.status',1)
+                ->orderBy('products.created_at','desc')
 /*                ->inRandomOrder()*/
                 ->paginate(30)
                 ->fragment('urunler');
             //dd($Product);
+
             View::share([
                 'Pages' => $Pages,
                 'Page_Categories' => $Page_Categories,

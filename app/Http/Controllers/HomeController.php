@@ -20,10 +20,7 @@ use Carbon\Carbon;
 use CyrildeWit\EloquentViewable\Support\Period;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
@@ -32,8 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $Slider = Slider::with('getProduct')->where('status', 1)->get();
-
-        return view(config('app.tema').'/frontend.index', compact('Slider',   'Products'));
+        return view(config('app.tema').'/frontend.index', compact('Slider'));
     }
     public function urun($url){
 
@@ -89,6 +85,7 @@ class HomeController extends Controller
         }
         return view(config('app.tema').'/frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
     }
+
     public function kategori($url){
         $Detay = ProductCategory::where('id', \request('id'))->select('id','title','slug')->first();
         SEOTools::setTitle($Detay->title.' | Türkiye’nin online takı ve aksesuar satış sitesi');
