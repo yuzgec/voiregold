@@ -7,15 +7,12 @@
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
                     <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
-                <nav class="main-nav">
-                    <ul class="menu">
-                        <li class="active"><a href="{{ route('home') }}">Anasayfa</a></li>
-                        <li class=""><a href="{{ route('home') }}">Hakkımızda</a></li>
-                        <li class=""><a href="{{ route('home') }}">Sizden Gelenler</a></li>
-                        <li class=""><a href="{{ route('kargosorgulama') }}">Kampanyalarımız</a></li>
-                        <li class=""><a href="{{ route('iletisim') }}">Bize Ulaşın</a></li>
-                    </ul>
-                </nav>
+                <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper mr-4 ml-4">
+                    <input type="text" class="form-control" name="search" id="search"
+                           placeholder="Ürün Adı veya Ürün Kodu Giriniz..." required />
+                    <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
+                    </button>
+                </form>
             </div>
             <div class="header-right ml-4">
                 <div class="header-call d-xs-show d-lg-flex align-items-center">
@@ -88,39 +85,5 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom sticky-content fix-top sticky-header">
-        <div class="container">
-            <div class="inner-wrap">
-                <div class="header-left flex-1">
 
-                    <div class="dropdown category-dropdown has-border" data-visible="true">
-                        <a href="#" class="category-toggle" role="button" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="true" data-display="static"
-                           title="Browse Categories">
-                            <i class="w-icon-category"></i>
-                            <span>KATEGORİLERİMİZ </span>
-                        </a>
-
-                        <div class="dropdown-box">
-                            <ul class="menu vertical-menu category-menu">
-                                @include(config('app.tema').'/frontend.layout.sidemenu')
-                            </ul>
-                        </div>
-                    </div>
-                    <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper mr-4 ml-4">
-                        <input type="text" class="form-control" name="search" id="search"
-                               placeholder="Ürün Adı veya Ürün Kodu Giriniz..." required />
-                        <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <div class="header-right pr-0 ml-4">
-                    <a href="{{ route('kargosorgulama') }}" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Kargo Sorgulama</a>
-                    <a href="#"><i class="w-icon-sale"></i>Günün Fırsatı</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </header>
