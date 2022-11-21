@@ -32,16 +32,15 @@ class HomeController extends Controller
     public function index()
     {
         $Slider = Slider::with('getProduct')->where('status', 1)->get();
-        $Pivot = \App\Models\ProductCategoryPivot::with('productCategory')->get();
 
-        return view(config('app.tema').'/frontend.index', compact('Slider',  'Pivot'));
+        return view(config('app.tema').'/frontend.index', compact('Slider',   'Products'));
     }
     public function urun($url){
 
         $Detay = Product::with(['getCategory','getComment'])->withCount('getComment')
             ->where('sku', \request('urunno'))
             ->firstOrFail();
-        //dd($Detay);
+
         foreach ($Detay->getCategory as $item){
             $cat[] = $item->category_id;
         }
@@ -137,11 +136,10 @@ class HomeController extends Controller
         if (Cart::instance('shopping')->content()->count() === 0){
             return redirect()->route('home');
         }
-        //dd(Cart::content());
+
         $Province = DB::table('sehir')->get();
 
-        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->orderBy('rank')->get();
-        view(config('app.tema').'/frontend.shop.sepet',compact('Products','Province'));
+        return view(config('app.tema').'/frontend.shop.sepet',compact('Province'));
     }
     public function siparis(){
         if (Cart::instance('shopping')->content()->count() === 0){
@@ -150,7 +148,7 @@ class HomeController extends Controller
         return view(config('app.tema').'/frontend.shop.siparis');
     }
     public function kaydet(OrderRequest $request){
-        //dd($request->all());
+
         $p = Product::find($request->id);
         if ($request->kampanya == 1){
 
@@ -166,6 +164,7 @@ class HomeController extends Controller
                     'options' => [
                         'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                         'cargo' => 0,
+                        'dcs' => $p->shortname,
                         'campagin' => 0,
                     ]
                 ]);
@@ -174,9 +173,9 @@ class HomeController extends Controller
         DB::transaction(function () use ($request, $Cart_Id) {
 
             if($request->medium){
-                $medium = 'voiregold '.$request->medium;
+                $medium = config('app.tema').' '.$request->medium;
             }else{
-                $medium = 'voiregold voiregold.com';
+                $medium = config('app.tema').' '.config('app.tema').'.com';
             }
 
             $ShopCart                   = new ShopCart;
@@ -197,7 +196,7 @@ class HomeController extends Controller
 
             $details = [];
             foreach (Cart::content() as $c) {
-                $details[] = 'Ürün : '.$c->name.' x '. $c->qty;
+                $details[] = 'Ürün : '.$c->options->dcs.' x '. $c->qty;
             }
 
             $ShopCart->order_details    = implode(',', $details);
@@ -323,11 +322,13 @@ class HomeController extends Controller
                     'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                     'cargo' => 0,
                     'campagin' => null,
+                    'dcs' => $p->shortname,
                     'url' => $p->slug
                 ]
             ]);
+        alert()->success($p->title.' sepetinize eklendi', 'Başarıyla '.SWEETALERT_MESSAGE_CREATE);
+        //alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height','Image Alt');
 
-        toast(SWEETALERT_MESSAGE_CREATE,'success');
         return redirect()->route('sepet');
     }
 
@@ -348,6 +349,7 @@ class HomeController extends Controller
                     'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                     'cargo' => 0,
                     'campagin' => null,
+                    'dcs' => $p->shortname,
                     'url' => $p->slug
                 ]
             ]);

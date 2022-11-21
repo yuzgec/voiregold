@@ -79,8 +79,7 @@
                                     <h1 class="product-title">{{ $Detay->title }}</h1>
                                     <div class="product-bm-wrapper">
                                         <figure class="brand">
-                                            <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}"
-                                                 width="105" />
+                                            <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="105"  />
                                         </figure>
                                         <div class="product-meta">
                                             <div class="product-categories">
@@ -299,7 +298,7 @@
     @endsection
 
 @section('customJS')
-    </script><script>
+    <script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })

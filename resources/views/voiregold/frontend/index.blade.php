@@ -1,5 +1,4 @@
 @extends(config('app.tema').'/frontend.layout.app')
-
 @section('content')
     <div class="container">
     <div class="intro-wrapper">
@@ -103,10 +102,10 @@
         <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
 
-    @foreach($Product_Categories as $item)
+    @foreach($Product_Categories as $row)
     <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
-        <h2 class="title title-link">{{ $item->title }}</h2>
-        <a href="{{  route('kategori', [$item->slug, 'id' =>$item->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
+        <h2 class="title title-link">{{ $row->title }}</h2>
+        <a href="{{  route('kategori', [$row->slug, 'id' =>$row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
     </div>
     <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
             'spaceBetween': 10,
@@ -124,7 +123,7 @@
             }
         }">
         <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-            @foreach($Product->take(6) as $item)
+            @foreach($Product as $item)
                 <div class="swiper-slide product-wrap">
                     <x-shop.product-item :item="$item"/>
                 </div>

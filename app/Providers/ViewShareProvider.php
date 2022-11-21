@@ -33,6 +33,7 @@ class ViewShareProvider extends ServiceProvider
             $Pages =  Page::with('getCategory')->get();
             $Page_Categories = PageCategory::all();
             $Product_Categories = ProductCategory::with('cat')->where('status', 1)->get()->toFlatTree();
+
             $Product = Product::with(['getCategory','getComment'])->withCount('getComment')
                 ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short')
                 ->where('status',1)

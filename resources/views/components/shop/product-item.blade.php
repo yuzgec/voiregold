@@ -28,12 +28,12 @@
                 {{ $item->title }}
             </a>
         </h4>
-        <div class="ratings-container">
+        {{--<div class="ratings-container">
             <div class="ratings-full">
                 <span class="ratings" style="width: 100%;"></span>
             </div>
             <a href="{{ route('home') }}" class="rating-reviews">(3 yorum)</a>
-        </div>
+        </div>--}}
 
         <div class="product-pa-wrapper">
             <div class="product-price">

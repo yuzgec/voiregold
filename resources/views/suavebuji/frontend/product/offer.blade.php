@@ -1,9 +1,14 @@
 @extends(config('app.tema').'/frontend.layout.app')
+
 @section('content')
+
+    @include(config('app.tema').'/frontend.layout.slogan')
+
 
     <div class="page-content" style="margin-top:20px">
         <div class="container">
             <div class="row">
+
                 <div class="product product-single row">
 
                     <div class="col-md-4 mb-6">
@@ -69,8 +74,7 @@
                             <h1 class="product-title">{{ $Detay->title }}</h1>
                             <div class="product-bm-wrapper">
                                 <figure class="brand">
-                                    <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}"
-                                         width="105" />
+                                    <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="105"  />
                                 </figure>
                                 <div class="product-meta">
                                     <div class="product-categories">

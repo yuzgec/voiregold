@@ -6,8 +6,10 @@
         {!! Twitter::generate() !!}
         @include(config('app.tema').'/frontend.layout.css')
         @yield('customCSS')
+
     </head>
     <body class="">
+    @include('backend.layout.alert')
 
     <div class="page-wrapper">
             @include(config('app.tema').'/frontend.layout.header')

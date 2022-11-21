@@ -298,7 +298,7 @@
     @endsection
 
 @section('customJS')
-    <script>
+    </script><script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })

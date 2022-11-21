@@ -2,6 +2,7 @@
 
 @section('content')
 
+    @include(config('app.tema').'/frontend.layout.slogan')
 
     <div class="page-content" style="margin-top:20px">
             <div class="container">
@@ -9,6 +10,11 @@
                     <div class="main-content">
                         <div class="product product-single row">
 
+                        {{--    <div class="alert alert-success alert-cart-product mb-2">
+                                <a href="{{ route('sepet') }}" class="btn btn-success btn-rounded">Sepetim</a>
+                                <p class="mb-0 ls-normal"> {{ $Detay->title }} adlı ürün sepetinize eklendi</p>
+                                <a href="#" class="btn btn-link btn-close" aria-label="button"><i class="close-icon"></i></a>
+                            </div>--}}
 
                             <div class="col-md-6 mb-6">
                                 <div class="product-gallery product-gallery-sticky product-gallery-video">
@@ -73,8 +79,7 @@
                                     <h1 class="product-title">{{ $Detay->title }}</h1>
                                     <div class="product-bm-wrapper">
                                         <figure class="brand">
-                                            <img src="/frontend/images/logo.png" alt="{{ config('app.name') }}"
-                                                 width="105" />
+                                            <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="105"  />
                                         </figure>
                                         <div class="product-meta">
                                             <div class="product-categories">
@@ -293,7 +298,7 @@
     @endsection
 
 @section('customJS')
-    </script><script>
+    <script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })

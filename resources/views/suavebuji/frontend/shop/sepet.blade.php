@@ -21,7 +21,7 @@
                                 <div class="p-relative">
                                         <a href="{{ route('urun', $cart->options->url) }}">
                                             <figure>
-                                            <img src="{{ $cart->options->image }}" alt="{{ $cart->name }}">
+                                            <img src="{{ $cart->options->image }}" alt="{{ $cart->name }}" class="img-fluid">
                                             </figure>
                                         </a>
                                     <button type="submit" class="btn btn-close"><i
@@ -35,40 +35,47 @@
                             </td>
                             <td class="product-price"><span class="amount">{{ $cart->price }}</span></td>
                             <td class="product-quantity">
-                                <div class="input-group">
-                                    <input class="quantity form-control" type="number" min="1" max="100000">
-                                    <button class="quantity-plus w-icon-plus"></button>
-                                    <button class="quantity-minus w-icon-minus"></button>
-                                </div>
+
+                                    {{ $cart->qty }} Adet
                             </td>
                             <td class="product-subtotal">
-                                <span class="amount">$40.00</span>
+                                <span class="amount"> @convert($cart->qty * $cart->price)₺</span>
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
 
-                    <div class="cart-action mb-6">
-                        <a href="#" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
-                        <button type="submit" class="btn btn-rounded btn-default btn-clear" name="clear_cart" value="Clear Cart">Clear Cart</button>
-                        <button type="submit" class="btn btn-rounded btn-update disabled" name="update_cart" value="Update Cart">Update Cart</button>
+                    <div class="cart-action mb-6 mt-2">
+                        <a href="#" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Devam Et</a>
+                        <button type="submit" class="btn btn-rounded btn-default btn-clear" name="clear_cart" value="Clear Cart">Sepeti Boşalt</button>
                     </div>
 
-                    <form class="coupon">
-                        <h5 class="title coupon-title font-weight-bold text-uppercase">Coupon Discount</h5>
-                        <input type="text" class="form-control mb-4" placeholder="Enter coupon code here..." required />
-                        <button class="btn btn-dark btn-outline btn-rounded">Apply Coupon</button>
+                    <form class="coupon mt-2">
+                        <h5 class="title coupon-title font-weight-bold text-uppercase">İNDİRİM KUPONU</h5>
+                        <input type="text" class="form-control mb-4" placeholder="Varsa Kupon Kodu Giriniz.." required />
+                        <button class="btn btn-dark btn-outline btn-rounded">Kuponu Uygula</button>
                     </form>
                 </div>
 
-                <div class="col-lg-4 sticky-sidebar-wrapper">
+                <div class="col-lg-4 sticky-sidebar-wrapper p-2"
+                     style="background: #e1e1e1;padding: 10px;border:2px solid black;border-radius: 5px;box-shadow: 5px 3px 5px gray">
                     <div class="sticky-sidebar">
                         <div class="cart-summary mb-4">
-                            <h3 class="cart-title text-uppercase">Cart Totals</h3>
+                            <h3 class="cart-title text-uppercase">Sipariş Toplamı</h3>
                             <div class="cart-subtotal d-flex align-items-center justify-content-between">
-                                <label class="ls-25">Subtotal</label>
-                                <span>$100.00</span>
+                                <label class="ls-25">Ara Toplam</label>
+                                <span>{{ Cart::instance('shopping')->subtotal() }}₺</span>
+                            </div>
+
+                            <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                <label class="ls-25">Kargo Ücreti</label>
+                                <span>{{ Cart::instance('shopping')->total() }}₺</span>
+                            </div>
+
+                            <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                <label class="ls-25">Toplam</label>
+                                <span>{{ Cart::instance('shopping')->total() }}₺</span>
                             </div>
 
                             <hr class="divider">

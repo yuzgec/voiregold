@@ -24,8 +24,19 @@ class Product extends Model implements HasMedia,Viewable
     protected $table = 'products';
 
     public function getCategory(){
+     /*   return $this->hasManyThrough(
+            ProductCategoryPivot::class,
+            ProductCategory::class,
+            'id',
+            'category_id',
+            'id'
+        );*/
+        //return $this->hasManyThrough(ProductCategory::class, ProductCategoryPivot::class, null, 'id', null, 'product_id');
+
         return $this->hasMany(ProductCategoryPivot::class, 'product_id', 'id');
     }
+
+
 
     public function getComment(){
         return $this->hasmany(Comment::class, 'product_id', 'id');
