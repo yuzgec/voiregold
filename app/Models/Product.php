@@ -39,8 +39,11 @@ class Product extends Model implements HasMedia,Viewable
             ->watermarkHeight(1000, Manipulations::UNIT_PERCENT)
             ->watermarkWidth(1000, Manipulations::UNIT_PERCENT)
             ->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb')->width(400)->height(400)->keepOriginalImageFormat();
+        $this->addMediaConversion('img')->width(1000)->height(1000)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb')->width(400)->height(400)->nonOptimized();
+        $this->addMediaConversion('thumbpng')->width(400)->height(400)->keepOriginalImageFormat();
         $this->addMediaConversion('small')->width(150)->height(150)->keepOriginalImageFormat();
+        $this->addMediaConversion('smallpng')->width(150)->height(150)->nonOptimized();
     }
 
     public function getActivitylogOptions(): LogOptions

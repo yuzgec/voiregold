@@ -11,9 +11,9 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Voire Gold Online Satış", // set false to total remove
+            'title'        => "", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'Kuatek - Dashboard'
-            'description'  => 'Voire Gold Online Satış. ', // set false to total remove
+            'description'  => '', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
             'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
@@ -23,7 +23,7 @@ return [
          * Webmaster tags are always added.
          */
         'webmaster_tags' => [
-            'google'    => 'qer1hqO57YD4HbEAizb7bk9V7iUBq9Kwl8u2DotizJg',
+            'google'    => '',
             'bing'      => null,
             'alexa'     => null,
             'pinterest' => null,
@@ -37,8 +37,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'        => "Voire Gold Online Satış", // set false to total remove
-            'description'  => 'Voire Gold Online Satış. ', // set false to total remove
+            'title'        => "", // set false to total remove
+            'description'  => "", // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
@@ -59,8 +59,8 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'        => "Voire Gold Online Satış", // set false to total remove
-            'description'  => 'Voire Gold Online Satış. ', // set false to total remove
+            'title'        => "", // set false to total remove
+            'description'  => "", // set false to total remove
             'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [],
