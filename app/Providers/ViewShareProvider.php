@@ -32,13 +32,12 @@ class ViewShareProvider extends ServiceProvider
             config()->set('settings', Setting::pluck('value','item')->all());
             $Pages =  Page::with('getCategory')->get();
             $Page_Categories = PageCategory::all();
-            $Product_Categories = ProductCategory::with('cat')->where('status', 1)->get()->toFlatTree();
+            $Product_Categories = ProductCategory::with('cat')->get()->toFlatTree();
 
-            $Product = Product::with(['getCategory','getComment','category'])->withCount('getComment')
+            $Product = Product::with(['getCategory'])
                 ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short', 'category')
                 ->where('status',1)
                 ->orderBy('created_at','desc')
-/*                ->inRandomOrder()*/
                 ->get();
 
             View::share([

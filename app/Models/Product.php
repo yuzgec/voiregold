@@ -23,35 +23,9 @@ class Product extends Model implements HasMedia,Viewable
     protected $guarded = [];
     protected $table = 'products';
 
-    public function category()
-    {
-        return $this->hasManyThrough(
-        // required
-            'App\Models\ProductCategory', // the related model
-            'App\Models\ProductCategoryPivot', // the pivot model
-
-            // optional
-            'product_id', // the current model id in the pivot
-            'id', // the id of related model
-            'id', // the id of current model
-            'category_id' // the related model id in the pivot
-        );
-    }
-
     public function getCategory(){
-     /*   return $this->hasManyThrough(
-            ProductCategoryPivot::class,
-            ProductCategory::class,
-            'id',
-            'category_id',
-            'id'
-        );*/
-        //return $this->hasManyThrough(ProductCategory::class, ProductCategoryPivot::class, null, 'id', null, 'product_id');
-
         return $this->hasMany(ProductCategoryPivot::class, 'product_id', 'id');
     }
-
-
 
     public function getComment(){
         return $this->hasmany(Comment::class, 'product_id', 'id');
@@ -65,8 +39,8 @@ class Product extends Model implements HasMedia,Viewable
             ->watermarkHeight(1000, Manipulations::UNIT_PERCENT)
             ->watermarkWidth(1000, Manipulations::UNIT_PERCENT)
             ->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb')->width(400)->height(400)->nonOptimized();
-        $this->addMediaConversion('small')->width(150)->height(150)->nonOptimized();
+        $this->addMediaConversion('thumb')->width(400)->height(400)->keepOriginalImageFormat();
+        $this->addMediaConversion('small')->width(150)->height(150)->keepOriginalImageFormat();
     }
 
     public function getActivitylogOptions(): LogOptions

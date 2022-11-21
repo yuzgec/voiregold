@@ -72,7 +72,6 @@ class ProductController extends Controller
             $New->seo_desc = $request->seo_desc;
             $New->seo_key = $request->seo_key;
             $New->seo_title = $request->seo_title;
-            $New->category = implode(',', $request->category);
 
 
             if ($request->hasfile('image')) {
@@ -137,7 +136,6 @@ class ProductController extends Controller
             $Update->old_price = $request->old_price;
             $Update->campagin_price = $request->campagin_price;
             $Update->sku = $request->sku;
-            $Update->category = implode(',', $request->category);
 
             $Update->short = $request->short;
             $Update->note = $request->note;
