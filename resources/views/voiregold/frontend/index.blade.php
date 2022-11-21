@@ -105,7 +105,7 @@
     @foreach($Product_Categories as $row)
     <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
         <h2 class="title title-link">{{ $row->title }}</h2>
-        <a href="{{  route('kategori', [$row->slug, 'id' =>$row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
+        <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
     </div>
     <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
             'spaceBetween': 10,
@@ -123,7 +123,7 @@
             }
         }">
         <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-            @foreach($Product->where('product_category_pivots.category_id',  1) as $item)
+            @foreach($Product->where('category', $row->id) as $item)
                 <div class="swiper-slide product-wrap">
                     <x-shop.product-item :item="$item"/>
                 </div>
