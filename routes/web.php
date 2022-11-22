@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');
     Route::post('/sepet-bosalt}', 'HomeController@cartdestroy')->name('sepetbosalt');
     Route::get('/kurumsal/{url}', 'HomeController@kurumsal')->name('kurumsal');
+    Route::get('/gununfirsati', 'HomeController@gununfirsati')->name('gununfirsati');
 
     Route::post('/odeme', 'HomeController@odeme')->name('odeme');
     Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
