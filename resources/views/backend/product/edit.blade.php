@@ -30,9 +30,12 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <x-form-inputtext label="Başlık Adı Giriniz" name="title"/>
+
+                    <x-form-inputtext label="Adı Giriniz" name="title"/>
                     <x-form-inputtext label="DCS" name="shortname"/>
                     <x-form-inputtext label="Ürün Kodu " name="sku"/>
+                    <x-form-inputtext label="Kampanya Adı" name="external"/>
+
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Kategori </label>
                         <div class="col">
@@ -81,7 +84,7 @@
                             </label>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-check form-check-single form-switch mt-2">&nbsp; Secenek4
+                            <label class="form-check form-check-single form-switch mt-2">&nbsp; Stok YOK
                                 <input class="form-check-input switch"
                                        name="option4"
                                        type="checkbox"

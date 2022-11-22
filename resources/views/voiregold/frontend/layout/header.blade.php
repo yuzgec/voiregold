@@ -5,6 +5,7 @@
             <div class="header-left mr-md-4">
                 <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
                 </a>
+
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
                     <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
@@ -25,12 +26,13 @@
                     </button>
                 </form>
             </div>
+
             <div class="header-right ml-4">
                 <div class="header-call d-xs-show d-lg-flex align-items-center">
                     <a href="tel:#" class="w-icon-call"></a>
                     <div class="call-info d-lg-show">
                         <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                            <a href="mailto:#" class="text-capitalize">Sipariş Hattı</a></h4>
+                            <a href="#" class="text-capitalize">Sipariş Hattı</a></h4>
                         <a href="tel:#" class="phone-number font-weight-bolder ls-50">{{ config('settings.telefon1') }}</a>
                     </div>
                 </div>
@@ -118,8 +120,8 @@
                     <nav class="main-nav ml-4">
                         <ul class="menu active-underline">
                             <li class="active"><a href="{{ route('home') }}">Anasayfa</a></li>
-                            <li class=""><a href="{{ route('home') }}">Hakkımızda</a></li>
-                            <li class=""><a href="{{ route('home') }}">Sizden Gelenler</a></li>
+                            <li class=""><a href="{{ route('home').'/kurumsal/hakkimizda' }}">Hakkımızda</a></li>
+                            <li class=""><a href="{{ route('home').'/kurumsal/sizden-gelenler' }}">Sizden Gelenler</a></li>
                             <li class=""><a href="{{ route('kargosorgulama') }}">Kampanyalarımız</a></li>
                             <li class=""><a href="{{ route('iletisim') }}">Bize Ulaşın</a></li>
                         </ul>

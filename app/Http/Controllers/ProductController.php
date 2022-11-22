@@ -49,6 +49,7 @@ class ProductController extends Controller
             $New->old_price = $request->old_price;
             $New->campagin_price = $request->campagin_price;
             $New->sku = $request->sku;
+            $New->external = $request->external;
 
             $New->short = $request->short;
             $New->note = $request->note;
@@ -131,6 +132,7 @@ class ProductController extends Controller
             $Update = Product::findOrFail($id);
             $Update->title = $request->title;
             $Update->shortname = $request->shortname;
+            $Update->external = $request->external;
 
             $Update->price = $request->price;
             $Update->old_price = $request->old_price;

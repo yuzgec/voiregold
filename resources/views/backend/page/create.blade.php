@@ -58,7 +58,9 @@
             <div class="p-2">
                 <input type="file" name="gallery[]" multiple class="form-control">
                 @if($errors->has('gallery'))
-                    <div class="invalid-feedback" style="display: block">{{$errors->first('gallery')}}</div>
+                    <div class="invalid-feedback" style="display: block">
+                        {{$errors->first('gallery')}}
+                    </div>
                 @endif
             </div>
         </div>

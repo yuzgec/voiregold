@@ -109,7 +109,6 @@
 
                                     <hr class="product-divider">
 
-
                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $Detay->id }}">
@@ -131,7 +130,6 @@
                                         </div>
 
                                     </form>
-
 
                                     @if($Detay->get_comment_count > 0)
                                         <hr class="product-divider">

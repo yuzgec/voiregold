@@ -27,7 +27,13 @@
                                         <div class="swiper-wrapper row cols-1 gutter-no">
 
                                             <div class="swiper-slide">
+                                                @if($Detay->option4 == 1)
+                                                    <div class="product-label-group">
+                                                        <label class="product-label label-discount">STOKTA YOK</label>
+                                                    </div>
+                                                @endif
                                                 <figure class="product-image">
+
                                                     <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
                                                          data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
                                                          alt="{{ $Detay->title }}">
@@ -109,6 +115,7 @@
 
                                     <hr class="product-divider">
 
+                                    @if($Detay->option4 != 1)
 
                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
@@ -131,7 +138,7 @@
                                         </div>
 
                                     </form>
-
+                                    @endif
 
                                     @if($Detay->get_comment_count > 0)
                                         <hr class="product-divider">
