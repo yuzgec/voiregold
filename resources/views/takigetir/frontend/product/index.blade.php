@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include(config('app.tema').'/frontend.layout.slogan')
 
     <div class="page-content" style="margin-top:20px">
             <div class="container">
@@ -28,8 +27,8 @@
                                                 @endif
                                                     <figure class="product-image product-image-full">
 
-                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
-                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
+                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                          alt="{{ $Detay->title }}">
                                                 </figure>
                                             </div>
@@ -37,7 +36,7 @@
                                                 <div class="swiper-slide ">
                                                     <figure class="product-image product-image-full">
                                                         <img src="{{ $item->getUrl('img') }}"
-                                                             data-zoom-image="{{ $item->getUrl('img') }}"
+                                                             data-zoom-image="{{ $item->getUrl('imgpng') }}"
                                                              alt="{{ $Detay->title }}">
                                                     </figure>
                                                 </div>

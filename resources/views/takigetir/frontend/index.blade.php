@@ -87,9 +87,9 @@
     </div>
     </div>
 
-    <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
+   {{-- <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
         <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
-    </div>
+    </div>--}}
 
     @foreach($Product_Categories as $row)
     <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
