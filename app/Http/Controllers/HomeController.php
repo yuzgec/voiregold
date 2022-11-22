@@ -417,9 +417,25 @@ class HomeController extends Controller
         return view(config('app.tema').'/frontend.page.contactus');
     }
     public function kargosorgulama(){
+
+        SEOTools::setTitle('Kargo Soruglama | '. config('app.name'));
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+
         return view(config('app.tema').'/frontend.page.cargo');
     }
+
+    public function gununfirsati(){
+
+        SEOTools::setTitle('Günün Fırsatı | '. config('app.name'));
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+
+        return view(config('app.tema').'/frontend.shop.gununfirsati');
+    }
+
     public function profilim(){
+
+        SEOTools::setTitle('Profilim | '. config('app.name'));
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
 
         if (auth()->user()->is_admin == 1){
             return redirect()->route('go');

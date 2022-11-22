@@ -120,7 +120,7 @@
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Listele </label>
                         <div class="col-3">
-                            <label class="form-check form-check-single form-switch mt-2">&nbsp; Fırsat
+                            <label class="form-check form-check-single form-switch mt-2">&nbsp; Günün Fırsatı
                                 <input class="form-check-input switch" name="opportunity" type="checkbox" value="{{ $Edit->opportunity }}"
                                        @if ( $Edit->opportunity == 1) ?? checked @endif>
                             </label>

@@ -287,7 +287,7 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
+                                                                <img title="{{ $item->title }} src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
                                                         </div>
 
@@ -330,14 +330,6 @@
                                                 </div>
 
                                                 <div class="product-form pt-4">
-                                                    <div class="product-qty-form mr-2">
-                                                        <div class="input-group">
-                                                            <input class="quantity form-control" type="number"
-                                                                   min="1" max="5">
-                                                            <button class="quantity-plus w-icon-plus"></button>
-                                                            <button class="quantity-minus w-icon-minus"></button>
-                                                        </div>
-                                                    </div>
                                                     <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary">
                                                         <i class="w-icon-cart"></i>
                                                         <span>Ürünü İncele</span>

@@ -130,7 +130,7 @@
 
                 <div class="header-right">
                     <a href="{{ route('kargosorgulama') }}" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Kargo Sorgulama</a>
-                    <a href="#"><i class="w-icon-sale"></i>Günün Fırsatı</a>
+                    <a href="{{ route('gununfirsati') }}"><i class="w-icon-sale"></i>Günün Fırsatı</a>
                 </div>
             </div>
         </div>
