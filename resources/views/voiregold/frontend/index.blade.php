@@ -163,65 +163,19 @@
                     }
                 }">
               <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                  @foreach($Product_Categories as $item)
                   <div class="swiper-slide category-wrap">
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
+                          <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" title="{{ $item->title }}">
                               <figure class="category-media">
-                                  <img src="/bileklik.jpg" alt="Category"/>
+                                  <img src="{{ $item->getFirstMediaUrl('page') }}"
+                                       alt="{{ $item->title }}"/>
                               </figure>
                           </a>
                       </div>
                   </div>
+                  @endforeach
 
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="/bileklik.jpg" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="/bileklik.jpg" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="/bileklik.jpg" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="/bileklik.jpg" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
 
               </div>
               <div class="swiper-pagination"></div>
@@ -244,7 +198,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Category Banner -->
+
             </div>
             <div class="col-md-6 mb-4">
                 <div class="banner banner-fixed br-sm">
