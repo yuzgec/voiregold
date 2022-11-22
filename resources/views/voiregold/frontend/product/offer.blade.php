@@ -22,7 +22,7 @@
                                 <div class="swiper-wrapper row cols-1 gutter-no">
 
                                     <div class="swiper-slide">
-                                        <figure class="product-image">
+                                        <figure class="product-image product-image-full">
                                             <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
                                                  data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
                                                  alt="{{ $Detay->title }}">
@@ -38,12 +38,13 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                <button class="swiper-button-next"></button>
-                                <button class="swiper-button-prev"></button>
+
                                 <a href="#" class="product-gallery-btn product-image-full">
                                     <i class="w-icon-zoom"></i>
                                 </a>
+{{--
                                 <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+--}}
                             </div>
                             <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {

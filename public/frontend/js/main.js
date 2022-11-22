@@ -3176,9 +3176,7 @@ window.Wolmart = {};
             Wolmart.$body
                 .on('click', '.product-image-full', openImageGallery)
                 .on('click', '.review-image img', openImageGallery)
-
                 .on('click', '.rating-form .rating-stars > a', clickRatingForm)
-                .on('click', '.product-single:not(.product-popup) .btn-cart', onAddToCartSingle);
         }
     }
 })(jQuery);
