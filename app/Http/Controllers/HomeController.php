@@ -74,7 +74,7 @@ class HomeController extends Controller
                 'weight' => 0,
                 'qty' => 1,
                 'options' => [
-                    'image' => (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'small'),
+                    'image' => (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'small'),
                     'cargo' => 0,
                     'campagin' => null,
                     'url' => url()->full()
@@ -147,7 +147,7 @@ class HomeController extends Controller
     public function kaydet(OrderRequest $request){
 
         $p = Product::find($request->id);
-        if ($request->kampanya == 1){
+        if ($request->external){
 
             Cart::instance('shopping')->destroy();
 
@@ -159,7 +159,7 @@ class HomeController extends Controller
                     'weight' => 0,
                     'qty' => 1,
                     'options' => [
-                        'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                        'image' => (!$p->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                         'cargo' => 0,
                         'dcs' => $p->shortname,
                         'campagin' => 0,
@@ -192,7 +192,7 @@ class HomeController extends Controller
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
 
             $details = [];
-            foreach (Cart::content() as $c) {
+            foreach (Cart::instance('shopping')->content() as $c) {
                 $details[] = 'Ürün : '.$c->options->dcs.' x '. $c->qty;
             }
 
@@ -210,7 +210,7 @@ class HomeController extends Controller
                 $Order->save();
             }
 
-            $Cart = Cart::content();
+            $Cart = Cart::instance('shopping')->content();
 
       /*      Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
                 $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
@@ -267,7 +267,8 @@ class HomeController extends Controller
             $Stock = DB::table('campagin_stock')->decrement('stock');
             $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 30)->update(['stock' => 299]);
 
-            Cart::destroy();
+            Cart::instance('shopping')->destroy();
+
         });
 
         return redirect()->route('sonuc',['no'=>$Cart_Id]);
@@ -316,7 +317,7 @@ class HomeController extends Controller
                 'weight' => 0,
                 'qty' => 1,
                 'options' => [
-                    'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                    'image' => (!$p->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                     'cargo' => 0,
                     'campagin' => null,
                     'dcs' => $p->shortname,
@@ -343,7 +344,7 @@ class HomeController extends Controller
                 'weight' => 0,
                 'qty' => 1,
                 'options' => [
-                    'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                    'image' => (!$p->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                     'cargo' => 0,
                     'campagin' => null,
                     'dcs' => $p->shortname,

@@ -34,12 +34,12 @@ class Product extends Model implements HasMedia,Viewable
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('img')->width(1000)->height(1000)
-            ->watermark(public_path('/img/watermark.png'))
+            ->watermark(public_path('/img/'.config('app.tema').'.png'))
             ->watermarkPosition(Manipulations::POSITION_CENTER)
             ->watermarkHeight(1000, Manipulations::UNIT_PERCENT)
             ->watermarkWidth(1000, Manipulations::UNIT_PERCENT)
             ->keepOriginalImageFormat();
-        $this->addMediaConversion('img')->width(1000)->height(1000)->keepOriginalImageFormat();
+        $this->addMediaConversion('imgpng')->width(1000)->height(1000)->keepOriginalImageFormat();
         $this->addMediaConversion('thumb')->width(400)->height(400)->nonOptimized();
         $this->addMediaConversion('thumbpng')->width(400)->height(400)->keepOriginalImageFormat();
         $this->addMediaConversion('small')->width(150)->height(150)->keepOriginalImageFormat();
