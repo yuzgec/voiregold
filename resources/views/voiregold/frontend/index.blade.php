@@ -166,7 +166,7 @@
                   @foreach($Product_Categories as $item)
                   <div class="swiper-slide category-wrap">
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" title="{{ $item->title }}">
+                          <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
                               <figure class="category-media">
                                   <img src="{{ $item->getFirstMediaUrl('page') }}"
                                        alt="{{ $item->title }}"/>
@@ -187,32 +187,18 @@
             <div class="col-md-6 mb-4">
                 <div class="banner banner-fixed br-sm">
                     <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-1.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #263032;" />
+                        <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" />
                     </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold text-white">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25 text-white">Black Friday</h3>
-                        <div class="banner-price-info text-white text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
-                    </div>
                 </div>
 
             </div>
             <div class="col-md-6 mb-4">
                 <div class="banner banner-fixed br-sm">
                     <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-2.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #F3F3F1;" />
+                        <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" />
+
                     </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25">Black Friday</h3>
-                        <div class="banner-price-info text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -241,7 +227,7 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img title="{{ $item->title }} src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
+                                                                <img title="{{ $item->title }}" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
                                                         </div>
 
