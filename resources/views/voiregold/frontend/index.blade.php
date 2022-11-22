@@ -63,33 +63,20 @@
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
                         <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
+                            <img src="/kapidaodeme.jpg" />
                         </figure>
                         <div class="banner-content content-bottom">
-                            <h5 class="banner-subtitle text-uppercase font-weight-bold mb-0">New In</h5>
-                            <h3 class="banner-title text-capitalize text-white ls-25">Smartwatch</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-white btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
                         <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
+                            <img src="/kargo.jpg" />
                         </figure>
                         <div class="banner-content content-top">
-                            <div
-                                class="banner-price-info text-uppercase font-weight-bolder text-uppercase text-dark">
-                                Get Up <span class="text-secondary">50%Off</span>
-                            </div>
-                            <h3 class="banner-title text-capitalize ls-25">Skate Sale</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-dark btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -218,14 +205,14 @@
                                             'slidesPerView': 1
                                         }">
                             <div class="swiper-wrapper row cols-1 gutter-no">
-                                @foreach($Product->take(1) as $item)
+                                @foreach($Product->where('opportunity', 1) as $item)
                                 <div class="swiper-slide">
                                     <div class="product product-single row">
                                         <div class="col-md-6">
                                             <div class="product-gallery product-gallery-sticky product-gallery-vertical">
                                                 <div class="swiper-container product-single-swiper swiper-theme nav-inner">
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
-                                                        <div class="swiper-slide">
+                                                        <div class="swiper-slide" style="border:1px solid #f4f4f4;border-radius:5px">
                                                             <figure class="product-image">
                                                                 <img title="{{ $item->title }}" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
