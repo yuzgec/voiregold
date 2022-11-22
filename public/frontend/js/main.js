@@ -2817,12 +2817,7 @@ window.Wolmart = {};
         thumbsInit(self);
         // if not quickview, make full image toggle
         // add gallery-video button
-        if (!document.body.classList.contains('home')) {
-            if ($slider.parent().hasClass('product-gallery-video')) {
-                self.isQuickView || $slider.append('<a href="#" class="product-gallery-btn product-degree-viewer" title="Product 360 Degree Gallery"><i class="w-icon-rotate-3d"></i></a>');
-                self.isQuickView || $slider.append('<a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>');
-            }
-        }
+
 
         //Wishlist button event
         self.$wrapper.on('click', '.btn-wishlist', wishlistAction);
@@ -3181,13 +3176,7 @@ window.Wolmart = {};
             Wolmart.$body
                 .on('click', '.product-image-full', openImageGallery)
                 .on('click', '.review-image img', openImageGallery)
-                .on('click', '.product-video-viewer', openVideo)
-                .on('click', '.product-degree-viewer', function (e) {
-                    e.preventDefault(e);
-                    if ($.fn.ThreeSixty) {
-                        open360DegreeView(e);
-                    }
-                })
+
                 .on('click', '.rating-form .rating-stars > a', clickRatingForm)
                 .on('click', '.product-single:not(.product-popup) .btn-cart', onAddToCartSingle);
         }

@@ -38,8 +38,8 @@ class ProductCategoryController extends Controller
 
         $New->save();
 
-        if($request->image){
-            $New->addMedia($request->image)->toMediaCollection();
+        if ($request->hasfile('image')) {
+            $New->addMedia($request->image)->toMediaCollection('page');
         }
 
         if ($request->parent_id){
@@ -85,7 +85,7 @@ class ProductCategoryController extends Controller
         $Update->save();
 
         if ($request->hasFile('image')) {
-            $Update->media()->where('collection_name', 'page')->delete();
+            $Update->clearMediaCollection('page');
             $Update->addMedia($request->image)->toMediaCollection('page');
         }
 

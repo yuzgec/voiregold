@@ -51,10 +51,14 @@
                                         </div>
                                         <button class="swiper-button-next"></button>
                                         <button class="swiper-button-prev"></button>
+                                        @if ($Detay->getFirstMediaUrl('page')) )
                                         <a href="#" class="product-gallery-btn product-image-full">
                                             <i class="w-icon-zoom"></i>
                                         </a>
+                                       @endif
+                                        @if ($Detay->getFirstMediaUrl('video')) )
                                         <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+                                        @endif
                                     </div>
                                     <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {

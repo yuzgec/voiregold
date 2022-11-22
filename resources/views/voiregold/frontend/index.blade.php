@@ -167,7 +167,7 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{ route('home') }}">
                               <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
+                                  <img src="/bileklik.jpg" alt="Category"/>
                               </figure>
                           </a>
                       </div>
@@ -177,7 +177,7 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{ route('home') }}">
                               <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
+                                  <img src="/bileklik.jpg" alt="Category"/>
                               </figure>
                           </a>
                       </div>
@@ -187,7 +187,7 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{ route('home') }}">
                               <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
+                                  <img src="/bileklik.jpg" alt="Category"/>
                               </figure>
                           </a>
                       </div>
@@ -197,7 +197,7 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{ route('home') }}">
                               <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
+                                  <img src="/bileklik.jpg" alt="Category"/>
                               </figure>
                           </a>
                       </div>
@@ -207,7 +207,7 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{ route('home') }}">
                               <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
+                                  <img src="/bileklik.jpg" alt="Category"/>
                               </figure>
                           </a>
                       </div>

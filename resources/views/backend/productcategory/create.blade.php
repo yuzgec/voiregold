@@ -1,9 +1,10 @@
 @extends('backend.layout.app')
 @section('title', 'Ürün Kategori Ekle')
 @section('content')
+    {{Form::open(['route' => 'product-categories.store', 'enctype' => 'multipart/form-data'])}}
+
     <div class="col-12 col-md-9">
         <div class="card">
-            {{Form::open(['route' => 'product-categories.store', 'enctype' => 'multipart/form-data'])}}
             <div class="card-header d-flex justify-content-between">
                 <x-add title="Ürün Kategori"></x-add>
                 <div>

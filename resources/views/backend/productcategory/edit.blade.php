@@ -42,21 +42,28 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
+
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="15" y1="8" x2="15.01" y2="8" /><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5" /><path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2" /></svg>
-                        Kategori Kapak Resim
+                        Ürün Kapak Resim
                     </h4>
                 </div>
-                <div class="form-group mb-3 row p-2">
+                <div class="card-body justify-content-center align-items-center">
                     <div class="col">
-                        <img src="{{ $Edit->getFirstMediaUrl() }}" class="img-fluid mb-2" width="250px" alt="Image">
+                        <img src="{{ (!$Edit->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Edit->getFirstMediaUrl('page', 'thumb')}}" class="img-fluid mb-2 mt-2" alt="Image">
                     </div>
-                </div>
-                <div class="p-2">
+                    @if($Edit->getFirstMediaUrl('page'))
+                        <label class="form-check form-check-single form-switch mb-1"  >
+                            <input class="form-check-input switch" type="checkbox" name="removeImage" value="0">
+                            <span style="margin-left: 15px" class="">Resmi Kaldır</span>
+                        </label>
+                    @endif
+
                     <x-form-file label="" name="image"></x-form-file>
                 </div>
+
             </div>
         </div>
     </div>
