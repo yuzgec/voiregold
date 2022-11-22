@@ -264,6 +264,16 @@
                     </aside>
                     <!-- End of Sidebar -->
                 </div>
+
+                <section class="related-product-section">
+                    <div class="product-wrapper row cols-md-4 cols-sm-2 cols-2">
+                        @foreach($Productssss->take(30) as $item)
+                            <div class="product-wrap">
+                                <x-shop.product-item :item="$item"/>
+                            </div>
+                        @endforeach
+                    </div>
+                </section>
             </div>
         </div>
 
