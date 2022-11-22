@@ -58,9 +58,9 @@
                     </nav>
                     <div class="product-wrapper row cols-md-3 cols-sm-2 cols-2">
                         @foreach($ProductList as $item)
-                        <div class="product-wrap">
-                            <x-shop.product-item :item="$item"/>
-                        </div>
+                            <div class="product-wrap">
+                                <x-shop.product-item :item="$item"/>
+                            </div>
                         @endforeach
                     </div>
 

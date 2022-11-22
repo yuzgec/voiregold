@@ -63,7 +63,6 @@
                             <div class="product product-cart">
                                 <div class="product-detail">
                                     <a href="{{ route('urun', $c->options->url) }}" class="product-name">{{$c->name}}</a>
-
                                     <div class="price-box">
                                         <span class="product-quantity">{{$c->qty}}</span>
                                         <span class="product-price">{{$c->price}}</span>

@@ -2,149 +2,146 @@
 @section('title', 'Siparişi Tamamla | '.config('app.name'))
 @section('content')
 
-    <div class="page-content">
+    <div class="page-content" style="margin-top:50px">
         <div class="checkout">
             <div class="container">
 
-                <form action="{{ route('odeme') }}" method="POST">
-                    @csrf
+                <form action="{{ route('kaydet') }}" method="POST" class="form checkout-form">
+                    @csrf()
                     <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="checkout-title">İletişim Bilgileri</h2>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Adınız Soyadınız *</label>
-                                    <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name"  autocomplete="off">
-                                    @if($errors->has('name'))
-                                        <div class="invalid-feedback">{{$errors->first('name')}}</div>
-                                    @endif
-                                </div>
+                        <div class="col-lg-7">
+                            <div class="pb-2 mb-2">
 
-                                <div class="col-sm-6">
-                                    <label>Adınız Soyadınız *</label>
-                                    <input value="{{old('surname')}}" type="text" class="form-control  @if($errors->has('surname')) is-invalid @endif" name="surname" autocomplete="off">
-                                    @if($errors->has('surname'))
-                                        <div class="invalid-feedback">{{$errors->first('surname')}}</div>
-                                    @endif
-                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Adınız<span class="text-danger">*</span> </label>
+                                        <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
+                                        @if($errors->has('name'))
+                                            <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                        @endif
+                                    </div>
 
-                            </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"> Soyadınız <span class="text-danger">*</span></label>
+                                        <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
+                                        @if($errors->has('surname'))
+                                            <div class="invalid-feedback">{{$errors->first('surname')}}</div>
+                                        @endif
+                                    </div>
 
-                            <label>Firma Adı (Opsiyonel)</label>
-                            <input type="text" class="form-control">
+                                    <div class="col-md-6">
+                                        <label class="form-label"> Email Adresiniz</label>
+                                        <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email Zorunlu Değildir">
+                                        @if($errors->has('email'))
+                                            <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                                        @endif
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <label class="form-label">Telefon Numaranız <span class="text-danger">*</span></label>
+                                        <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
+                                        @if($errors->has('phone'))
+                                            <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                                        @endif
+                                    </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Telefon Numaranız * </label>
-                                    <input value="{{old('phone')}}" type="text" class="form-control  @if($errors->has('phone')) is-invalid @endif" name="phone"  autocomplete="off">
-                                    @if($errors->has('phone'))
-                                        <div class="invalid-feedback">{{$errors->first('phone')}}</div>
-                                    @endif
-                                </div>
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Açık Adresiniz<span class="text-danger">*</span>
+                                        </label>
+                                        <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="3" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
+                                        @if($errors->has('address'))
+                                            <div class="invalid-feedback">{{$errors->first('address')}}</div>
+                                        @endif
+                                    </div>
 
-                                <div class="col-sm-6">
-                                    <label>E-Mail Adresiniz * </label>
-                                    <input value="{{old('email')}}" type="text" class="form-control  @if($errors->has('email')) is-invalid @endif" name="email" autocomplete="off">
-                                    @if($errors->has('email'))
-                                        <div class="invalid-feedback">{{$errors->first('email')}}</div>
-                                    @endif
-                                </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"> İl <span class="text-danger">*</span></label>
+                                        <select class="form-control @if($errors->has('province')) is-invalid @endif" name="province">
+                                            <option value="">İl Seçiniz</option>
+                                            @foreach($Province as $item)
+                                                <option value="{{ $item->sehir_title }}" {{ (old('province') == $item->sehir_title) ? 'selected' : null }} }}>{{ $item->sehir_title }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if($errors->has('province'))
+                                            <div class="invalid-feedback">{{$errors->first('province')}}</div>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">İlçe <span class="text-danger">*</span></label>
+                                        <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
+                                        @if($errors->has('city'))
+                                            <div class="invalid-feedback">{{$errors->first('city')}}</div>
+                                        @endif
+                                    </div>
 
-                            </div>
+                                    <div class="form-group mt-1"><label class="form-label"> Sipariş Notu </label>
+                                        <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
+                                    </div>
 
-                            <label>Açık Adres</label>
-                            <textarea class="form-control  @if($errors->has('province')) is-invalid @endif" cols="30" rows="4" name="address" placeholder="Açık Adresinizi Yazınız..."></textarea>
-                            @if($errors->has('address'))
-                                <div class="invalid-feedback">{{$errors->first('address')}}</div>
-                            @endif
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>İl * </label>
-                                    <input value="{{old('province')}}" type="text" class="form-control  @if($errors->has('province')) is-invalid @endif" name="province"  autocomplete="off">
-                                    @if($errors->has('province'))
-                                        <div class="invalid-feedback">{{$errors->first('province')}}</div>
-                                    @endif
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <label>İlçe * </label>
-                                    <input value="{{old('city')}}" type="text" class="form-control  @if($errors->has('city')) is-invalid @endif" name="city" autocomplete="off">
-                                    @if($errors->has('city'))
-                                        <div class="invalid-feedback">{{$errors->first('city')}}</div>
-                                    @endif
-                                </div>
-
-                            </div>
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                <label class="custom-control-label" for="checkout-create-acc">Hesap Oluştur?</label>
-                            </div>
-
-                            <label>Sipariş Notunuz</label>
-                            <textarea class="form-control" cols="30" name="note" rows="4" placeholder="Varsa sipariş ile ilgili notunuz"></textarea>
-                        </div>
-                        <aside class="col-lg-3 mt-3">
-                            <div class="summary">
-                                <h3 class="summary-title">Sepetiniz</h3>
-
-                                <table class="table table-summary">
-                                    <thead>
-                                    <tr>
-                                        <th>Ürün Adı</th>
-                                        <th>Toplam</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    @foreach(Cart::instance('shopping')->content() as $cart)
-                                    <tr>
-                                        <td>   <a href="{{ route('urun', $cart->options->url) }}">{{ $cart->name }} X {{ $cart->qty }}</a></td>
-                                        <td>{{ money($cart->qty * $cart->price)}}₺</td>
-                                    </tr>
-                                    @endforeach
-
-                                    <tr class="summary-subtotal">
-                                        <td>Ara Toplam:</td>
-                                        <td>{{ money(Cart::instance('shopping')->subtotal()) }}₺</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kargo Ücreti:</td>
-                                        <td>{{ cargo(Cart::instance('shopping')->total()) }}</td>
-                                    </tr>
-                                    <tr class="summary-total">
-                                        <td>Total:</td>
-                                        <td>{{cargoToplam(Cart::instance('shopping')->total())}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                                <div class="accordion-summary" id="accordion-payment">
-                                    <div class="card">
-                                        <div class="card-header" id="heading-1">
-                                            <h2 class="card-title">
-                                                <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                                    Kredi Kartı İle Ödeme
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
-                                            <div class="card-body">
-                                                Ödemelerinizi IYZICO ödeme alt yapısı ile güvenli bir şekilde yapabilirsiniz.
-                                            </div>
-                                        </div>
+                                    <div class="form-group place-order">
+                                        <button type="submit" class="btn btn-dark btn-block btn-rounded">SİPARİŞİ TAMAMLA</button>
                                     </div>
 
                                 </div>
-
-                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-                                    <span class="btn-text">Ödeme Yap</span>
-                                    <span class="btn-hover-text">Ödeme Yap</span>
-                                </button>
                             </div>
-                        </aside>
+                        </div>
+                        <div class="col-lg-5 mb-4 sticky-sidebar-wrapper">
+                            <div class="order-summary-wrapper sticky-sidebar">
+                                <h3 class="title text-uppercase ls-10">SİPARİŞ SEPETİNİZ  </h3>
+                                <div class="order-summary">
+                                    <table class="order-table">
+                                        <thead>
+
+                                        <tr>
+                                            <th colspan="2">
+                                                <b>Ürün</b>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach(Cart::instance('shopping')->content() as $cart)
+                                        <tr class="bb-no">
+                                            <td class="product-name">{{ $cart->name }} <i
+                                                    class="fas fa-times"></i> <span
+                                                    class="product-quantity">{{ $cart->qty }}</span></td>
+                                            <td class="product-total">{{ $cart->price }}</td>
+                                        </tr>
+                                        @endforeach
+
+                                        <tr class="cart-subtotal bb-no">
+                                            <td>
+                                                <b>Ara Toplam</b>
+                                            </td>
+                                            <td>
+                                                <b>{{ money(Cart::instance('shopping')->subtotal()) }}₺</b>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+                                        <tr class="cart-subtotal bb-no">
+                                            <td>
+                                                <b>Kargo Ücreti</b>
+                                            </td>
+                                            <td>
+                                                <b>{{ cargo(Cart::instance('shopping')->total()) }}</b>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr class="order-total">
+                                            <th>
+                                                <b>Toplam</b>
+                                            </th>
+                                            <td>
+                                                <b>{{cargoToplam(Cart::instance('shopping')->total())}}₺</b>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

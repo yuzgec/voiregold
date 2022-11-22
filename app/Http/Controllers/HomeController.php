@@ -28,6 +28,15 @@ class HomeController extends Controller
 
     public function index()
     {
+
+        SEOTools::setTitle(config('app.name').' | Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::jsonLd()->addImage('/frontend/images/'.config('app.tema'));
+
+
         $Slider = Slider::with('getProduct')->where('status', 1)->get();
         return view(config('app.tema').'/frontend.index', compact('Slider'));
     }
@@ -85,7 +94,6 @@ class HomeController extends Controller
         }
         return view(config('app.tema').'/frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
     }
-
     public function kategori($url){
         $Detay = ProductCategory::where('id', \request('id'))->select('id','title','slug')->first();
         SEOTools::setTitle($Detay->title.' | Türkiye’nin online takı ve aksesuar satış sitesi');
@@ -121,9 +129,6 @@ class HomeController extends Controller
             ->orderBy('products.sku','asc')
             ->paginate(100);
 
-        //dd($ProductList);
-
-
         return view(config('app.tema').'/frontend.category.index', compact('Detay', 'ProductList'));
     }
     public function sepet(){
@@ -139,10 +144,8 @@ class HomeController extends Controller
         return view(config('app.tema').'/frontend.shop.sepet',compact('Province'));
     }
     public function siparis(){
-        if (Cart::instance('shopping')->content()->count() === 0){
-            return redirect()->route('home');
-        }
-        return view(config('app.tema').'/frontend.shop.siparis');
+        $Province = DB::table('sehir')->get();
+        return view(config('app.tema').'/frontend.shop.siparis',compact('Province'));
     }
     public function kaydet(OrderRequest $request){
 
@@ -266,32 +269,45 @@ class HomeController extends Controller
 
             $Stock = DB::table('campagin_stock')->decrement('stock');
             $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 30)->update(['stock' => 299]);
-
             Cart::instance('shopping')->destroy();
 
         });
 
         return redirect()->route('sonuc',['no'=>$Cart_Id]);
     }
+    public function sonuc()
+    {
+        SEOTools::setTitle(config('app.name').' | Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::jsonLd()->addImage('/frontend/images/'.config('app.tema'));
 
-    public function sonuc(){
-        return view(config('app.tema').'/frontend.shop.sonuc');
+        $Summary  = Order::where('cart_id',request('no') )->get();
+        $Customer = ShopCart::where('cart_id',request('no'))->firstOrFail();
+
+        return view(config('app.tema').'/frontend.shop.sonuc', compact('Customer', 'Summary'));
     }
     public function cartdelete($rowId){
         Cart::instance('shopping')->remove($rowId);
-        toast(SWEETALERT_MESSAGE_DELETE,'success');
+        alert()->info('Sepetinizdeki ürün çıkarıldı', 'Başarıyla '.SWEETALERT_MESSAGE_DELETE);
         return redirect()->route('sepet');
     }
     public function cartdestroy(){
         Cart::instance('shopping')->destroy();
-
-        toast(SWEETALERT_MESSAGE_DELETE,'success');
+        alert()->info('Sepetinizdeki tüm ürünler çıkarıldı', 'Başarıyla '.SWEETALERT_MESSAGE_DELETE);
         return redirect()->route('home');
     }
     public function search(SearchRequest $request){
 
-        SEOTools::setTitle($request->q." ile ilgili arama sonuçları | Kuatek Berber ve Kuaför Ürünleri");
-        SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::setTitle($request->q." ile ilgili arama sonuçları | ".config('app.name'));
+        SEOTools::setDescription(config('app.name').' Türkiye’nin online takı ve aksesuar satış sitesi');
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::jsonLd()->addImage('/frontend/images/'.config('app.tema'));
+
         $search = $request->q;
         $Result  = Product::where('title','like','%'.$search.'%')
             ->orWhere('slug','like','%'.$search.'%')
@@ -304,7 +320,6 @@ class HomeController extends Controller
     }
     public function addtocart(Request $request)
     {
-        //dd($request->all());
 
         $p = Product::find($request->id);
         Basket::create(['product_id' => $p->id, 'basket_name' => 'Sepet']);
@@ -329,7 +344,6 @@ class HomeController extends Controller
 
         return redirect()->route('sepet');
     }
-
     public function hizlisatinal(Request $request){
 
         Cart::instance('shopping')->destroy();
@@ -359,7 +373,7 @@ class HomeController extends Controller
     public function favoriekle(Request $request){
         $p = Product::find($request->id);
         $New = Favorite::updateOrCreate(['user_id' => auth()->user()->id, 'product_id' => $p->id]);
-        toast(SWEETALERT_MESSAGE_CREATE,'success');
+        alert()->success($p->title.' favorilerinize eklendi', 'Başarıyla '.SWEETALERT_MESSAGE_CREATE);
         return redirect()->route('favori');
     }
     public function favori(){
@@ -377,7 +391,6 @@ class HomeController extends Controller
         return redirect()->route('favori');
 
     }
-
     public function mailsubcribes(MailRequest $request){
         MailSubcribes::create(['email_address' => $request->email, 'ip_address' => $request->ip()]);
         toast('Email Adresiz Bülten Listesine Eklendi','success');
@@ -399,7 +412,7 @@ class HomeController extends Controller
     public function iletisim(){
 
         SEOTools::setTitle("İletişim | ". config('app.name'));
-        SEOTools::setDescription('Kuatek İletişim Sayfası');
+        SEOTools::setDescription(config('app.name').' | İletişim Sayfası');
 
         return view(config('app.tema').'/frontend.page.contactus');
     }

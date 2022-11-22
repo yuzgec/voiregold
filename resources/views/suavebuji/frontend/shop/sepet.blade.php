@@ -1,9 +1,9 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
-    <div class="page-content" style="margin-top:50px">
+    <div class="page-content" style="margin-top:20px">
         <div class="container">
             <div class="row gutter-lg mb-10">
-                <div class="col-lg-8 pr-lg-4 mb-6">
+                <div class="col-lg-12 pr-lg-4 mb-6">
                     <table class="shop-table cart-table">
                         <thead>
                         <tr>
@@ -46,9 +46,20 @@
                         </tbody>
                     </table>
 
-                    <div class="cart-action mb-6 mt-2">
-                        <a href="#" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Devam Et</a>
-                        <button type="submit" class="btn btn-rounded btn-default btn-clear" name="clear_cart" value="Clear Cart">Sepeti Boşalt</button>
+                    <div class="cart-action mb-6 mt-2 d-flex justify-content-between">
+                       <div>
+                           <form action="{{ route('sepetbosalt') }}" method="POST">
+                               @csrf
+                               <button type="submit" class="btn btn-rounded btn-default btn-clear" name="clear_cart" value="Sepeti Boşalt">
+                                   Sepeti Boşalt
+                               </button>
+                           </form>
+
+                       </div>
+
+                        <div class="">
+                            <a href="{{  route('siparis') }}" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-right"></i>Siparişi Tamamla</a>
+                        </div>
                     </div>
 
                     <form class="coupon mt-2">
@@ -58,8 +69,8 @@
                     </form>
                 </div>
 
-                <div class="col-lg-4 sticky-sidebar-wrapper p-2"
-                     style="background: #e1e1e1;padding: 10px;border:2px solid black;border-radius: 5px;box-shadow: 5px 3px 5px gray">
+               {{-- <div class="col-lg-4 sticky-sidebar-wrapper p-2"
+                     style="padding: 10px;border:2px solid black;border-radius: 5px;box-shadow: 5px 3px 5px gray">
                     <div class="sticky-sidebar">
                         <div class="cart-summary mb-4">
                             <h3 class="cart-title text-uppercase">Sipariş Toplamı</h3>
@@ -165,7 +176,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>

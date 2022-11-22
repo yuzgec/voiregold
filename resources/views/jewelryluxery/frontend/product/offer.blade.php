@@ -92,10 +92,6 @@
 
                             <hr class="product-divider">
 
-
-
-
-
                             <div class="product-price">
                                 <ins class="new-price">@convert($Detay->price)₺</ins>
                                 <del>@convert($Detay->old_price)₺</del>
