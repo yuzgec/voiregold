@@ -150,7 +150,7 @@ class HomeController extends Controller
     public function kaydet(OrderRequest $request){
 
         $p = Product::find($request->id);
-        if ($request->external){
+        if ($request->kampanya == 1){
 
             Cart::instance('shopping')->destroy();
 
