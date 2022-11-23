@@ -75,10 +75,6 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group mt-1"><label class="form-label"> Sipariş Notu </label>
-                                        <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
-                                    </div>
-
                                     <div class="form-group place-order">
                                         <button type="submit" class="btn btn-dark btn-block btn-rounded">SİPARİŞİ TAMAMLA</button>
                                     </div>
