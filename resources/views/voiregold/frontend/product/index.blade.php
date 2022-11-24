@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include(config('app.tema').'/frontend.layout.slogan')
 
     <div class="page-content" style="margin-top:20px">
             <div class="container">
@@ -28,8 +27,8 @@
                                                 @endif
                                                     <figure class="product-image product-image-full">
 
-                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
-                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
+                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                          alt="{{ $Detay->title }}">
                                                 </figure>
                                             </div>
@@ -37,7 +36,7 @@
                                                 <div class="swiper-slide ">
                                                     <figure class="product-image product-image-full">
                                                         <img src="{{ $item->getUrl('img') }}"
-                                                             data-zoom-image="{{ $item->getUrl('img') }}"
+                                                             data-zoom-image="{{ $item->getUrl('imgpng') }}"
                                                              alt="{{ $Detay->title }}">
                                                     </figure>
                                                 </div>
@@ -102,15 +101,18 @@
                                         <span class="tip tip-hot" style="font-size: 16px">%{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim</span>
                                     </div>
 
+                                    <div>
+                                        <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
+                                            <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
+                                    </div>
+
                                     <div class="product-short-desc lh-2 short">
                                         {!! $Detay->short !!}
                                     </div>
 
                                     <hr class="product-divider">
-
                                     @if($Detay->option4 != 1)
-
-                                    <form action="{{ route('sepeteekle') }}" method="POST">
+                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $Detay->id }}">
                                         <div class="fix-bottom product-sticky-content sticky-content">
@@ -123,7 +125,7 @@
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary"  type="submit">
+                                                <button class="btn gold text-white"  type="submit">
                                                     <i class="w-icon-cart"></i>
                                                     <span> Sepete Ekle</span>
                                                 </button>
@@ -140,7 +142,7 @@
                                                 <span class="ratings " style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top "></span>
                                             </div>
-                                            <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
+                                            <a href="#product-tab-reviews" class="rating-reviews"><i class="w-icon-comments"></i> Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                         </div>
 
                                         <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
@@ -262,8 +264,9 @@
                             </div>
                         </div>
                     </aside>
-                    <!-- End of Sidebar -->
+
                 </div>
+
 
                 <section class="related-product-section">
                     <div class="product-wrapper row cols-md-4 cols-sm-2 cols-2">
@@ -274,6 +277,7 @@
                         @endforeach
                     </div>
                 </section>
+
             </div>
         </div>
 

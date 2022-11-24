@@ -24,7 +24,7 @@
                                     'slidesPerView': 3
                                 },
                                 '992': {
-                                    'slidesPerView': 4
+                                    'slidesPerView': 3
                                 }
                             }
                         }">
@@ -54,15 +54,6 @@
                             <div class="icon-box-content">
                                 <h4 class="icon-box-title">Adres</h4>
                                 <p>{{ config('settings.adres1') }}</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box text-center icon-box-primary">
-                                    <span class="icon-box-icon icon-fax">
-                                        <i class="w-icon-fax"></i>
-                                    </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Fax</h4>
-                                <p>1-800-570-7777</p>
                             </div>
                         </div>
                     </div>

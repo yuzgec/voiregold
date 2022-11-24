@@ -12,4 +12,5 @@
             </div>
             <div class="mb-5"></div>
         </div>
+    </div>
 @endsection

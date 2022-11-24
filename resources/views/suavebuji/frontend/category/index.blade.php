@@ -4,6 +4,18 @@
 
     <div class="page-content mb-10 mt-5">
         <div class="container">
+
+{{--            <div class="shop-default-banner shop-boxed-banner banner d-flex align-items-center mb-6 br-xs"
+                 style="background-image: url(/frontend/images/shop/banner1.jpg); background-color: #FFC74E;">
+                <div class="banner-content">
+                    <h4 class="banner-subtitle font-weight-bold">Voire Gold</h4>
+                    <h3 class="banner-title text-white text-uppercase font-weight-bolder ls-10">{{ $Detay->title }}</h3>
+                    <a href="shop-banner-sidebar.html"
+                       class="btn btn-dark btn-rounded btn-icon-right">Discover Now<i
+                            class="w-icon-long-arrow-right"></i></a>
+                </div>
+            </div>--}}
+
             <div class="shop-content row gutter-lg">
                 <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                     <div class="sidebar-overlay"></div>
@@ -20,16 +32,7 @@
 
 
                 <div class="main-content">
-                    <div class="shop-default-banner shop-boxed-banner banner d-flex align-items-center mb-6 br-xs"
-                         style="background-image: url(/frontend/images/shop/banner1.jpg); background-color: #FFC74E;">
-                        <div class="banner-content">
-                            <h4 class="banner-subtitle font-weight-bold">Voire Gold</h4>
-                            <h3 class="banner-title text-white text-uppercase font-weight-bolder ls-10">{{ $Detay->title }}</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-dark btn-rounded btn-icon-right">Discover Now<i
-                                    class="w-icon-long-arrow-right"></i></a>
-                        </div>
-                    </div>
+
 
                     <nav class="toolbox sticky-toolbox sticky-content fix-top">
                         <div class="toolbox-left">

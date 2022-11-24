@@ -1,16 +1,9 @@
 @extends(config('app.tema').'/frontend.layout.app')
-
 @section('content')
-
-    @include(config('app.tema').'/frontend.layout.slogan')
-
-
     <div class="page-content" style="margin-top:20px">
         <div class="container">
             <div class="row">
-
                 <div class="product product-single row">
-
                     <div class="col-md-4 mb-6">
                         <div class="product-gallery product-gallery-sticky product-gallery-video">
                             <div class="swiper-container product-single-swiper swiper-theme nav-inner" data-swiper-options="{
@@ -22,28 +15,29 @@
                                 <div class="swiper-wrapper row cols-1 gutter-no">
 
                                     <div class="swiper-slide">
-                                        <figure class="product-image">
-                                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
-                                                 data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
+                                        <figure class="product-image product-image-full">
+                                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                                 data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                  alt="{{ $Detay->title }}">
                                         </figure>
                                     </div>
                                     @foreach($Detay->getMedia('gallery') as $item)
                                         <div class="swiper-slide">
-                                            <figure class="product-image">
-                                                <img src="{{ $item->getUrl('img') }}"
-                                                     data-zoom-image="{{ $item->getUrl('img') }}"
+                                            <figure class="product-image product-image-full">
+                                                <img src="{{ $item->getUrl('imgpng') }}"
+                                                     data-zoom-image="{{ $item->getUrl('imgpng') }}"
                                                      alt="{{ $Detay->title }}">
                                             </figure>
                                         </div>
                                     @endforeach
                                 </div>
-                                <button class="swiper-button-next"></button>
-                                <button class="swiper-button-prev"></button>
+
                                 <a href="#" class="product-gallery-btn product-image-full">
                                     <i class="w-icon-zoom"></i>
                                 </a>
+{{--
                                 <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+--}}
                             </div>
                             <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {
@@ -100,12 +94,9 @@
                                 </span>
                             </div>
 
-                            <div class="ratings-container">
-                                <div class="ratings-full">
-                                    <span class="ratings " style="width: 100%;"></span>
-                                    <span class="tooltiptext tooltip-top "></span>
-                                </div>
-                                <a href="#product-tab-reviews" class="rating-reviews">(3 Yorum)</a>
+                            <div>
+                                <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
+                                <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
                             </div>
 
                             <div class="product-short-desc lh-2 short">
@@ -119,7 +110,7 @@
                                         <span class="ratings " style="width: 100%;"></span>
                                         <span class="tooltiptext tooltip-top "></span>
                                     </div>
-                                    <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
+                                    <a href="#product-tab-reviews" class="rating-reviews"><i class="w-icon-comments"></i> Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                 </div>
 
                                 <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
@@ -237,12 +228,8 @@
                                                     @endif
                                                 </div>
 
-                                                <div class="form-group mt-1"><label class="form-label"> Sipariş Notu </label>
-                                                    <textarea class="form-control p-5" rows="2" name="note" placeholder="Açık Adresinizi Yazınız">{{old('note')}}</textarea>
-                                                </div>
-
                                                 <div class="form-group place-order">
-                                                    <button type="submit" class="btn btn-dark btn-block btn-rounded">
+                                                    <button type="submit" class="btn gold btn-block btn-rounded text-white">
                                                         {{ ($Detay->offer == 1) ? 'KAMPANYAYA KATIL' : 'SİPARİŞİ TAMAMLA' }}
                                                     </button>
                                                 </div>
@@ -281,297 +268,19 @@
                     </div>
                 </div>
 
-                <section class="vendor-product-section">
-                    <div class="title-link-wrapper mb-4">
-                        <h4 class="title text-left">More Products From This Vendor</h4>
-                        <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
-                            Products<i class="w-icon-long-arrow-right"></i></a>
-                    </div>
-                    <div class="swiper-container swiper-theme" data-swiper-options="{
-                            'spaceBetween': 20,
-                            'slidesPerView': 2,
-                            'breakpoints': {
-                                '576': {
-                                    'slidesPerView': 3
-                                },
-                                '768': {
-                                    'slidesPerView': 4
-                                },
-                                '992': {
-                                    'slidesPerView': 4
-                                }
-                            }
-                        }">
-                        <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/1-1.jpg" alt="Product"
-                                             width="300" height="338" />
-                                        <img src="/frontend/images/products/default/1-2.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                    </div>
-                                    <h4 class="product-name"><a href="product-default.html">Sticky Pencil</a>
-                                    </h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">$20.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/2.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h4 class="product-name"><a href="product-default.html">Mini
-                                            Multi-Functional Cooker</a></h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 80%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">
-                                            <ins class="new-price">$480.00</ins><del
-                                                class="old-price">$534.00</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/3.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Sports</a></div>
-                                    <h4 class="product-name"><a href="product-default.html">Skate Pan</a></h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">
-                                            <ins class="new-price">$278.00</ins><del
-                                                class="old-price">$310.00</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/4-1.jpg" alt="Product"
-                                             width="300" height="338" />
-                                        <img src="/frontend/images/products/default/4-2.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                    </div>
-                                    <h4 class="product-name"><a href="product-default.html">Clip Attachment</a>
-                                    </h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">$40.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 <section class="related-product-section">
-                    <div class="title-link-wrapper mb-4">
-                        <h4 class="title">Related Products</h4>
-                        <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
-                            Products<i class="w-icon-long-arrow-right"></i></a>
-                    </div>
-                    <div class="swiper-container swiper-theme" data-swiper-options="{
-                            'spaceBetween': 20,
-                            'slidesPerView': 2,
-                            'breakpoints': {
-                                '576': {
-                                    'slidesPerView': 3
-                                },
-                                '768': {
-                                    'slidesPerView': 4
-                                },
-                                '992': {
-                                    'slidesPerView': 4
-                                }
-                            }
-                        }">
-                        <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/5.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <h4 class="product-name"><a href="product-default.html">Drone</a></h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">$632.00</div>
-                                    </div>
-                                </div>
+                    <div class="product-wrapper row cols-md-4 cols-sm-2 cols-2">
+                        @foreach($Productssss->take(30) as $item)
+                            <div class="product-wrap">
+                                <x-shop.product-item :item="$item"/>
                             </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/6.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <h4 class="product-name"><a href="product-default.html">Official Camera</a>
-                                    </h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">
-                                            <ins class="new-price">$263.00</ins><del
-                                                class="old-price">$300.00</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/7-1.jpg" alt="Product"
-                                             width="300" height="338" />
-                                        <img src="/frontend/images/products/default/7-2.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <h4 class="product-name"><a href="product-default.html">Phone Charge Pad</a>
-                                    </h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 80%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(8 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">$23.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide product">
-                                <figure class="product-media">
-                                    <a href="product-default.html">
-                                        <img src="/frontend/images/products/default/8.jpg" alt="Product"
-                                             width="300" height="338" />
-                                    </a>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                            View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <h4 class="product-name"><a href="product-default.html">Fashionalble
-                                            Pencil</a></h4>
-                                    <div class="ratings-container">
-                                        <div class="ratings-full">
-                                            <span class="ratings" style="width: 100%;"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" class="rating-reviews">(9 reviews)</a>
-                                    </div>
-                                    <div class="product-pa-wrapper">
-                                        <div class="product-price">$50.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </section>
 
             </div>
         </div>
     </div>
-
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap" >
@@ -601,13 +310,10 @@
         </div>
     </div>
 @endsection
-
 @section('customJS')
     <script>
-    </script><script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })
-    </script>
     </script>
 @endsection

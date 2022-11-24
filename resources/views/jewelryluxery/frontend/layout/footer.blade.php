@@ -10,7 +10,7 @@
                             <i class="w-icon-envelop3"></i>
                         </div>
                         <div class="icon-box-content">
-                            <h4 class="icon-box-title text-white text-uppercase font-weight-bold">{{ config('app.name') }} Abone Bülteni</h4>
+                            <h4 class="icon-box-title text-white text-uppercase font-weight-bold">{{ config('app.tema') }} Abone Bülteni</h4>
                             <p class="text-white">Kampanya ve yeni gelen ürünlerimizden ilk siz haberdar olun
                             </p>
                         </div>
@@ -37,13 +37,12 @@
             <div class="row">
                 <div class="col-lg-12 col-12 text-center">
                     <div class="widget widget-about">
-                            <img src="/frontend/images/{{ config('app.tema') }}/logo_footer.png" alt="{{ config('app.name') }}" width="250"  />
-                        <div class="widget-body">
-                            <a href="tel:18005707777" class="widget-about-call">{{ config('settings.telefon1') }}</a>
-                        </div>
+                            <img src="/frontend/images/{{ config('app.tema') }}/logo_footer.png" alt="{{ config('app.name') }}" width="250"/>
+                            <div class="widget-body">
+                                <a href="tel:{{ config('settings.telefon1') }}" class="widget-about-call">{{ config('settings.telefon1') }}</a>
+                            </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

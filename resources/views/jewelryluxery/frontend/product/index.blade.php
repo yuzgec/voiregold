@@ -2,19 +2,12 @@
 
 @section('content')
 
-    @include(config('app.tema').'/frontend.layout.slogan')
 
     <div class="page-content" style="margin-top:20px">
             <div class="container">
                 <div class="row gutter-lg">
                     <div class="main-content">
                         <div class="product product-single row">
-
-                        {{--    <div class="alert alert-success alert-cart-product mb-2">
-                                <a href="{{ route('sepet') }}" class="btn btn-success btn-rounded">Sepetim</a>
-                                <p class="mb-0 ls-normal"> {{ $Detay->title }} adlı ürün sepetinize eklendi</p>
-                                <a href="#" class="btn btn-link btn-close" aria-label="button"><i class="close-icon"></i></a>
-                            </div>--}}
 
                             <div class="col-md-6 mb-6">
                                 <div class="product-gallery product-gallery-sticky product-gallery-video">
@@ -27,28 +20,33 @@
                                         <div class="swiper-wrapper row cols-1 gutter-no">
 
                                             <div class="swiper-slide">
-                                                <figure class="product-image">
-                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'img')}}"
-                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'img')}}"
+                                                @if($Detay->option4 == 1)
+                                                    <div class="product-label-group">
+                                                        <label class="product-label label-discount">STOKTA YOK</label>
+                                                    </div>
+                                                @endif
+                                                    <figure class="product-image product-image-full">
+
+                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                                         data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                          alt="{{ $Detay->title }}">
                                                 </figure>
                                             </div>
                                             @foreach($Detay->getMedia('gallery') as $item)
-                                                <div class="swiper-slide">
-                                                    <figure class="product-image">
+                                                <div class="swiper-slide ">
+                                                    <figure class="product-image product-image-full">
                                                         <img src="{{ $item->getUrl('img') }}"
-                                                             data-zoom-image="{{ $item->getUrl('img') }}"
+                                                             data-zoom-image="{{ $item->getUrl('imgpng') }}"
                                                              alt="{{ $Detay->title }}">
                                                     </figure>
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <button class="swiper-button-next"></button>
-                                        <button class="swiper-button-prev"></button>
-                                        <a href="#" class="product-gallery-btn product-image-full">
-                                            <i class="w-icon-zoom"></i>
-                                        </a>
+
+
+                                        @if ($Detay->getFirstMediaUrl('video')) )
                                         <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+                                        @endif
                                     </div>
                                     <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {
@@ -103,14 +101,18 @@
                                         <span class="tip tip-hot" style="font-size: 16px">%{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim</span>
                                     </div>
 
+                                    <div>
+                                        <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
+                                            <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
+                                    </div>
+
                                     <div class="product-short-desc lh-2 short">
                                         {!! $Detay->short !!}
                                     </div>
 
                                     <hr class="product-divider">
-
-
-                                    <form action="{{ route('sepeteekle') }}" method="POST">
+                                    @if($Detay->option4 != 1)
+                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $Detay->id }}">
                                         <div class="fix-bottom product-sticky-content sticky-content">
@@ -123,7 +125,7 @@
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary"  type="submit">
+                                                <button class="btn gold text-white"  type="submit">
                                                     <i class="w-icon-cart"></i>
                                                     <span> Sepete Ekle</span>
                                                 </button>
@@ -131,7 +133,7 @@
                                         </div>
 
                                     </form>
-
+                                    @endif
 
                                     @if($Detay->get_comment_count > 0)
                                         <hr class="product-divider">
@@ -140,7 +142,7 @@
                                                 <span class="ratings " style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top "></span>
                                             </div>
-                                            <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
+                                            <a href="#product-tab-reviews" class="rating-reviews"><i class="w-icon-comments"></i> Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                         </div>
 
                                         <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
@@ -262,8 +264,20 @@
                             </div>
                         </div>
                     </aside>
-                    <!-- End of Sidebar -->
+
                 </div>
+
+
+                <section class="related-product-section">
+                    <div class="product-wrapper row cols-md-4 cols-sm-2 cols-2">
+                        @foreach($Productssss->take(30) as $item)
+                            <div class="product-wrap">
+                                <x-shop.product-item :item="$item"/>
+                            </div>
+                        @endforeach
+                    </div>
+                </section>
+
             </div>
         </div>
 

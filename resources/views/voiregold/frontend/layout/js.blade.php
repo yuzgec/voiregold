@@ -3,7 +3,7 @@
         <i class="w-icon-home"></i>
         <p>Anasayfa</p>
     </a>
-    <a href="{{ route('home').'kategori/bileklikler?id=1' }}" class="sticky-link">
+    <a href="{{ route('home').'/kategori/bileklikler?id=1' }}" class="sticky-link">
         <i class="w-icon-category"></i>
         <p>Kategoriler</p>
     </a>
