@@ -101,6 +101,11 @@
                                         <span class="tip tip-hot" style="font-size: 16px">%{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim</span>
                                     </div>
 
+                                    <div>
+                                        <p><i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
+                                            <i class="w-icon-truck mr-1"></i> Aynı gün kargoda<br>
+                                    </div>
+
                                     <div class="product-short-desc lh-2 short">
                                         {!! $Detay->short !!}
                                     </div>

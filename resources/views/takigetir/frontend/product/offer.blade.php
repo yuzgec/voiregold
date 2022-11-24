@@ -99,7 +99,6 @@
                                 <i class="w-icon-truck mr-1"></i> Aynı gün kargoda<br>
                             </div>
 
-
                             <div class="product-short-desc lh-2 short">
                                 {!! $Detay->short !!}
                             </div>
