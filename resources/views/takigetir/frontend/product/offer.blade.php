@@ -94,13 +94,11 @@
                                 </span>
                             </div>
 
-                            <div class="ratings-container">
-                                <div class="ratings-full">
-                                    <span class="ratings " style="width: 100%;"></span>
-                                    <span class="tooltiptext tooltip-top "></span>
-                                </div>
-                                <a href="#product-tab-reviews" class="rating-reviews">(3 Yorum)</a>
+                            <div>
+                                <p><i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
+                                <i class="w-icon-truck mr-1"></i> Aynı gün kargoda<br>
                             </div>
+
 
                             <div class="product-short-desc lh-2 short">
                                 {!! $Detay->short !!}
@@ -232,7 +230,7 @@
                                                 </div>
 
                                                 <div class="form-group place-order">
-                                                    <button type="submit" class="btn btn-dark btn-block btn-rounded">
+                                                    <button type="submit" class="btn gold btn-block btn-rounded text-white">
                                                         {{ ($Detay->offer == 1) ? 'KAMPANYAYA KATIL' : 'SİPARİŞİ TAMAMLA' }}
                                                     </button>
                                                 </div>
