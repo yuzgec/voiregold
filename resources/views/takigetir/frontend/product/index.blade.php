@@ -111,10 +111,8 @@
                                     </div>
 
                                     <hr class="product-divider">
-
                                     @if($Detay->option4 != 1)
-
-                                    <form action="{{ route('sepeteekle') }}" method="POST">
+                                     <form action="{{ route('sepeteekle') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $Detay->id }}">
                                         <div class="fix-bottom product-sticky-content sticky-content">
