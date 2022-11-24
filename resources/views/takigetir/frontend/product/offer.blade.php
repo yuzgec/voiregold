@@ -95,8 +95,8 @@
                             </div>
 
                             <div>
-                                <p><i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
-                                <i class="w-icon-truck mr-1"></i> Aynı gün kargoda<br>
+                                <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
+                                <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
                             </div>
 
                             <div class="product-short-desc lh-2 short">
@@ -110,7 +110,7 @@
                                         <span class="ratings " style="width: 100%;"></span>
                                         <span class="tooltiptext tooltip-top "></span>
                                     </div>
-                                    <a href="#product-tab-reviews" class="rating-reviews">Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
+                                    <a href="#product-tab-reviews" class="rating-reviews"><i class="w-icon-comments"></i> Ürün Yorumları - ({{ $Detay->get_comment_count }} Yorum)</a>
                                 </div>
 
                                 <div class="swiper-container shadow-swiper swiper-theme show-code-action" data-swiper-options="{
