@@ -93,7 +93,9 @@
                                     %{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim
                                 </span>
                             </div>
-
+                            <div class="alert alert-error">
+                                <span class="">Son <b>({{ $Stock->stock }})</b> adet kaldı.</span>
+                            </div>
                             <div>
                                 <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
                                 <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>

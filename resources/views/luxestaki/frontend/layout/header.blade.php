@@ -1,15 +1,11 @@
 <header class="header">
-
     <div class="header-middle">
         <div class="container">
             <div class="header-left mr-md-4">
-                <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
-                </a>
-
+                <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle"></a>
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
                     <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
-
                 <form action="{{ route('search') }}" method="GET"
                       class="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
                     <div class="select-box">

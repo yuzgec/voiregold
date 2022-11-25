@@ -36,7 +36,6 @@ class HomeController extends Controller
         SEOTools::opengraph()->addProperty('type', 'product');
         SEOTools::jsonLd()->addImage('/frontend/images/'.config('app.tema'));
 
-
         $Slider = Slider::with('getProduct')->where('status', 1)->get();
         return view(config('app.tema').'/frontend.index', compact('Slider'));
     }
@@ -90,7 +89,8 @@ class HomeController extends Controller
                 ]
             ]);
         if($Detay->offer == 1){
-            return view(config('app.tema').'/frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
+            $Stock = DB::table('campagin_stock')->where('product_id', 1)->first();
+            return view(config('app.tema').'/frontend.product.offer', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province','Stock'));
         }
         return view(config('app.tema').'/frontend.product.index', compact('Detay','Count', 'Productssss', 'Pivot', 'Category', 'Province'));
     }
@@ -268,7 +268,7 @@ class HomeController extends Controller
             curl_close($curl);
 
             $Stock = DB::table('campagin_stock')->decrement('stock');
-            $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 30)->update(['stock' => 299]);
+            $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 10)->update(['stock' => 30]);
             Cart::instance('shopping')->destroy();
 
         });

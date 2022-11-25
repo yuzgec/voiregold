@@ -3793,9 +3793,8 @@ blockquote {
 
 .alert {
   position: relative;
-  padding: 1.4rem 3.5rem 1.4rem 2rem;
-  font-size: 1.4rem;
-  font-family: Poppins, sans-serif;
+  padding: 1rem 3.5rem 1rem 2rem;
+  font-size: 1.8rem;
   line-height: 1.75;
   border: 1px solid;
   letter-spacing: -0.003em;
@@ -3892,8 +3891,9 @@ blockquote {
 }
 
 .alert-error {
-  border-color: #f7e5e5;
-  color: #6d1a17;
+    background-color: red;
+  border-color: #f4f4f4;
+  color: white;
 }
 .alert-error.alert-bg {
   background-color: #f7e5e5;
