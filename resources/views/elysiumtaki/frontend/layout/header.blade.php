@@ -103,7 +103,7 @@
         <div class="container">
             <div class="inner-wrap">
                 <div class="header-left">
-                    <div class="dropdown category-dropdown gold {{ (request()->segment(1)) ? 'show' : 'show-dropdown' }}" data-visible="true">
+                    <div class="dropdown category-dropdown gold" data-visible="true">
                         <a href="#" class="category-toggle" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="true" data-display="static"
                            title="Browse Categories">
