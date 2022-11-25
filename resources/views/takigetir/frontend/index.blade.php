@@ -65,7 +65,7 @@
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
                         <figure  style="border:2px solid #1B1612;" >
-                            <img src="/kapidaodeme.jpg" />
+                            <img src="/kapidaodeme.jpg" alt="{{config('app.name')}}"/>
                         </figure>
                         <div class="banner-content content-bottom">
 
@@ -75,7 +75,7 @@
                 <div class="col-md-12 col-sm-6 mb-4">
                     <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
                         <figure  style="border:2px solid #1B1612;" >
-                            <img src="/kargo.jpg" />
+                            <img src="/kargo.jpg" alt="{{config('app.name')}}"/>
                         </figure>
                         <div class="banner-content content-top">
 
@@ -157,15 +157,12 @@
                       <div class="category category-classic category-absolute overlay-zoom br-sm">
                           <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
                               <figure class="category-media">
-                                  <img src="{{ $item->getFirstMediaUrl('page') }}"
-                                       alt="{{ $item->title }}"/>
+                                  <img src="{{ $item->getFirstMediaUrl('page') }}" alt="{{ $item->title }}"/>
                               </figure>
                           </a>
                       </div>
                   </div>
                   @endforeach
-
-
               </div>
               <div class="swiper-pagination"></div>
           </div>
@@ -259,7 +256,7 @@
                                                 </div>
 
                                                 <div class="product-form pt-4">
-                                                    <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary">
+                                                    <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary" title="{{ $item->title }}">
                                                         <i class="w-icon-cart"></i>
                                                         <span>Ürünü İncele</span>
                                                     </a>

@@ -27,7 +27,7 @@
                                                 @endif
                                                     <figure class="product-image product-image-full">
 
-                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                                    <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                          data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                          alt="{{ $Detay->title }}">
                                                 </figure>
@@ -56,7 +56,7 @@
                                 }">
                                         <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
                                             <div class="product-thumb swiper-slide">
-                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'small')}}"
+                                                <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $Detay->getFirstMediaUrl('page', 'small')}}"
                                                      alt="Product Thumb" width="150" height="150">
                                             </div>
                                             @foreach($Detay->getMedia('gallery') as $item)

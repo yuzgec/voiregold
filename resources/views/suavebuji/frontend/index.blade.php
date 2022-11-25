@@ -137,15 +137,14 @@
             <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
                 @foreach($Product_Categories->where('parent_id' , 0) as $item)
                 <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
-                    <a href="demo13-shop.html">
+                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
                         <figure class="category-media">
-                            <img src="assets/images/demos/demo13/category/category-1.jpg" alt="Category"
-                                 width="174" height="200" />
+                            <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
                         </figure>
                     </a>
                     <div class="category-content">
                         <h4 class="category-name">{{ $item->title }}</h4>
-                        <a href="demo13-shop.html" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
+                        <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
                     </div>
                 </div>
                 @endforeach

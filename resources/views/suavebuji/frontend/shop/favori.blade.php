@@ -4,7 +4,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Anasayfa</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Favori Kitaplarım</li>
+                <li class="breadcrumb-item active" aria-current="page">Favori Ürünler</li>
             </ol>
         </div>
     </nav>
@@ -22,7 +22,7 @@
                                 <th>Fiyat</th>
                                 <th>Stok</th>
                                 <th>Sepete Ekle</th>
-                                <th class="float-right">Sİl</th>
+                                <th class="float-right">Sil</th>
                             </tr>
                             </thead>
 
@@ -33,7 +33,7 @@
                                         <div class="product">
                                             <figure class="product-media">
                                                 <a href="{{ route('urun', $item->slug) }}">
-                                                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb') }}" alt="{{ $item->title }}">
+                                                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb') }}" alt="{{ $item->title }}">
                                                 </a>
                                             </figure>
 
