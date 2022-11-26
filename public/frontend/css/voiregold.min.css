@@ -11623,118 +11623,116 @@ aside .sp-sidebar-banner span{
 .category-dropdown .dropdown-box{
     color:#666
 }
-.intro-wrapper{
-    margin:2rem 0 0.9rem 30rem
-}
-.intro-wrapper .category img{
-    height:239px
+.intro-section .btn i{
+    margin-left:0.4rem;
+    font-size:1.8rem
 }
 .intro-wrapper .swiper-pagination{
-    bottom:3.5rem
-}
-.intro-wrapper .swiper-pagination .swiper-pagination-bullet{
-    opacity:0.6
-}
-.intro-wrapper .swiper-pagination .swiper-pagination-bullet-active{
-    opacity:1
+    bottom:2.9rem
 }
 .intro-slide{
-
+    min-height:50rem
 }
 .intro-slide .btn{
-    padding:1.22em 2.45em
+    padding:1.7rem 3.3rem
 }
 .intro-slide1 .banner-content{
-    left:5.8%;
-    padding-top:1.6rem
+    right:8.7%;
+    margin-top:-0.3rem
+}
+.intro-slide1 .banner-subtitle{
+    margin:0 0 1.4rem 0;
+    color:#d2d1d1;
+    font-size:2.1em;
+    line-height:1.2;
+    letter-spacing:0.4px
 }
 .intro-slide1 .banner-title{
-    font-size:3.8em;
-    font-weight:800
+    margin:0 0 1rem 0;
+    font-size:4.5em;
+    line-height:1.07em
 }
-.intro-slide1 p{
-    margin-bottom:3px;
-    font-weight:500;
-    font-size:1.6em
+.intro-slide1 .banner-price-info{
+    font-size:1.6em;
+    margin-bottom:2.7rem
 }
-.intro-slide1 .old-price{
-    padding:0.2rem 1rem 0.1rem;
-    border-radius:0.3rem;
-    margin-bottom:0.7rem;
-    line-height:1.4;
-    font-size:2.4em;
-    font-weight:800
-}
-.intro-slide1 .new-price{
-    font-size:4.2em;
-    font-weight:800
+.intro-slide1 .banner-price-info span{
+    margin-right:0.5rem;
+    letter-spacing:0.2px
 }
 .intro-slide2 .banner-content{
-    left:6.1%;
-    margin-top:-0.2rem
-}
-.intro-slide2 .banner-subtitle{
-    margin-bottom:1px;
-    font-size:1.8em;
-    letter-spacing:0.025em
+    left:8%
 }
 .intro-slide2 .banner-title{
-    margin-bottom:7px;
-    font-size:3.8em
+    font-size:4.2em;
+    line-height:1.07em;
+    margin:0 0 0.3rem -0.2rem
+}
+.intro-slide2 .banner-subtitle{
+    font-size:1.95em;
+    margin-bottom:1.4rem;
+    letter-spacing:0.2px
 }
 .intro-slide2 .banner-price-info{
-    padding:1px 1.3rem 0rem;
-    font-size:2.4em;
-    line-height:1.4;
-    letter-spacing:-0.045em
-}
-.intro-slide2 p{
-    font-size:1.6em
+    font-size:4.2em;
+    line-height:1.17;
+    margin:0 0 3.2rem -0.2rem
 }
 .intro-slide3 .banner-content{
-    left:8.6%;
-    bottom:12%
-}
-.intro-slide3 .banner-subtitle{
-    margin-bottom:0.7rem;
-    font-size:2em
+    left:10%
 }
 .intro-slide3 .banner-title{
-    margin-bottom:0.2rem;
-    font-size:3.6em;
-    font-weight:800
+    margin-bottom:1.9rem;
+    font-size:5.1em;
+    font-weight:800;
+    line-height:0.96em;
+    letter-spacing:-1.8px
 }
-.intro-slide3 .banner-price-info{
-    font-size:2em
+.intro-slide3 .banner-subtitle{
+    margin-bottom:1.2rem;
+    font-size:2.2em
 }
-.intro-slide3 strong{
-    font-weight:800
+.intro-slide3 .divider{
+    margin-bottom:2.3rem;
+    width:6rem;
+    border-top:0.5rem solid #7D7C7D
 }
-.intro-banner figure img{
-    height:20.5rem;
-    min-height:20rem
+.intro-slide3 h5{
+    font-size:1.55rem;
+    line-height:1.2;
+    letter-spacing:0.2px
 }
-.intro-banner .content-bottom{
-    left:9%;
-    bottom:9.3%
+.intro-slide3 .product-identifier{
+    margin-bottom:0.5rem;
+    font-size:1.6rem;
+    letter-spacing:-0.3px
 }
-.intro-banner .content-bottom .banner-subtitle{
-    color:#ccc;
-    font-size:1.4rem
+.intro-slide3 .product-identifier span{
+    letter-spacing:0.6px
 }
-.intro-banner .content-bottom .banner-title{
-    margin-bottom:2.2rem
+.intro-banner{
+    flex:1
 }
-.intro-banner .content-top{
-    top:10.8%;
-    left:9%
+.intro-banner .banner-content{
+    top:2.7rem;
+    left:3rem
 }
-.intro-banner .content-top .banner-price-info{
+.intro-banner img{
+    height:24rem
+}
+.intro-banner .banner-subtitle{
     font-size:1.4rem;
-    line-height:1.4
+    margin-bottom:4px
 }
-.intro-banner .content-top .banner-title{
-    margin-bottom:2.1rem
+.intro-banner .banner-title{
+    font-size:2.6em;
+    margin-bottom:1.9rem
+}
+.intro-banner.intro-banner2 .banner-content{
+    top:12.7rem
+}
+.intro-banner.intro-banner2 .banner-subtitle,.intro-banner.intro-banner2 .btn{
+    margin-left:0.2rem
 }
 .swiper-theme .swiper-pagination .swiper-pagination-bullet-active{
     width:1.8rem;
@@ -12000,26 +11998,35 @@ aside .sp-sidebar-banner span{
 .product-countdown-container .product-countdown,.product-countdown-container label{
     white-space:nowrap
 }
-.category-banner-wrapper img{
-    min-height:18.2rem
+.category-banner-wrapper2{
+    margin-bottom:4.2rem
 }
-.category-banner-wrapper .banner-content{
-    left:7.6%
+.category-banner-wrapper2 .banner .banner-content{
+    left:7.8%
 }
-.category-banner-wrapper .divider{
-    margin-bottom:1.6rem;
-    width:3.5rem;
-    height:3px;
-    opacity:0.7;
-    border:none
+.category-banner-wrapper2 .banner .banner-subtitle{
+    font-size:1.8em;
+    margin:0 0 0 -0.2rem;
+    opacity:0.6;
+    color:black
 }
-.category-banner-wrapper .banner-subtitle{
-    margin-bottom:0.1rem;
-    font-size:1.6em
+.category-banner-wrapper2 .banner .banner-title{
+    font-size:3.6em;
+    margin:0 0 0.8rem -0.3rem
 }
-.category-banner-wrapper .banner-title{
-    margin-bottom:1.2rem;
-    font-size:3em
+.category-banner-wrapper2 .banner .banner-price-info{
+    font-size:2em;
+    margin:0 0 2.4rem -0.2rem;
+    opacity:0.6;
+    color:black
+}
+.category-banner-wrapper2 .banner .btn{
+    padding:1.3rem 2.5rem 1.3rem 2.6rem;
+    opacity:0.8
+}
+.category-banner-wrapper2 .banner-media img{
+    min-height:24rem;
+    object-position:25%
 }
 .title-wrapper .title{
     margin:0 auto 0 0

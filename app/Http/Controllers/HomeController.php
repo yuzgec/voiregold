@@ -28,7 +28,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
         SEOTools::setTitle(config('app.name').' | Türkiye’nin online takı ve aksesuar satış sitesi');
         SEOTools::setDescription('Türkiye’nin online takı ve aksesuar satış sitesi');
         SEOTools::opengraph()->setUrl(url()->current());
@@ -64,11 +63,9 @@ class HomeController extends Controller
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();
 
         $Productssss = Product::with('getCategory')->where('status', 1)
-                ->whereHas('getCategory', function ($query) use ($Detay, $cat)
-                    {
-                    $query->whereIn('category_id',$cat)
-                        ->whereNotIn('product_id',[$Detay->id]);
-                    })
+                ->whereHas('getCategory', function ($query) use ($Detay, $cat){
+                    $query->whereIn('category_id',$cat)->whereNotIn('product_id',[$Detay->id]);
+                })
                 ->orderBy('rank','ASC')
                 ->get();
 
