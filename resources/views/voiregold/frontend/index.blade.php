@@ -100,7 +100,9 @@
             @foreach($Product_Categories as $item)
             <div class="banner banner-1 banner-fixed br-sm mb-4">
                 <figure class="banner-media br-sm">
-                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" alt="Category Banner" class="img-fluid" style="background-color: #31343B;">
+                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
+                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" alt="Category Banner" class="img-fluid" style="background-color: #31343B;">
+                    </a>
                 </figure>
                 <div class="banner-content y-50">
                     <h4 class="banner-subtitle text-dark text-uppercase font-weight-bold">{{ config('app.name') }}</h4>
