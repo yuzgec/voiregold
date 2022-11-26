@@ -35,57 +35,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <!-- End of Intro Slide 1 -->
-                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide2 br-sm"
-                                 style="background-image: url(assets/images/demos/demo12/slides/intro-2.jpg); background-color: #E2E2E0;">
-                                <div class="banner-content y-50">
-                                    <h3 class="banner-subtitle text-capitalize text-default font-secondary font-weight-bold slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.2s'}">
-                                        Special Discount On Sale
-                                    </h3>
-                                    <h2 class="banner-title font-secondary text-dark ls-25 slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        Lotion for Beauties
-                                    </h2>
-                                    <h4 class="banner-price-info font-weight-normal text-dark font-secondary ls-25 slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        Up to
-                                        <span class="text-primary font-weight-bolder">30% OFF</span>
-                                    </h4>
-                                    <a href="demo12-shop.html"
-                                       class="btn btn-outline btn-dark btn-rounded btn-icon-right slide-animate"
-                                       data-animation-options="{'name': 'fadeInUpShorter', 'duration': '.5s', 'delay': '.6s'}">
-                                        Shop Now
-                                        <i class="w-icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End of Intro Slide 2 -->
-                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide3 br-sm"
-                                 style="background-image: url(assets/images/demos/demo12/slides/intro-1.jpg); background-color: #EAEAEA;">
-                                <div class="banner-content y-50">
-                                    <h3 class="banner-subtitle text-uppercase text-primary font-secondary font-weight-bold slide-animate"
-                                        data-animation-options="{'name': 'fadeInDownShorter', 'duration': '.5s', 'delay': '.2s'}">
-                                        From Online Store
-                                    </h3>
-                                    <h2 class="banner-title font-secondary text-dark slide-animate"
-                                        data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        Women's Lifestyle<br>Collection
-                                    </h2>
-                                    <hr class="divider slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.5s'}">
-                                    <h5 class=" text-dark text-uppercase font-secondary font-weight-bold mb-2 slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        For - Women
-                                    </h5>
-                                    <h5 class="product-identifier font-weight-normal text-dark text-uppercase slide-animate"
-                                        data-animation-options="{'name': 'fadeInUpShorter', 'duration': '.5s', 'delay': '.6s'}">
-                                        Product Identifier:
-                                        <span class="font-weight-bolder text-primary">DD2030</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- End of Intro Slide 3 -->
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -93,39 +42,15 @@
                 <div class="intro-banner-wrapper col-lg-3 mt-4">
                     <div class="banner banner-fixed intro-banner br-sm mb-4">
                         <figure class="br-sm">
-                            <img src="assets/images/demos/demo12/banner/banner-1.jpg" alt="Category Banner"
-                                 width="680" height="180" style="background-color: #565960;" />
+                            <img src="/kapidaodeme.jpg" alt="{{config('app.name')}}"/>
                         </figure>
-                        <div class="banner-content">
-                            <h5 class="banner-subtitle text-uppercase text-lighter font-weight-bold">New In</h5>
-                            <h3 class="banner-title text-white font-secondary font-weight-bolder ls-25">
-                                Cosmetical</h3>
-                            <a href="demo12-shop.html"
-                               class="btn btn-white btn-link btn-slide-right btn-icon-right btn-infinite">
-                                Shop Now
-                                <i class="w-icon-long-arrow-right"></i>
-                            </a>
-                        </div>
+
                     </div>
-                    <!-- End of Intro Banner -->
                     <div class="banner banner-fixed intro-banner intro-banner2 br-sm mb-4">
                         <figure class="br-sm">
-                            <img src="assets/images/demos/demo12/banner/banner-2.jpg" alt="Category Banner"
-                                 width="680" height="180" style="background-color: #565960;" />
+                            <img src="/kargo.jpg" alt="{{config('app.name')}}"/>
                         </figure>
-                        <div class="banner-content">
-                            <h5 class="banner-subtitle text-uppercase text-default font-weight-bold">On Sale
-                            </h5>
-                            <h3 class="banner-title text-dark font-secondary font-weight-bolder ls-25">Kids
-                                Store</h3>
-                            <a href="demo12-shop.html"
-                               class="btn btn-dark btn-link btn-slide-right btn-icon-right btn-infinite">
-                                Shop Now
-                                <i class="w-icon-long-arrow-right"></i>
-                            </a>
-                        </div>
                     </div>
-                    <!-- End of Intro Banner -->
                 </div>
             </div>
         </div>
@@ -155,18 +80,18 @@
                     }">
             <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
                 <div class="swiper-slide icon-box icon-box-side text-dark">
-                                <span class="icon-box-icon icon-shipping">
-                                    <i class="w-icon-truck"></i>
-                                </span>
+                    <span class="icon-box-icon icon-shipping">
+                        <i class="w-icon-truck"></i>
+                    </span>
                     <div class="icon-box-content">
                         <h4 class="icon-box-title">Ücretsiz Kargo</h4>
                         <p class="text-default">100₺ ve Üzeri Alışverişlerinizde</p>
                     </div>
                 </div>
                 <div class="swiper-slide icon-box icon-box-side text-dark">
-                                <span class="icon-box-icon icon-payment">
-                                    <i class="w-icon-bag"></i>
-                                </span>
+                    <span class="icon-box-icon icon-payment">
+                        <i class="w-icon-bag"></i>
+                    </span>
                     <div class="icon-box-content">
                         <h4 class="icon-box-title">Güvenli Ödeme</h4>
                         <p class="text-default">Kapıda Ödeme Seçeneği</p>
@@ -174,9 +99,9 @@
                 </div>
 
                 <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                                <span class="icon-box-icon icon-chat">
-                                    <i class="w-icon-chat"></i>
-                                </span>
+                    <span class="icon-box-icon icon-chat">
+                        <i class="w-icon-chat"></i>
+                    </span>
                     <div class="icon-box-content">
                         <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
                         <p class="text-default">7/24 Müşteri Destek Hattı</p>
@@ -185,17 +110,16 @@
             </div>
         </div>
 
-
         <div class="category-banner-wrapper2 row cols-md-3 appear-animate fadeIn appear-animation-visible" style="animation-duration: 1.2s;">
             @foreach($Product_Categories->where('parent_id' , 0) as $item)
             <div class="banner banner-1 banner-fixed br-sm mb-4">
                 <figure class="banner-media br-sm">
-                    <img src="assets/images/demos/demo15/banner/banner-5.jpg" alt="Category Banner" width="880" height="300" style="background-color: #31343B;">
+                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" alt="Category Banner" class="img-fluid" style="background-color: #31343B;">
                 </figure>
                 <div class="banner-content y-50">
-                    <h4 class="banner-subtitle text-white text-uppercase font-weight-bold">{{ config('app.name') }}</h4>
-                    <h3 class="banner-title text-white ls-25">{{ $item->title }} </h3>
-                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-white btn-rounded btn-icon-right">
+                    <h4 class="banner-subtitle text-dark text-uppercase font-weight-bold">{{ config('app.name') }}</h4>
+                    <h3 class="banner-title text-dark ls-25">{{ $item->title }} </h3>
+                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-dark btn-link btn-slide-right btn-icon-right btn-infinite">
                         Ürünleri İncele<i class="w-icon-long-arrow-right"></i>
                     </a>
                 </div>
