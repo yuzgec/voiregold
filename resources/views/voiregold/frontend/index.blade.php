@@ -248,7 +248,7 @@
     </div>
     <div class="container">
 
-        @foreach($Product_Categories as $row)
+        @foreach($Product_Categories->where('status' , 1) as $row)
             <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
                 <h2 class="title title-link">{{ $row->title }}</h2>
                 <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
