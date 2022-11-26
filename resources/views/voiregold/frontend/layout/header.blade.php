@@ -103,19 +103,6 @@
         <div class="container">
             <div class="inner-wrap">
                 <div class="header-left">
-                    <div class="dropdown category-dropdown gold {{ (request()->segment(1)) ? 'show' : 'show-dropdown' }}" data-visible="true">
-                        <a href="#" class="category-toggle" role="button" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="true" data-display="static"
-                           title="Browse Categories">
-                            <i class="w-icon-category"></i>
-                            <span>KATEGORİLERİMİZ </span>
-                        </a>
-                        <div class="dropdown-box">
-                            <ul class="menu vertical-menu category-menu">
-                                @include(config('app.tema').'/frontend.layout.sidemenu')
-                            </ul>
-                        </div>
-                    </div>
 
                     <nav class="main-nav ml-4">
                         <ul class="menu active-underline">
