@@ -3,39 +3,21 @@
     <div class="container">
         <div class="intro-section mb-2">
             <div class="row">
-                <div class="intro-wrapper col-lg-9 mt-4 mb-4">
+                <div class="intro-wrapper col-lg-9">
                     <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
                          data-swiper-options="{
                                 'spaceBetween': 0,
                                 'slidesPerView': 1
                             }">
                         <div class="swiper-wrapper row gutter-no cols-1">
-                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                                 style="background-image: url(assets/images/demos/demo12/slides/intro-3.jpg); background-color: #3F3E3A;">
-                                <div class="banner-content y-50 text-right">
-                                    <h3 class="banner-subtitle text-uppercase font-secondary font-weight-bolder slide-animate"
-                                        data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '.5s', 'delay': '.2s'}">
-                                        From Online Store
-                                    </h3>
-                                    <h2 class="banner-title font-secondary text-capitalize text-white slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        Men's Lifestyle<br>
-                                        Collection
-                                    </h2>
-                                    <h4 class="banner-price-info font-weight-normal text-white ls-25 slide-animate"
-                                        data-animation-options="{'name': 'fadeInRightShorter', 'duration': '.5s', 'delay': '.4s'}">
-                                        Discount <span class="text-primary font-weight-bolder">50%
-                                                    OFF</span>This Week.
-                                    </h4>
-                                    <a href="demo12-shop.html"
-                                       class="btn btn-outline btn-white btn-rounded btn-icon-right slide-animate"
-                                       data-animation-options="{'name': 'fadeInUpShorter', 'duration': '.5s', 'delay': '.6s'}">
-                                        Shop Now
-                                        <i class="w-icon-long-arrow-right"></i>
-                                    </a>
-                                </div>
+                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
+                                <img src="/bannervoire1.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
+                            </div>
+                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
+                                <img src="/bannervoire2.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
                             </div>
                         </div>
+
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
