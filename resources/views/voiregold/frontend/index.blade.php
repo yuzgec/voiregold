@@ -1,7 +1,7 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
     <div class="container">
-        <div class="intro-section mb-2">
+        <div class="intro-section">
             <div class="row">
                 <div class="intro-wrapper col-lg-9">
                     <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
@@ -10,10 +10,10 @@
                                 'slidesPerView': 1
                             }">
                         <div class="swiper-wrapper row gutter-no cols-1">
-                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
+                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm mt-4">
                                 <img src="/bannervoire1.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
                             </div>
-                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
+                            <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm  mt-4">
                                 <img src="/bannervoire2.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
                             </div>
                         </div>
