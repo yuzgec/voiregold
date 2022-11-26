@@ -97,7 +97,7 @@
         </div>
 
         <div class="category-banner-wrapper2 row cols-md-3 appear-animate fadeIn appear-animation-visible" style="animation-duration: 1.2s;">
-            @foreach($Product_Categories->where('status' , 1) as $item)
+            @foreach($Product_Categories as $item)
             <div class="banner banner-1 banner-fixed br-sm mb-4">
                 <figure class="banner-media br-sm">
                     <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" alt="Category Banner" class="img-fluid" style="background-color: #31343B;">
