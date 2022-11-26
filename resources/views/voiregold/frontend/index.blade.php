@@ -11,12 +11,12 @@
                             }">
                         <div class="swiper-wrapper row gutter-no cols-1">
                             <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm mt-4">
-                                <a href="">
+                                <a href="https://www.voiregold.com/kategori/kolyeler?id=2">
                                     <img src="/bannervoire1.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
                                 </a>
                             </div>
                             <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm  mt-4">
-                                <a href="">
+                                <a href="https://www.voiregold.com/kategori/bileklikler?id=1">
                                     <img src="/bannervoire2.jpg" class="img-fluid" alt="{{config('app.name')}}"/>
                                 </a>
                             </div>
