@@ -288,43 +288,6 @@
                 </div>
             </div>
 
-            @if ($loop->index == 1)
-                <div class="swiper-container swiper-theme shadow-swiper pb-10"
-                     data-swiper-options="{
-                    'spaceBetween': 20,
-                    'slidesPerView': 2,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 3
-                        },
-                        '768': {
-                            'slidesPerView': 4
-                        },
-                        '992': {
-                            'slidesPerView': 5
-                        },
-                        '1200': {
-                            'slidesPerView': 6
-                        }
-                    }
-                }">
-                    <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                        @foreach($Product_Categories as $item)
-                            <div class="swiper-slide category-wrap">
-                                <div class="category category-classic category-absolute overlay-zoom br-sm">
-                                    <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
-                                        <figure class="category-media">
-                                            <img src="{{ $item->getFirstMediaUrl('page') }}" alt="{{ $item->title }}"/>
-                                        </figure>
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            @endif
-
             @if ($loop->index == 3)
                 <div class="row category-banner-2cols cols-md-2 appear-animate">
                     <div class="col-md-6 mb-4">
