@@ -93,9 +93,9 @@
                                     %{{ abs(round( $Detay->price * 100 /$Detay->old_price - 100)) }} indirim
                                 </span>
                             </div>
-                            <div class="alert alert-error">
+                           {{-- <div class="alert alert-error">
                                 <span class="">Son <b>({{ $Stock->stock }})</b> adet kaldı.</span>
-                            </div>
+                            </div>--}}
                             <div>
                                 <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br>
                                 <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
@@ -105,7 +105,7 @@
                                 {!! $Detay->short !!}
                             </div>
 
-                            @if($Detay->get_comment_count > 0)
+                          {{--  @if($Detay->get_comment_count > 0)
                                 <hr class="product-divider">
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -152,7 +152,7 @@
                                     </div>
                                     <div class="swiper-pagination"></div>
                                 </div>
-                            @endif
+                            @endif--}}
                         </div>
                     </div>
                     <div class="col-md-4 col-12" id="siparis" style="border:1px solid #f4f4f4;border-radius: 5px;padding: 10px">
