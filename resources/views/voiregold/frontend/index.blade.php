@@ -28,13 +28,13 @@
                 <div class="intro-banner-wrapper col-lg-3 mt-4">
                     <div class="banner banner-fixed intro-banner br-sm mb-4">
                         <figure class="br-sm">
-                            <img src="/kapidaodeme.jpg" alt="{{config('app.name')}}"/>
+                            <img src="/frontend/images/{{ config('app.tema') }}/kapidaodeme.jpg" alt="{{config('app.name')}}"/>
                         </figure>
 
                     </div>
                     <div class="banner banner-fixed intro-banner intro-banner2 br-sm mb-4">
                         <figure class="br-sm">
-                            <img src="/kargo.jpg" alt="{{config('app.name')}}"/>
+                            <img src="/frontend/images/{{ config('app.tema') }}/kargobanner.jpg" alt="{{config('app.name')}}"/>
                         </figure>
                     </div>
                 </div>
