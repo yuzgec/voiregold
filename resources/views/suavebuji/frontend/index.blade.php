@@ -48,8 +48,8 @@
     </div>
 
     <div class="container">
-        <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6 mb-10"
-                     data-swiper-options="{
+        <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6"
+             data-swiper-options="{
                         'loop': true,
                         'slidesPerView': 1,
                         'autoplay': {
@@ -64,51 +64,42 @@
                                 'slidesPerView': 3
                             },
                             '1200': {
-                                'slidesPerView': 4
+                                'slidesPerView': 3
                             }
                         }
                     }">
-                    <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
-                        <div class="swiper-slide icon-box icon-box-side text-dark">
-                                <span class="icon-box-icon icon-shipping">
-                                    <i class="w-icon-truck"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Free Shipping & Returns</h4>
-                                <p class="text-default">For all orders over $99</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark">
-                                <span class="icon-box-icon icon-payment">
-                                    <i class="w-icon-bag"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Secure Payment</h4>
-                                <p class="text-default">We ensure secure payment</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
-                                <span class="icon-box-icon icon-money">
-                                    <i class="w-icon-money"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Money Back Guarantee</h4>
-                                <p class="text-default">Any back within 30 days</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                                <span class="icon-box-icon icon-chat">
-                                    <i class="w-icon-chat"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Customer Support</h4>
-                                <p class="text-default">Call or email us 24/7</p>
-                            </div>
-                        </div>
+            <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                <div class="swiper-slide icon-box icon-box-side text-dark">
+                    <span class="icon-box-icon icon-shipping">
+                        <i class="w-icon-truck"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Ücretsiz Kargo</h4>
+                        <p class="text-default">100₺ ve Üzeri Alışverişlerinizde</p>
+                    </div>
+                </div>
+                <div class="swiper-slide icon-box icon-box-side text-dark">
+                    <span class="icon-box-icon icon-payment">
+                        <i class="w-icon-bag"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Güvenli Ödeme</h4>
+                        <p class="text-default">Kapıda Ödeme Seçeneği</p>
                     </div>
                 </div>
 
-        <h2 class="title title-categories title-center pt-1 appear-animate">KATEGORİLERİMİZ</h2>
+                <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                    <span class="icon-box-icon icon-chat">
+                        <i class="w-icon-chat"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
+                        <p class="text-default">7/24 Müşteri Destek Hattı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate"
              data-swiper-options="{
                         'spaceBetween': 20,
@@ -150,5 +141,34 @@
                 @endforeach
             </div>
         </div>
+
+
+        @foreach($Product_Categories as $row)
+            <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
+                <h2 class="title title-link">{{ $row->title }}</h2>
+                <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
+            </div>
+            <div class="row product-grid appear-animate">
+
+            @php
+                $ProductList = \App\Models\Product::with(['getCategory'])
+                ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
+                ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
+                ->where('product_category_pivots.category_id',  $row->id)
+                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id')
+                ->where('products.status', 1)
+                ->orderBy("products.created_at", 'asc')
+                ->get();
+            @endphp
+
+            @foreach($ProductList->take(9) as $item)
+                <div class="product-wrap @if($loop->index == 2 ) ? grid-item3 : null @endif">
+                    <x-shop.product-item :item="$item"/>
+                </div>
+
+            @endforeach
+        </div>
+
+        @endforeach
     </div>
 @endsection
