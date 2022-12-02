@@ -18,6 +18,7 @@ use App\View\Components\Index\Save;
 use App\View\Components\Product;
 use App\View\Components\Shop\ProductItem;
 use App\View\Components\Shop\ProductList;
+use App\View\Components\Shop\SuaveBuji;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
@@ -52,6 +53,7 @@ class AppServiceProvider extends ServiceProvider
             Blade::component('save', Save::class);
             Blade::component('add', Add::class);
             Blade::component('product-item', ProductItem::class);
+            Blade::component('suvarebuji', SuaveBuji::class);
 
             Blade::directive('convert', function ($money) {
                 return "<?php echo number_format($money, 2); ?>";
