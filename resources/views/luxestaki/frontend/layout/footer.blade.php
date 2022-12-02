@@ -19,7 +19,7 @@
                 <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
                     <form action="{{ route('mailsubcribes') }}" method="POST" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
                         @csrf
-                        <input type="email" value="{{old('email')}}" class="form-control mr-2 bg-white" name="email" id="email" requeired placeholder="Email Adresinizi Giriniz" />
+                        <input type="email" value="{{old('email_address')}}" class="form-control mr-2 bg-white" name="email_address" id="email" requeired placeholder="Email Adresinizi Giriniz" />
                         <button class="btn btn-dark btn-rounded" type="submit">Abonel Ol<i class="w-icon-long-arrow-right"></i></button>
 
                         @if($errors->has('email'))
