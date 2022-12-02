@@ -44,9 +44,4 @@
 <script src="/frontend/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/frontend/vendor/photoswipe/photoswipe.js"></script>
 <script src="/frontend/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
-
-{{--
-<script src="/frontend/vendor/zoom/jquery.zoom.js"></script>
---}}
-
 <script src="/frontend/js/main.js"></script>

@@ -1,5 +1,7 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
+
+
     <div class="intro-section">
         <div class="swiper-container swiper-theme nav-inner pg-inner animation-slider pg-xxl-hide pg-show nav-xxl-show nav-hide"
              data-swiper-options="{
@@ -11,7 +13,7 @@
                 }">
             <div class="swiper-wrapper row gutter-no cols-1">
                 <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
-                     style="background-image: url(/bannerbacksuvare.jpg); background-color: #f1f0f0;">
+                     style="background-image: url('/bannerbacksuvare.jpg'); background-color: #f1f0f0;">
                     <div class="container">
                         <figure class="slide-image floating-item slide-animate" data-animation-options="{
                                     'name': 'fadeInDownShorter', 'duration': '1s'
@@ -24,18 +26,18 @@
                             <h5 class="banner-subtitle text-uppercase font-weight-bold mb-2 slide-animate"
                                 data-animation-options="{
                                         'name': 'fadeInUpShorter', 'duration': '1s'
-                                    }">Deals And Promotions</h5>
+                                    }">Suave Bujiteri & Aksesuar</h5>
                             <h3 class="banner-title ls-25 mb-6 slide-animate" data-animation-options="{
                                         'name': 'fadeInUpShorter', 'duration': '1s'
-                                    }">Fashion <span class="text-primary">Skiwears</span> for the ardent Sports
-                                devotees
+                                    }">İDDALIYIZ<br> En Moda Takı ve Aksesuarlarda
+                                <span class="text-primary">%50 İndirim Fırsatı </span>
                             </h3>
-                            <a href="shop-banner-sidebar.html"
+                            <a href="{{ url('kategori/bileklikler?id=1') }}"
                                class="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                                data-animation-options="{
                                         'name': 'fadeInUpShorter', 'duration': '1s'
                                     }">
-                                Shop Now<i class="w-icon-long-arrow-right"></i></a>
+                                ALIŞVERİŞE BAŞLA<i class="w-icon-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +50,7 @@
     </div>
 
     <div class="container">
-        <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6"
+        <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6 mb-3"
              data-swiper-options="{
                         'loop': true,
                         'slidesPerView': 1,
