@@ -125,7 +125,7 @@
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
                                                 </div>
-                                                <button class="btn gold text-white"  type="submit">
+                                                <button class="btn btn-primary text-white"  type="submit">
                                                     <i class="w-icon-cart"></i>
                                                     <span> Sepete Ekle</span>
                                                 </button>

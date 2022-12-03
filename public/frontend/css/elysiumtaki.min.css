@@ -6629,7 +6629,7 @@ body .product-popup{
     align-items:center;
     flex:0 0 14rem;
     max-width:14rem;
-    margin-bottom:1rem;
+    margin-bottom:0rem;
     margin-right:2rem
 }
 .product-single .social-links-wrapper{
