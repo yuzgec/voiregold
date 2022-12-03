@@ -1,23 +1,4 @@
 @charset "UTF-8";
-/**
- * 1. Config
- * 2. Mixins
- * 3. Plugins
- * 4. Base
- * 5. Components
- * 6. Header
- * 7. Footer
- * 8. Pages
- */
-/* 1. Config */
-/*----------------------------------------
-    Variables
------------------------------------------*/
-/* 2. Mixins */
-/* 3. Base */
-/*----------------------------------------
-    Base
------------------------------------------*/
 *, ::after, ::before {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
