@@ -14864,6 +14864,11 @@ body .product-popup {
   text-transform: uppercase;
 }
 
+.valid{
+    color:red;
+    font-size: 20px;
+}
+
 .header-middle {
   padding-top: 2.2rem;
   padding-bottom: 2.2rem;
