@@ -788,7 +788,8 @@ table{
 }
 .br-sm{
     border-radius:0.5rem!important;
-    overflow:hidden!important
+    overflow:hidden!important;
+    border: 2px solid red;
 }
 .br-xs{
     border-radius:0.3rem!important;
@@ -9735,7 +9736,7 @@ body .product-popup{
     padding:0 2rem
 }
 .widget-products.widget-products-bordered .widget-body{
-    border:1px solid #eee
+    border: 2px solid red;
 }
 .widget-products.widget-products-bordered .product-widget:not(:last-child){
     border-bottom:1px solid #eee

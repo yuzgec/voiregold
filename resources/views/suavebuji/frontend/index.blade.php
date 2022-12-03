@@ -1,7 +1,5 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
-
-
     <div class="intro-section">
         <div class="swiper-container swiper-theme nav-inner pg-inner animation-slider pg-xxl-hide pg-show nav-xxl-show nav-hide"
              data-swiper-options="{
@@ -41,7 +39,33 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1" style="background-image: url('/bannerbacksuvare.jpg'); background-color: #f1f0f0;">
+                    <div class="container">
+                        <div class="banner-content text-right y-50 ml-auto">
+                            <h5 class="banner-subtitle text-uppercase font-weight-bold mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">Suave Bujiteri & Aksesuar</h5>
+                            <h3 class="banner-title ls-25 mb-6 slide-animate" data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">İDDALIYIZ<br> En Moda Takı ve Aksesuarlarda
+                                <span class="text-primary">%50 İndirim Fırsatı </span>
+                            </h3>
+                            <a href="{{ url('kategori/bileklikler?id=1') }}"
+                               class="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">
+                                ALIŞVERİŞE BAŞLA<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+                        <figure class="slide-image floating-item slide-animate" data-animation-options="{
+                                    'name': 'fadeInDownShorter', 'duration': '1s'
+                                }" data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
+                                data-child-depth="0.2">
+                            <img src="/suavebanner.png" alt="Ski" width="729" height="570" />
+                        </figure>
+                    </div>
+                </div>
             </div>
             <div class="swiper-pagination"></div>
             <button class="swiper-button-next"></button>
@@ -50,6 +74,48 @@
     </div>
 
     <div class="container">
+
+        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate"
+             data-swiper-options="{
+                        'spaceBetween': 20,
+                        'slidesPerView': 2,
+                        'breakpoints': {
+                            '576': {
+                                'slidesPerView': 3
+                            },
+                            '768': {
+                                'slidesPerView': 5
+                            },
+                            '992': {
+                                'slidesPerView': 7
+                            },
+                            '1200': {
+                                'slidesPerView': 6
+                            },
+                            '1400': {
+                                'slidesPerView': 6
+                            },
+                            '1600': {
+                                'slidesPerView': 6
+                            }
+                        }
+                    }">
+            <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                @foreach($Product_Categories->where('parent_id' , 0) as $item)
+                <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
+                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
+                        <figure class="category-media">
+                            <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
+                        </figure>
+                    </a>
+                    <div class="category-content">
+                        <h4 class="category-name">{{ $item->title }}</h4>
+                        <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
         <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6 mb-3"
              data-swiper-options="{
                         'loop': true,
@@ -99,48 +165,6 @@
                         <p class="text-default">7/24 Müşteri Destek Hattı</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate"
-             data-swiper-options="{
-                        'spaceBetween': 20,
-                        'slidesPerView': 2,
-                        'breakpoints': {
-                            '576': {
-                                'slidesPerView': 3
-                            },
-                            '768': {
-                                'slidesPerView': 5
-                            },
-                            '992': {
-                                'slidesPerView': 7
-                            },
-                            '1200': {
-                                'slidesPerView': 6
-                            },
-                            '1400': {
-                                'slidesPerView': 6
-                            },
-                            '1600': {
-                                'slidesPerView': 6
-                            }
-                        }
-                    }">
-            <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                @foreach($Product_Categories->where('parent_id' , 0) as $item)
-                <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
-                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
-                        <figure class="category-media">
-                            <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
-                        </figure>
-                    </a>
-                    <div class="category-content">
-                        <h4 class="category-name">{{ $item->title }}</h4>
-                        <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
-                    </div>
-                </div>
-                @endforeach
             </div>
         </div>
 
@@ -199,10 +223,10 @@
                 <div class="row deals-wrapper appear-animate mb-8">
                     <div class="col-xl-9 mb-4">
                         <div class="single-product h-100 br-sm">
-                            <h4 class="title-sm title-underline font-weight-bolder ls-normal">
-                                Günün İndirimli Ürünleri
+                            <h4 class="title-sm title-underline font-weight-bolder ls-normal ml-3 mt-3">
+                              Günün İndirimli Ürünleri
                             </h4>
-                            <div class="swiper">
+                            <div class="swipe">
                                 <div class="swiper-container swiper-theme nav-top swiper-nav-lg" data-swiper-options = "{
                                             'spaceBetween': 20,
                                             'slidesPerView': 1
@@ -280,7 +304,7 @@
                     <div class="col-xl-3 mb-4">
                         <div class="widget widget-products widget-products-bordered h-100">
                             <div class="widget-body br-sm h-100">
-                                <h4 class="title title-link font-weight-bold">En Çok Satanlar</h4>
+                                <h4 class="title title-link font-weight-bold ml-3 mt-1">En Çok Satanlar</h4>
                                 <div class="swiper">
                                     <div class="swiper nav-top">
                                         <div class="swiper-container swiper-theme nav-top" data-swiper-options = "{
