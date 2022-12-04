@@ -135,7 +135,7 @@
                                     </form>
                                     @endif
 
-                                    @if($Detay->get_comment_count > 0)
+                            {{--        @if($Detay->get_comment_count > 0)
                                         <hr class="product-divider">
                                         <div class="ratings-container">
                                             <div class="ratings-full">
@@ -182,7 +182,7 @@
                                             </div>
                                             <div class="swiper-pagination"></div>
                                         </div>
-                                    @endif
+                                    @endif--}}
                                 </div>
                             </div>
                         </div>

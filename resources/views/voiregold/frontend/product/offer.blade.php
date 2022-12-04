@@ -105,7 +105,7 @@
                                 {!! $Detay->short !!}
                             </div>
 
-                            @if($Detay->get_comment_count > 0)
+                     {{--       @if($Detay->get_comment_count > 0)
                                 <hr class="product-divider">
                                 <div class="ratings-container">
                                     <div class="ratings-full">
@@ -152,7 +152,7 @@
                                     </div>
                                     <div class="swiper-pagination"></div>
                                 </div>
-                            @endif
+                            @endif--}}
                         </div>
                     </div>
                     <div class="col-md-4 col-12" id="siparis" style="border:1px solid #f4f4f4;border-radius: 5px;padding: 10px">
