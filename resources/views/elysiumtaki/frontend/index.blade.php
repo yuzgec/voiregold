@@ -2,105 +2,58 @@
 
 @section('content')
     <div class="container">
-    <div class="intro-wrapper">
-        <div class="row">
-        <div class="col-md-8 mb-4">
-            <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
-                 data-swiper-options="{
-                            'slidesPerView': 1,
-                            'autoplay': {
-                                'delay': 8000,
-                                'disableOnInteraction': false
-                            }
-                        }">
-                <div class="swiper-wrapper row gutter-no cols-1">
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider01.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider02.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider03.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider04.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-        <div class="col-md-4">
+        <div class="intro-wrapper">
             <div class="row">
-                <div class="col-md-12 col-sm-6 mb-4">
-                    <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
-                        <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
-                        </figure>
-                        <div class="banner-content content-bottom">
-                            <h5 class="banner-subtitle text-uppercase font-weight-bold mb-0">New In</h5>
-                            <h3 class="banner-title text-capitalize text-white ls-25">Smartwatch</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-white btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
+            <div class="col-md-8 mb-4">
+                <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
+                     data-swiper-options="{
+                                'slidesPerView': 1,
+                                'autoplay': {
+                                    'delay': 8000,
+                                    'disableOnInteraction': false
+                                }
+                            }">
+                    <div class="swiper-wrapper row gutter-no cols-1">
+                        <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
+                            <img src='/frontend/images/{{config('app.tema')}}/elysiumbanner.jpg' class="img-fluid"/>
+
+                            <div class="banner-content y-50">
+                                <div class="slide-animate" data-animation-options="{
+                                                'name': 'zoomIn', 'duration': '1s'
+                                            }">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="col-md-12 col-sm-6 mb-4">
-                    <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
-                        <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
-                        </figure>
-                        <div class="banner-content content-top">
-                            <div
-                                class="banner-price-info text-uppercase font-weight-bolder text-uppercase text-dark">
-                                Get Up <span class="text-secondary">50%Off</span>
-                            </div>
-                            <h3 class="banner-title text-capitalize ls-25">Skate Sale</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-dark btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
+            </div>
+
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6 mb-2">
+                        <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
+                            <figure  style="border:2px solid #1B1612;" >
+                                <img src='/frontend/images/{{config('app.tema')}}/elysiumbanner.jpg' class="img-fluid"/>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-6 mb-4">
+                        <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
+                            <figure  style="border:2px solid #1B1612;" >
+                                <img src="/frontend/images/{{config('app.tema')}}/elysiumbanner.jpg" class="img-fluid"/>
+                            </figure>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
     </div>
 
     <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
+        <p class="text-center text-white">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
     </div>
 
     @foreach($Product_Categories as $item)
@@ -132,9 +85,10 @@
         </div>
     </div>
 
+
     @if ($loop->index == 1)
-          <div class="swiper-container swiper-theme shadow-swiper pb-10"
-               data-swiper-options="{
+                <div class="swiper-container swiper-theme shadow-swiper pb-10"
+                     data-swiper-options="{
                     'spaceBetween': 20,
                     'slidesPerView': 2,
                     'breakpoints': {
@@ -152,71 +106,22 @@
                         }
                     }
                 }">
-              <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-          </div>
-      @endif
+                    <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                        @foreach($Product_Categories as $item)
+                            <div class="swiper-slide category-wrap">
+                                <div class="category category-classic category-absolute overlay-zoom br-sm">
+                                    <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
+                                        <figure class="category-media">
+                                            <img src="{{ $item->getFirstMediaUrl('page') }}" alt="{{ $item->title }}"/>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            @endif
 
     @if ($loop->index == 3)
         <div class="row category-banner-2cols cols-md-2 appear-animate">

@@ -40,7 +40,7 @@
                 <ins class="new-price">{{ money($item->price) }}₺</ins><del class="old-price">{{ money($item->old_price) }}₺</del>
             </div>
             <div class="product-action">
-                <a href="#" class="btn-cart btn-product gold btn btn-link btn-underline">Ürünü İncele</a>
+                <a href="#" class="btn-cart btn-product btn btn-link btn-underline">Ürünü İncele</a>
             </div>
         </div>
     </div>

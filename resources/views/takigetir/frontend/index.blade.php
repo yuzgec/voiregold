@@ -96,6 +96,7 @@
         <h2 class="title title-link">{{ $row->title }}</h2>
         <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
     </div>
+
     <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
             'spaceBetween': 10,
             'slidesPerView': 2,
