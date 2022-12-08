@@ -35,14 +35,14 @@
                     <div class="col-md-12 col-sm-6 mb-2">
                         <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
                             <figure  style="border:2px solid #1B1612;" >
-                                <img src='/frontend/images/{{config('app.tema')}}/elysiumbanner.jpg' class="img-fluid"/>
+                                <img src='/frontend/images/{{config('app.tema')}}/kapidaodeme.jpg' class="img-fluid"/>
                             </figure>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-6 mb-4">
                         <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
                             <figure  style="border:2px solid #1B1612;" >
-                                <img src="/frontend/images/{{config('app.tema')}}/elysiumbanner.jpg" class="img-fluid"/>
+                                <img src="/frontend/images/{{config('app.tema')}}/kargobedava.jpg" class="img-fluid"/>
                             </figure>
                         </div>
                     </div>

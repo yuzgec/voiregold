@@ -12669,9 +12669,7 @@ body .product-popup{
 .intro-wrapper .swiper-pagination{
     bottom:2.9rem
 }
-.intro-slide{
-    min-height:50rem
-}
+
 .intro-slide .btn{
     padding:1.7rem 3.3rem
 }
@@ -12757,7 +12755,7 @@ body .product-popup{
     left:3rem
 }
 .intro-banner img{
-    height:24rem
+    height:20rem
 }
 .intro-banner .banner-subtitle{
     font-size:1.4rem;
