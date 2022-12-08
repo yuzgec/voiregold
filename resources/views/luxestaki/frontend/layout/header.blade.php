@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <div class="header-bottom sticky-content show-dropdown fix-top sticky-header has-dropdown">
+    <div class="header-bottom sticky-content {{ (request()->segment(1)) ? 'show' : 'show-dropdown' }} fix-top sticky-header has-dropdown">
         <div class="container">
             <div class="inner-wrap">
                 <div class="header-left">
