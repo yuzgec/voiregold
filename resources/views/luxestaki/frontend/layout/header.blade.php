@@ -1,10 +1,11 @@
+
 <header class="header">
     <div class="header-middle">
         <div class="container">
             <div class="header-left mr-md-4">
                 <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle"></a>
                 <a href="{{ route('home') }}" class="logo ml-lg-0">
-                    <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
+                    <img src="/frontend/images/{{ config('app.tema') }}/logo_footer.png" alt="{{ config('app.name') }}" width="200"  />
                 </a>
                 <form action="{{ route('search') }}" method="GET"
                       class="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
@@ -95,17 +96,18 @@
         </div>
     </div>
 
-    <div class="header-bottom sticky-content fix-top sticky-header">
+    <div class="header-bottom sticky-content show-dropdown fix-top sticky-header has-dropdown">
         <div class="container">
             <div class="inner-wrap">
                 <div class="header-left">
-                    <div class="dropdown category-dropdown gold" data-visible="true">
-                        <a href="#" class="category-toggle" role="button" data-toggle="dropdown"
+                    <div class="dropdown category-dropdown has-border" data-visible="true">
+                        <a href="#" class="category-toggle text-white" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="true" data-display="static"
                            title="Browse Categories">
                             <i class="w-icon-category"></i>
-                            <span>KATEGORİLERİMİZ </span>
+                            <span>KATEGORİLERİMİZ</span>
                         </a>
+
                         <div class="dropdown-box">
                             <ul class="menu vertical-menu category-menu">
                                 @include(config('app.tema').'/frontend.layout.sidemenu')

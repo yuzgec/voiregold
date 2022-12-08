@@ -1,102 +1,170 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
+    <section class="intro-section">
+        <div class="swiper-container swiper-theme nav-inner pg-inner swiper-nav-lg animation-slider pg-xxl-hide nav-xxl-show nav-hide"
+             data-swiper-options="{
+                    'slidesPerView': 1,
+                    'autoplay': {
+                        'delay': 8000,
+                        'disableOnInteraction': false
+                    }
+                }">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url(assets/images/demos/darkdemo/slide-1.jpg); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="assets/images/demos/darkdemo/shoes.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                Custom <span class="p-relative d-inline-block">Men’s</span>
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                RUNNING SHOES
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                Sale up to <span class="font-weight-bolder text-secondary">30% OFF</span>
+                            </p>
+
+                            <a href="shop-list.html"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }">SHOP NOW<i class="w-icon-long-arrow-right"></i></a>
+
+                        </div>
+                        <!-- End of .banner-content -->
+                    </div>
+                    <!-- End of .container -->
+                </div>
+                <!-- End of .intro-slide1 -->
+
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide2"
+                     style="background-image: url(assets/images/demos/darkdemo/slide-2.jpg); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate" data-animation-options="{
+                                    'name': 'fadeInUpShorter',
+                                    'duration': '1s'
+                                }">
+                            <img src="assets/images/demos/darkdemo/men.png" alt="Banner"
+                                 data-bottom-top="transform: translateX(10vh);"
+                                 data-top-bottom="transform: translateX(-10vh);" width="480" height="633">
+                        </figure>
+                        <div class="banner-content d-inline-block y-50">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInUpShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                Mountain-<span class="text-secondary">Climbing</span>
+                            </h5>
+                            <h3 class="banner-title mb-0 ls-25 slide-animate" data-animation-options="{
+                                        'name': 'fadeInUpShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Hot & Packback
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInUpShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }">
+                                Only until the end of this week.
+                            </p>
+                            <a href="demo-dark-shop.html"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInUpShorter',
+                                        'duration': '1s',
+                                        'delay': '1s'
+                                    }">
+                                SHOP NOW<i class="w-icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                        <!-- End of .banner-content -->
+                    </div>
+                    <!-- End of .container -->
+                </div>
+                <!-- End of .intro-slide2 -->
+
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide3"
+                     style="background-image: url(assets/images/demos/darkdemo/slide-3.jpg); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate" data-animation-options="{
+                                    'name': 'fadeInDownShorter',
+                                    'duration': '1s'
+                                }">
+                            <img src="assets/images/demos/darkdemo/skate.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="310" height="444">
+                        </figure>
+                        <div class="banner-content text-right y-50">
+                            <p class="font-weight-normal text-light text-uppercase mb-0 slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                Top weekly Seller
+                            </p>
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-25 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Trending Collection
+                            </h5>
+                            <h3 class="banner-title p-relative ls-50 slide-animate" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }"><span class="text-white mr-4">Roller</span>-skate
+                            </h3>
+                            <div class="btn-group slide-animate" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }">
+                                <a href="shop-list.html"
+                                   class="btn btn-white btn-outline btn-rounded btn-icon-right">SHOP
+                                    NOW<i class="w-icon-long-arrow-right"></i></a>
+                            </div>
+                            <!-- End of .banner-content -->
+                        </div>
+                        <!-- End of .container -->
+                    </div>
+                </div>
+                <!-- End of .intro-slide3 -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-button-next"></button>
+            <button class="swiper-button-prev"></button>
+        </div>
+        <!-- End of .swiper-container -->
+    </section>
     <div class="container">
-    <div class="intro-wrapper">
-        <div class="row">
-        <div class="col-md-8 mb-4">
-            <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
-                 data-swiper-options="{
-                            'slidesPerView': 1,
-                            'autoplay': {
-                                'delay': 8000,
-                                'disableOnInteraction': false
-                            }
-                        }">
-                <div class="swiper-wrapper row gutter-no cols-1">
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider01.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider02.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider03.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm"
-                         style="background-image: url(/Slider04.png); background-color: #DDE1E2;">
-                        <div class="banner-content y-50">
-                            <div class="slide-animate" data-animation-options="{
-                                            'name': 'zoomIn', 'duration': '1s'
-                                        }">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-md-12 col-sm-6 mb-4">
-                    <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
-                        <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
-                        </figure>
-                        <div class="banner-content content-bottom">
-                            <h5 class="banner-subtitle text-uppercase font-weight-bold mb-0">New In</h5>
-                            <h3 class="banner-title text-capitalize text-white ls-25">Smartwatch</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-white btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 mb-4">
-                    <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
-                        <figure  style="border:2px solid #1B1612;" >
-                            <img src="/resimyok.jpg" />
-                        </figure>
-                        <div class="banner-content content-top">
-                            <div
-                                class="banner-price-info text-uppercase font-weight-bolder text-uppercase text-dark">
-                                Get Up <span class="text-secondary">50%Off</span>
-                            </div>
-                            <h3 class="banner-title text-capitalize ls-25">Skate Sale</h3>
-                            <a href="shop-banner-sidebar.html"
-                               class="btn btn-dark btn-link btn-underline btn-icon-right">
-                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
 
     <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
         <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
