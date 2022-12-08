@@ -119,8 +119,7 @@
                         <ul class="menu active-underline">
                             <li class="active"><a href="{{ route('home') }}">Anasayfa</a></li>
                             <li class=""><a href="{{ route('home').'/kurumsal/hakkimizda' }}">Hakkımızda</a></li>
-                            <li class=""><a href="{{ route('home').'/kurumsal/sizden-gelenler' }}">Sizden Gelenler</a></li>
-                            <li class=""><a href="{{ route('kargosorgulama') }}">Kampanyalarımız</a></li>
+                            <li class=""><a href="{{ route('gununfirsati') }}">Kampanyalarımız</a></li>
                             <li class=""><a href="{{ route('iletisim') }}">Bize Ulaşın</a></li>
                         </ul>
                     </nav>
