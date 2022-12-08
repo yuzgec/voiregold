@@ -75,7 +75,7 @@
 
     <div class="container">
 
-        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate"
+        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate mt-4"
              data-swiper-options="{
                         'spaceBetween': 20,
                         'slidesPerView': 2,

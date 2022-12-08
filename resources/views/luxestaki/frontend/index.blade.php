@@ -109,89 +109,47 @@
     </div>
 
     @if ($loop->index == 1)
-          <div class="swiper-container swiper-theme shadow-swiper pb-10"
-               data-swiper-options="{
-                    'spaceBetween': 20,
-                    'slidesPerView': 2,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 3
-                        },
-                        '768': {
-                            'slidesPerView': 4
-                        },
-                        '992': {
-                            'slidesPerView': 5
-                        },
-                        '1200': {
-                            'slidesPerView': 6
+        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate mt-4"
+                     data-swiper-options="{
+                        'spaceBetween': 20,
+                        'slidesPerView': 2,
+                        'breakpoints': {
+                            '576': {
+                                'slidesPerView': 3
+                            },
+                            '768': {
+                                'slidesPerView': 5
+                            },
+                            '992': {
+                                'slidesPerView': 7
+                            },
+                            '1200': {
+                                'slidesPerView': 6
+                            },
+                            '1400': {
+                                'slidesPerView': 6
+                            },
+                            '1600': {
+                                'slidesPerView': 6
+                            }
                         }
-                    }
-                }">
-              <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-          </div>
+                    }">
+                    <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                        @foreach($Product_Categories->where('parent_id' , 0) as $item)
+                            <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
+                                <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
+                                    <figure class="category-media">
+                                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name">{{ $item->title }}</h4>
+                                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
       @endif
 
     @if ($loop->index == 3)
