@@ -6715,7 +6715,7 @@ body .product-popup{
     align-items:center;
     justify-content:center;
     flex:1;
-    padding:1em 0;
+    padding:.3em 0;
     line-height:1.2;
     background-color:#333;
     color:#fff;

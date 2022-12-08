@@ -60,13 +60,12 @@
             <button class="swiper-button-next"></button>
             <button class="swiper-button-prev"></button>
         </div>
-        <!-- End of .swiper-container -->
     </section>
     <div class="container">
 
 
-    <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
+    <div class="notification-wrapper br-sm mb-10 appear-animate mt-2 bg-white">
+        <h4 class="text-center text-dark"><br>Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</h4>
     </div>
 
     @foreach($Product_Categories as $row)
