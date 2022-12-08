@@ -32,7 +32,7 @@
 
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-12 col-sm-6 mb-2">
+                    <div class="col-md-12 col-sm-6 mb-5">
                         <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
                             <figure  style="border:2px solid #1B1612;" >
                                 <img src='/frontend/images/{{config('app.tema')}}/kapidaodeme.jpg' class="img-fluid"/>

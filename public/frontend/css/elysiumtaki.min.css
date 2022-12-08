@@ -12755,8 +12755,15 @@ body .product-popup{
     left:3rem
 }
 .intro-banner img{
-    height:20rem
+    height:23.5rem
 }
+
+@media (max-width:991px){
+    .intro-banner img{
+        height:20rem
+    }
+}
+
 .intro-banner .banner-subtitle{
     font-size:1.4rem;
     margin-bottom:4px
