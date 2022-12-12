@@ -20,7 +20,7 @@
                             <div class="swiper-slide ">
                                 <div class="product product-list br-sm mb-0">
                                     <figure class="product-image" style="border:1px solid #f4f4f4;">
-                                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}">
+                                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}">
                                     </figure>
                                     <div class="product-details">
                                         <h4 class="product-name">
