@@ -73,10 +73,10 @@
                                     </a>
                                 </figure>
                                 <form id="form" method="post" action="{{route('sepetcikar',$c->rowId )}}">
-                                @csrf
-                                <a href="javascript:{}" onclick="document.getElementById('form').submit()" class="btn btn-link btn-close" aria-label="button">
-                                    <i class="fas fa-times"></i>
-                                </a>
+                                    @csrf
+                                    <a href="javascript:{}" onclick="document.getElementById('form').submit()" class="btn btn-link btn-close" aria-label="button">
+                                        <i class="fas fa-times"></i>
+                                    </a>
                                 </form>
                             </div>
                         </div>

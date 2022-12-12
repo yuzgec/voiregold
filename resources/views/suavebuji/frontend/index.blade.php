@@ -17,7 +17,7 @@
                                     'name': 'fadeInDownShorter', 'duration': '1s'
                                 }" data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
                                 data-child-depth="0.2">
-                            <img src="/suavebanner.png" alt="Ski" width="729"
+                            <img src="/suavebanner.png" alt="{{ config('app.name') }}" width="729"
                                  height="570" />
                         </figure>
                         <div class="banner-content text-right y-50 ml-auto">
@@ -62,7 +62,34 @@
                                     'name': 'fadeInDownShorter', 'duration': '1s'
                                 }" data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
                                 data-child-depth="0.2">
-                            <img src="/suavebanner.png" alt="Ski" width="729" height="570" />
+                            <img src="/suavebanner2.png" alt="{{ config('app.name') }}" width="729" height="570" />
+                        </figure>
+                    </div>
+                </div>
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1" style="background-image: url('/bannerbacksuvare.jpg'); background-color: #f1f0f0;">
+                    <div class="container">
+                        <div class="banner-content text-right y-50 ml-auto">
+                            <h5 class="banner-subtitle text-uppercase font-weight-bold mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">Suave Bujiteri & Aksesuar</h5>
+                            <h3 class="banner-title ls-25 mb-6 slide-animate" data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">İDDALIYIZ<br> En Moda Takı ve Aksesuarlarda
+                                <span class="text-primary">%50 İndirim Fırsatı </span>
+                            </h3>
+                            <a href="{{ url('kategori/bileklikler?id=1') }}"
+                               class="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }">
+                                ALIŞVERİŞE BAŞLA<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+                        <figure class="slide-image floating-item slide-animate" data-animation-options="{
+                                    'name': 'fadeInDownShorter', 'duration': '1s'
+                                }" data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
+                                data-child-depth="0.2">
+                            <img src="/suavebanner3.png" alt="{{ config('app.name') }}" width="729" height="570" />
                         </figure>
                     </div>
                 </div>

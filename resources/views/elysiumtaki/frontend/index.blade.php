@@ -128,32 +128,15 @@
             <div class="col-md-6 mb-4">
                 <div class="banner banner-fixed br-sm">
                     <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-1.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #263032;" />
+                        <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
                     </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold text-white">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25 text-white">Black Friday</h3>
-                        <div class="banner-price-info text-white text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
-                    </div>
                 </div>
-                <!-- End of Category Banner -->
             </div>
             <div class="col-md-6 mb-4">
                 <div class="banner banner-fixed br-sm">
                     <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-2.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #F3F3F1;" />
+                        <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
                     </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25">Black Friday</h3>
-                        <div class="banner-price-info text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

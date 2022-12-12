@@ -11,10 +11,10 @@
                 }">
             <div class="swiper-wrapper">
                   <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
-                     style="background-image: url(assets/images/demos/darkdemo/slide-1.jpg); background-color: #333;">
+                     style="background-image: url('/bannerbacksuvare.jpg'); background-color: #333;">
                     <div class="container">
                         <figure class="slide-image skrollable slide-animate">
-                            <img src="assets/images/demos/darkdemo/shoes.png" alt="Banner"
+                            <img src="/suavebanner.png" alt="Banner"
                                  data-bottom-top="transform: translateY(10vh);"
                                  data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
                         </figure>
@@ -25,7 +25,7 @@
                                         'duration': '1s',
                                         'delay': '.2s'
                                     }">
-                                Custom <span class="p-relative d-inline-block">Men’s</span>
+                                {{ config('app.name') }}
                             </h5>
                             <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
                                         'name': 'fadeInRightShorter',
@@ -39,7 +39,7 @@
                                         'duration': '1s',
                                         'delay': '.6s'
                                     }">
-                                Sale up to <span class="font-weight-bolder text-secondary">30% OFF</span>
+                                Sale up to <span class="font-weight-bolder text-secondary">50% indirim</span>
                             </p>
 
                             <a href="shop-list.html"
@@ -48,12 +48,11 @@
                                         'name': 'fadeInRightShorter',
                                         'duration': '1s',
                                         'delay': '.8s'
-                                    }">SHOP NOW<i class="w-icon-long-arrow-right"></i></a>
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
 
                         </div>
-                        <!-- End of .banner-content -->
+
                     </div>
-                    <!-- End of .container -->
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -134,59 +133,42 @@
                             }
                         }
                     }">
-                    <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                        @foreach($Product_Categories->where('parent_id' , 0) as $item)
-                            <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
-                                <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
-                                    <figure class="category-media">
-                                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
-                                    </figure>
-                                </a>
-                                <div class="category-content">
-                                    <h4 class="category-name">{{ $item->title }}</h4>
-                                    <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
-                                </div>
+                <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach($Product_Categories->where('parent_id' , 0) as $item)
+                        <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
+                            <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
+                                <figure class="category-media">
+                                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
+                                </figure>
+                            </a>
+                            <div class="category-content">
+                                <h4 class="category-name">{{ $item->title }}</h4>
+                                <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
+            </div>
       @endif
 
-    @if ($loop->index == 3)
-        <div class="row category-banner-2cols cols-md-2 appear-animate">
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-1.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #263032;" />
-                    </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold text-white">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25 text-white">Black Friday</h3>
-                        <div class="banner-price-info text-white text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
+        @if ($loop->index == 3)
+            <div class="row category-banner-2cols cols-md-2 appear-animate">
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
+                        </figure>
                     </div>
                 </div>
-                <!-- End of Category Banner -->
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-2.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #F3F3F1;" />
-                    </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25">Black Friday</h3>
-                        <div class="banner-price-info text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
+                        </figure>
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
 
     @endforeach
 

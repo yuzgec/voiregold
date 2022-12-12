@@ -24,8 +24,12 @@
                                             <img src="{{ $cart->options->image }}" alt="{{ $cart->name }}" class="img-fluid">
                                             </figure>
                                         </a>
-                                    <button type="submit" class="btn btn-close"><i
-                                            class="fas fa-times"></i></button>
+                                    <form id="form" method="post" action="{{route('sepetcikar',$cart->rowId )}}">
+                                        @csrf
+                                        <a href="javascript:{}" onclick="document.getElementById('form').submit()" class="btn btn-link btn-close" aria-label="button">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </form>
                                 </div>
                             </td>
                             <td class="product-name">
