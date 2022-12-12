@@ -16,7 +16,7 @@
 
                                     <div class="swiper-slide">
                                         <figure class="product-image product-image-full">
-                                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
+                                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                  data-zoom-image="{{$Detay->getFirstMediaUrl('page', 'imgpng')}}"
                                                  alt="{{ $Detay->title }}">
                                         </figure>

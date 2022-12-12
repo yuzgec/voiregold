@@ -182,7 +182,12 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
+                                                                <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
+                                                                    <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb') }}" alt="{{ $item->title }}" width="400" height="400">
+                                                                    @foreach($item->getMedia('gallery')->take(1) as $img)
+                                                                        {{ $img->img('thumb')->attributes(['class' => 'product-image-hover', 'alt' => $item->title]) }}
+                                                                    @endforeach
+                                                                </a>
                                                             </figure>
                                                         </div>
 
@@ -210,9 +215,7 @@
                                                     </ins>
                                                 </div>
 
-                                                <div class="product-countdown-container flex-wrap">
-                                                    <label class="mr-2 text-default">Kampanya Bitiş Tarihi:</label>
-                                                </div>
+
                                                 @if($item->get_comment_count > 0)
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -228,18 +231,10 @@
                                                 </div>
 
                                                 <div class="product-form pt-4">
-                                                    <div class="product-qty-form mb-2 mr-2">
-                                                        <div class="input-group">
-                                                            <input class="quantity form-control" type="number"
-                                                                   min="1" max="10000000">
-                                                            <button class="quantity-plus w-icon-plus"></button>
-                                                            <button class="quantity-minus w-icon-minus"></button>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-primary btn-cart">
+                                                    <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}" class="btn btn-primary ">
                                                         <i class="w-icon-cart"></i>
                                                         <span>Ürünü İncele</span>
-                                                    </button>
+                                                    </a>
                                                 </div>
 
                                             </div>

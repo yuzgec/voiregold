@@ -214,7 +214,7 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide" style="border:1px solid #f4f4f4;border-radius:5px">
                                                             <figure class="product-image">
-                                                                <img title="{{ $item->title }}" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
+                                                                <img title="{{ $item->title }}" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
                                                         </div>
 
@@ -294,7 +294,7 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
-                                                            <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/resimyok.jpg' : $item->getFirstMediaUrl('page', 'small') }}" alt="{{ $item->title }}" width="150" height="150">
+                                                            <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $item->getFirstMediaUrl('page', 'small') }}" alt="{{ $item->title }}" width="150" height="150">
                                                             @foreach($item->getMedia('gallery')->take(1) as $img)
                                                                 {{ $img->img('small')->attributes(['class' => 'product-image-hover', 'alt' => $item->title]) }}
                                                             @endforeach

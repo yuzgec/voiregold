@@ -1,5 +1,4 @@
 <header class="header">
-
     <div class="header-middle">
         <div class="container">
             <div class="header-left mr-md-4">
@@ -33,7 +32,7 @@
                     <div class="call-info d-lg-show">
                         <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
                             <a href="#" class="text-capitalize">Sipariş Hattı</a></h4>
-                        <a href="tel:#" class="phone-number font-weight-bolder ls-50">{{ config('settings.telefon1') }}</a>
+                        <a href="tel:{{ config('settings.telefon1') }}" class="phone-number font-weight-bolder ls-50">{{ config('settings.telefon1') }}</a>
                     </div>
                 </div>
 
