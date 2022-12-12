@@ -10,11 +10,11 @@
                     }
                 }">
             <div class="swiper-wrapper">
-                  <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
-                     style="background-image: url('/bannerbacksuvare.jpg'); background-color: #333;">
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
                     <div class="container">
                         <figure class="slide-image skrollable slide-animate">
-                            <img src="/suavebanner.png" alt="Banner"
+                            <img src="/luxestakibanner.png" alt="Banner"
                                  data-bottom-top="transform: translateY(10vh);"
                                  data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
                         </figure>
@@ -32,17 +32,17 @@
                                         'duration': '1s',
                                         'delay': '.4s'
                                     }">
-                                RUNNING SHOES
+                                Kampanyalı <br>Fiyatlar
                             </h3>
                             <p class="font-weight-normal text-light slide-animate" data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'duration': '1s',
                                         'delay': '.6s'
                                     }">
-                                Sale up to <span class="font-weight-bolder text-secondary">50% indirim</span>
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
                             </p>
 
-                            <a href="shop-list.html"
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
                                class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
                                data-animation-options="{
                                         'name': 'fadeInRightShorter',
@@ -54,6 +54,96 @@
 
                     </div>
                 </div>
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="/luxestakibanner2.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                {{ config('app.name') }}
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Kampanyalı <br>Fiyatlar
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
+                            </p>
+
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="/luxestakibanner3.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                {{ config('app.name') }}
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Kampanyalı <br>Fiyatlar
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
+                            </p>
+
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
             <div class="swiper-pagination"></div>
             <button class="swiper-button-next"></button>
@@ -239,18 +329,10 @@
                                                 </div>
 
                                                 <div class="product-form pt-4">
-                                                    <div class="product-qty-form mb-2 mr-2">
-                                                        <div class="input-group">
-                                                            <input class="quantity form-control" type="number"
-                                                                   min="1" max="10000000">
-                                                            <button class="quantity-plus w-icon-plus"></button>
-                                                            <button class="quantity-minus w-icon-minus"></button>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-primary btn-cart">
+                                                    <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary" title="{{ $item->title }}">
                                                         <i class="w-icon-cart"></i>
                                                         <span>Ürünü İncele</span>
-                                                    </button>
+                                                    </a>
                                                 </div>
 
                                             </div>

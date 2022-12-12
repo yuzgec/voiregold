@@ -1,7 +1,161 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
+    <section class="intro-section">
+        <div class="swiper-container swiper-theme nav-inner pg-inner swiper-nav-lg animation-slider pg-xxl-hide nav-xxl-show nav-hide"
+             data-swiper-options="{
+                    'slidesPerView': 1,
+                    'autoplay': {
+                        'delay': 8000,
+                        'disableOnInteraction': false
+                    }
+                }">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="/luxestakibanner.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                {{ config('app.name') }}
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Kampanyalı <br>Fiyatlar
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
+                            </p>
+
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="/luxestakibanner2.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                {{ config('app.name') }}
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Kampanyalı <br>Fiyatlar
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
+                            </p>
+
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide banner banner-fixed intro-slide intro-slide1"
+                     style="background-image: url('/luxestakibannerback.png'); background-color: #333;">
+                    <div class="container">
+                        <figure class="slide-image skrollable slide-animate">
+                            <img src="/luxestakibanner3.png" alt="Banner"
+                                 data-bottom-top="transform: translateY(10vh);"
+                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
+                        </figure>
+                        <div class="banner-content y-50 text-right">
+                            <h5 class="banner-subtitle font-weight-normal text-light ls-50 lh-1 mb-2 slide-animate"
+                                data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.2s'
+                                    }">
+                                {{ config('app.name') }}
+                            </h5>
+                            <h3 class="banner-title ls-25 lh-1 slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.4s'
+                                    }">
+                                Kampanyalı <br>Fiyatlar
+                            </h3>
+                            <p class="font-weight-normal text-light slide-animate" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.6s'
+                                    }">
+                                <span class="font-weight-bolder text-secondary">50% indirim</span>
+                            </p>
+
+                            <a href="{{ url('/kategori/bileklikler?id=1') }}"
+                               class="btn btn-white btn-outline btn-rounded btn-icon-right slide-animate"
+                               data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'duration': '1s',
+                                        'delay': '.8s'
+                                    }"><i class="w-icon-long-arrow-right"></i>ALIŞVERİŞE BAŞLA</a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-button-next"></button>
+            <button class="swiper-button-prev"></button>
+        </div>
+    </section>
     <div class="container">
 
+
+    <div class="notification-wrapper br-sm mb-10 appear-animate mt-2 bg-white">
+        <h4 class="text-center text-dark"><br>Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</h4>
+    </div>
 
     @foreach($Product_Categories as $row)
     <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
@@ -44,126 +198,67 @@
     </div>
 
     @if ($loop->index == 1)
-          <div class="swiper-container swiper-theme shadow-swiper pb-10"
-               data-swiper-options="{
-                    'spaceBetween': 20,
-                    'slidesPerView': 2,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 3
-                        },
-                        '768': {
-                            'slidesPerView': 4
-                        },
-                        '992': {
-                            'slidesPerView': 5
-                        },
-                        '1200': {
-                            'slidesPerView': 6
+        <div class="categories-wrapper swiper-container shadow-swiper swiper-theme appear-animate mt-4"
+                     data-swiper-options="{
+                        'spaceBetween': 20,
+                        'slidesPerView': 2,
+                        'breakpoints': {
+                            '576': {
+                                'slidesPerView': 3
+                            },
+                            '768': {
+                                'slidesPerView': 5
+                            },
+                            '992': {
+                                'slidesPerView': 7
+                            },
+                            '1200': {
+                                'slidesPerView': 6
+                            },
+                            '1400': {
+                                'slidesPerView': 6
+                            },
+                            '1600': {
+                                'slidesPerView': 6
+                            }
                         }
-                    }
-                }">
-              <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{ route('home') }}">
-                              <figure class="category-media">
-                                  <img src="https://st3.myideasoft.com/idea/bm/73/myassets/banner_pictures/banner_278.png?revision=1663115452" alt="Category"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-          </div>
+                    }">
+                <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach($Product_Categories->where('parent_id' , 0) as $item)
+                        <div class="swiper-slide category category-classic category-absolute overlay-zoom br-xs">
+                            <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}">
+                                <figure class="category-media">
+                                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}" title="{{ $item->title }}" width="200" height="200" alt="{{ $item->title }}">
+                                </figure>
+                            </a>
+                            <div class="category-content">
+                                <h4 class="category-name">{{ $item->title }}</h4>
+                                <a href="{{ route('kategori', [$item->slug, 'id' => $item->id]) }}" class="btn btn-primary btn-link btn-underline">Ürünleri İncele</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
       @endif
 
-    @if ($loop->index == 3)
-        <div class="row category-banner-2cols cols-md-2 appear-animate">
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-1.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #263032;" />
-                    </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold text-white">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25 text-white">Black Friday</h3>
-                        <div class="banner-price-info text-white text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
+        @if ($loop->index == 3)
+            <div class="row category-banner-2cols cols-md-2 appear-animate">
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
+                        </figure>
                     </div>
                 </div>
-                <!-- End of Category Banner -->
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/frontend/images/demos/demo10/banner/1-2.jpg" alt="Category Banner" width="610"
-                             height="150" style="background-color: #F3F3F1;" />
-                    </figure>
-                    <div class="banner-content x-50 w-100 y-50 pl-3 pr-3 text-center">
-                        <h5 class="banner-subtitle text-capitalize font-weight-bold">Coming Soon</h5>
-                        <h3 class="banner-title text-capitalize ls-25">Black Friday</h3>
-                        <div class="banner-price-info text-uppercase font-weight-bold">
-                            Discount <strong class="text-primary">50% Off</strong>
-                        </div>
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" width="610" height="150" />
+                        </figure>
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
 
     @endforeach
 
@@ -188,7 +283,7 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg'  : $item->getFirstMediaUrl('page', 'thumb')}}">
+                                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/images/'.config('app.tema').'/resimyok.jpg' : $item->getFirstMediaUrl('page', 'thumb')}}">
                                                             </figure>
                                                         </div>
 
@@ -216,6 +311,9 @@
                                                     </ins>
                                                 </div>
 
+                                                <div class="product-countdown-container flex-wrap">
+                                                    <label class="mr-2 text-default">Kampanya Bitiş Tarihi:</label>
+                                                </div>
                                                 @if($item->get_comment_count > 0)
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -226,20 +324,12 @@
                                                 </div>
                                                 @endif
 
-                                                <div class="product-short-desc lh-2 short" style="font-size: 16px">
+                                                <div class="product-short-desc lh-2 short">
                                                     {!! $item->short !!}
                                                 </div>
 
                                                 <div class="product-form pt-4">
-                                                    <div class="product-qty-form mr-2">
-                                                        <div class="input-group">
-                                                            <input class="quantity form-control" type="number"
-                                                                   min="1" max="5">
-                                                            <button class="quantity-plus w-icon-plus"></button>
-                                                            <button class="quantity-minus w-icon-minus"></button>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary">
+                                                    <a href="{{ route('urun' , $item->slug)}}" class="btn btn-primary" title="{{ $item->title }}">
                                                         <i class="w-icon-cart"></i>
                                                         <span>Ürünü İncele</span>
                                                     </a>

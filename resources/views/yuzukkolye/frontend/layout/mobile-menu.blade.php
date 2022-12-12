@@ -18,7 +18,7 @@
         </form>
 
         <a href="{{ route('home') }}" class="logo ml-lg-0">
-            <img src="/frontend/images/{{ config('app.tema') }}/logo_footer.png" alt="{{ config('app.name') }}" width="200"  />
+            <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="200"  />
         </a>
         <div class="tab-content">
             <div class="tab-pane active" id="main-menu">

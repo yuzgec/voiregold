@@ -69,16 +69,16 @@
                         <h4 class="title mb-3">MESAJ GÖNDER</h4>
                         <form class="form contact-us-form" action="#" method="post">
                             <div class="form-group">
-                                <label for="username">Adınız Soyadınız</label>
+                                <label for="username" style="color:white">Adınız Soyadınız</label>
                                 <input type="text" id="username" name="username"
                                        class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="email_1">Email Adresiniz</label>
+                                <label for="email_1" style="color:white">Email Adresiniz</label>
                                 <input type="email" id="email_1" name="email_1" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="message">Mesajınız</label>
+                                <label for="message" style="color:white">Mesajınız</label>
                                 <textarea id="message" name="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <button type="submit" class="btn btn-dark btn-rounded">MESAJI GÖNDER</button>
