@@ -229,7 +229,7 @@
                                                 </div>
 
                                                 <div class="form-group place-order">
-                                                    <button type="submit" class="btn gold btn-block btn-rounded text-white">
+                                                    <button type="submit" class="btn btn-block btn-rounded">
                                                         {{ ($Detay->offer == 1) ? 'KAMPANYAYA KATIL' : 'SİPARİŞİ TAMAMLA' }}
                                                     </button>
                                                 </div>

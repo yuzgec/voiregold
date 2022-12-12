@@ -33,7 +33,7 @@
                                 </div>
                             </td>
                             <td class="product-name">
-                                <a href="{{ route('urun', $cart->options->url) }}">
+                                <a class="text-white" href="{{ route('urun', $cart->options->url) }}">
                                     {{ $cart->name }}
                                 </a>
                             </td>
@@ -43,7 +43,7 @@
                                     {{ $cart->qty }} Adet
                             </td>
                             <td class="product-subtotal">
-                                <span class="amount"> @convert($cart->qty * $cart->price)₺</span>
+                                <span class="amount text-white"> @convert($cart->qty * $cart->price)₺</span>
                             </td>
                         </tr>
                         @endforeach

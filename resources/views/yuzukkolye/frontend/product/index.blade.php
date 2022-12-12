@@ -76,10 +76,9 @@
                                 <div class="product-details">
                                     <h1 class="product-title">{{ $Detay->title }}</h1>
                                     <div class="product-bm-wrapper">
-                                        <figure class="brand">
-                                            <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="105"  />
-                                        </figure>
-                                        <div class="product-meta">
+                                            <img src="/frontend/images/{{ config('app.tema') }}/logo.png" alt="{{ config('app.name') }}" width="85"  />
+
+                                        <div class="product-meta pt-3 ml-2">
                                             <div class="product-categories">
                                                 Kategori:
                                                 @foreach($Category as $cat)
@@ -125,7 +124,7 @@
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
                                                 </div>
-                                                <button class="btn gold text-white"  type="submit">
+                                                <button class="btn"  type="submit">
                                                     <i class="w-icon-cart"></i>
                                                     <span> Sepete Ekle</span>
                                                 </button>
