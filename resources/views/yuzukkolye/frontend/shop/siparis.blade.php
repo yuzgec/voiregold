@@ -17,7 +17,7 @@
                                         <label class="form-label">Adınız<span class="text-danger">*</span> </label>
                                         <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
                                         @if($errors->has('name'))
-                                            <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('name')}}</div>
                                         @endif
                                     </div>
 
@@ -25,7 +25,7 @@
                                         <label class="form-label"> Soyadınız <span class="text-danger">*</span></label>
                                         <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
                                         @if($errors->has('surname'))
-                                            <div class="invalid-feedback">{{$errors->first('surname')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('surname')}}</div>
                                         @endif
                                     </div>
 
@@ -33,7 +33,7 @@
                                         <label class="form-label"> Email Adresiniz</label>
                                         <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email Zorunlu Değildir">
                                         @if($errors->has('email'))
-                                            <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('email')}}</div>
                                         @endif
                                     </div>
 
@@ -41,7 +41,7 @@
                                         <label class="form-label">Telefon Numaranız <span class="text-danger">*</span></label>
                                         <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
                                         @if($errors->has('phone'))
-                                            <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('phone')}}</div>
                                         @endif
                                     </div>
 
@@ -51,7 +51,7 @@
                                         </label>
                                         <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="3" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
                                         @if($errors->has('address'))
-                                            <div class="invalid-feedback">{{$errors->first('address')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('address')}}</div>
                                         @endif
                                     </div>
 
@@ -64,14 +64,14 @@
                                             @endforeach
                                         </select>
                                         @if($errors->has('province'))
-                                            <div class="invalid-feedback">{{$errors->first('province')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('province')}}</div>
                                         @endif
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">İlçe <span class="text-danger">*</span></label>
                                         <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
                                         @if($errors->has('city'))
-                                            <div class="invalid-feedback">{{$errors->first('city')}}</div>
+                                            <div class="invalid-feedback" style="color:red">{{$errors->first('city')}}</div>
                                         @endif
                                     </div>
 
@@ -97,40 +97,40 @@
                                         </thead>
                                         <tbody>
                                         @foreach(Cart::instance('shopping')->content() as $cart)
-                                        <tr class="bb-no">
-                                            <td class="product-name">{{ $cart->name }} <i
-                                                    class="fas fa-times"></i> <span
-                                                    class="product-quantity">{{ $cart->qty }}</span></td>
-                                            <td class="product-total">{{ $cart->price }}</td>
-                                        </tr>
+                                            <tr class="bb-no">
+                                                <td class="product-name">{{ $cart->name }} <i
+                                                        class="fas fa-times"></i> <span
+                                                        class="product-quantity">{{ $cart->qty }}</span></td>
+                                                <td class="product-total">{{ money($cart->price) }}</td>
+                                            </tr>
                                         @endforeach
 
                                         <tr class="cart-subtotal bb-no">
+                                            <th >
+                                                <b class="text-white">Ara Toplam</b>
+                                            </th>
                                             <td>
-                                                <b>Ara Toplam</b>
-                                            </td>
-                                            <td>
-                                                <b>{{ money(Cart::instance('shopping')->subtotal()) }}₺</b>
+                                                <b class="text-white">{{ money(Cart::instance('shopping')->subtotal()) }}₺</b>
                                             </td>
                                         </tr>
                                         </tbody>
 
                                         <tr class="cart-subtotal bb-no">
                                             <td>
-                                                <b>Kargo Ücreti</b>
+                                                <b  class="text-white">Kargo Ücreti</b>
                                             </td>
                                             <td>
-                                                <b>{{ cargo(Cart::instance('shopping')->total()) }}</b>
+                                                <b  class="text-white">{{ cargo(Cart::instance('shopping')->total()) }}</b>
                                             </td>
                                         </tr>
                                         </tbody>
                                         <tfoot>
                                         <tr class="order-total">
-                                            <th>
-                                                <b>Toplam</b>
+                                            <th
+                                                <b  class="text-white">Toplam</b>
                                             </th>
                                             <td>
-                                                <b>{{cargoToplam(Cart::instance('shopping')->total())}}₺</b>
+                                                <b  class="text-white">{{cargoToplam(Cart::instance('shopping')->total())}}₺</b>
                                             </td>
                                         </tr>
                                         </tfoot>
