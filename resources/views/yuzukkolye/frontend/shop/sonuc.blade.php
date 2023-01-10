@@ -19,7 +19,7 @@
 @section('content')
     <div class="page-content mb-10 pb-2" style="margin-top:10px">
         <div class="container">
-            <div class="order-success text-center font-weight-bolder text-dark">
+            <div class="order-success text-center font-weight-bolder text-white">
                 <i class="fas fa-check"></i>
                 Siparişiniz başarıyla oluşturulmuştur.
             </div>
