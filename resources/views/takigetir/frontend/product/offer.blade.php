@@ -98,7 +98,7 @@
                             </div>
                             <div>
                                 {{-- <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br> --}}
-                                <i class="w-icon-shipping mr-1"></i> Aynı gün kargoda<br>
+                                <p><i class="w-icon-shipping mr-1"></i> Aynı gün kargoda</p>
                             </div>
 
                             <div class="product-short-desc lh-2 short">
