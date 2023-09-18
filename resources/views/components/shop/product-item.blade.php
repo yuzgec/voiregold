@@ -30,19 +30,12 @@
                 {{ $item->title }}
             </a>
         </h4>
-        {{--<div class="ratings-container">
-            <div class="ratings-full">
-                <span class="ratings" style="width: 100%;"></span>
-            </div>
-            <a href="{{ route('home') }}" class="rating-reviews">(3 yorum)</a>
-        </div>--}}
-
         <div class="product-pa-wrapper">
             <div class="product-price">
                 <ins class="new-price">{{ money($item->price) }}₺</ins><del class="old-price">{{ money($item->old_price) }}₺</del>
             </div>
             <div class="product-action">
-                <a href="#" class="btn-cart btn-product btn btn-link btn-underline">Ürünü İncele</a>
+                <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}" class="btn-cart btn-product btn btn-link btn-underline">Ürünü İncele</a>
             </div>
         </div>
     </div>
