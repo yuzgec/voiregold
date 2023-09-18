@@ -119,7 +119,7 @@
                 ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
                 ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
                 ->where('product_category_pivots.category_id',  $row->id)
-                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id,')
+                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id')
                 ->where('products.status', 1)
                 ->orderBy("products.created_at", 'desc')
                 ->get();
