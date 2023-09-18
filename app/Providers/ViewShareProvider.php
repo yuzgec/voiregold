@@ -35,9 +35,9 @@ class ViewShareProvider extends ServiceProvider
             $Product_Categories = ProductCategory::with('cat')->get()->toFlatTree();
 
             $Product = Product::with(['getCategory'])
-                ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short', 'opportunity')
+                ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short', 'opportunity', 'created_at')
                 ->where('status',1)
-                ->orderBy('created_at','asc')
+                ->orderBy('created_at','desc')
                 ->get();
 
             View::share([
