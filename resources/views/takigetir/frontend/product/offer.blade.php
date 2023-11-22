@@ -94,7 +94,7 @@
                                 </span>
                             </div>
                             <div class="alert alert-error">
-                                <span class="">Son <b>({{ $Count}})</b> adet kaldı.</span>
+                                <span class="">Bugün <b>({{$Count}})</b> kişi aldı</span>
                             </div>
                             <div>
                                 {{-- <p><i class="w-icon-check-solid"></i> Bugün <b>({{$Count}})</b> kişi aldı<br> --}}
