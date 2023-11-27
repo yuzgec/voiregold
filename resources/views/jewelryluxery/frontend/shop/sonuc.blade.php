@@ -25,10 +25,8 @@
             </div>
             <div class="alert alert-icon alert-inline  mt-2">
                 <i class="w-icon-exclamation-triangle"></i>
-                <strong>Not: </strong>Tanıtım kampanyamıza başarıyla katıldınız. Müşteri temsilcimiz mesai saatleri içerisinde sizi <b>{{ config('settings.telefon2') }}</b>
-                numaralı telefonumuzdan arayıp adres teyidi yapacaktır. Hediyeniz sonra kargoya verilecektir. Adres yetidi yapılmayan başvurular geçersiz sayılacaktır. Lütfen telefonunuzu açınız.
+                Değerli müşterimiz siparişiniz başarı ile oluşturulmuştur. Müşteri temsilcimiz mesai saatleri içerisinde <b>{{ config('settings.telefon2') }}</b> numaralı telefondan sizi arayıp adres teyidi yapacaktır. Siparişiniz sonra kargoya verilecektir. İyi günlerde kullanmanızı dileriz…
             </div>
-
 
         {{--    <ul class="order-view list-style-none">
                 <li>
