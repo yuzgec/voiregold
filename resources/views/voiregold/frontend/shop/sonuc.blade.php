@@ -12,11 +12,12 @@
         fbq('init', '{{ config('settings.facebookPixel') }}');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"  src="https://www.facebook.com/tr?id={{ config('settings.facebookPixel') }}&ev=PageView&noscript=1"/></noscript>
-
-    <script>fbq('track', 'Purchase', {value: 1, currency: 'TRY'});</script>
+  
     @endsection
 @section('content')
+<noscript><img height="1" width="1" style="display:none"  src="https://www.facebook.com/tr?id={{ config('settings.facebookPixel') }}&ev=PageView&noscript=1"/></noscript>
+
+<script>fbq('track', 'Purchase', {value: 1, currency: 'TRY'});</script>
     <div class="page-content mb-10 pb-2" style="margin-top:10px">
         <div class="container">
             <div class="order-success text-center font-weight-bolder text-dark">
