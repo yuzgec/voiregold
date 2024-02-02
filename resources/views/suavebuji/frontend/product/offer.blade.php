@@ -226,10 +226,10 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">İlçe <span class="text-danger">*</span></label>
-                                                     <select id="district-select" class="form-control @if($errors->has('province')) is-invalid @endif" name="city" >
+                                                     <select id="district-select" class="form-control @if($errors->has('city')) is-invalid @endif" name="city" >
                                                     </select>   
-                                                    @if($errors->has('province'))
-                                                        <div class="invalid-feedback valid">{{$errors->first('province')}}</div>
+                                                    @if($errors->has('city'))
+                                                        <div class="invalid-feedback valid">{{$errors->first('city')}}</div>
                                                     @endif
                                                 </div>
 
