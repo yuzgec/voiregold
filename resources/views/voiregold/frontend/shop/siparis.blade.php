@@ -80,7 +80,6 @@
                                         @endif
                                     </div>
 
-
                                     <div class="form-group place-order">
                                         <button type="submit" class="btn btn-dark btn-block btn-rounded">SİPARİŞİ TAMAMLA</button>
                                     </div>
