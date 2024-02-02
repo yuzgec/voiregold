@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\City;
+use App\Models\Page;
+use App\Models\Order;
+use App\Models\Basket;
+use App\Models\Search;
+use App\Models\Slider;
+use App\Models\Product;
+use App\Models\Favorite;
+use App\Models\ShopCart;
+use Illuminate\Http\Request;
+use App\Models\MailSubcribes;
+use App\Models\ProductCategory;
 use App\Http\Requests\MailRequest;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\SearchRequest;
-use App\Models\Basket;
-use App\Models\Favorite;
-use App\Models\MailSubcribes;
-use App\Models\Order;
-use App\Models\Page;
-use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Models\ProductCategoryPivot;
-use App\Models\Search;
-use App\Models\ShopCart;
-use App\Models\Slider;
-use Carbon\Carbon;
-use CyrildeWit\EloquentViewable\Support\Period;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Artesaos\SEOTools\Facades\SEOTools;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use CyrildeWit\EloquentViewable\Support\Period;
 
 class HomeController extends Controller
 {
@@ -174,7 +175,9 @@ class HomeController extends Controller
             }else{
                 $medium = config('app.tema').' '.config('app.tema').'.com';
             }
-
+            
+            $province = DB::table('sehir')->where('id', $request->province)->first();
+            
             $ShopCart                   = new ShopCart;
             $ShopCart->cart_id          = $Cart_Id ;
             $ShopCart->user_id          = $Cart_Id ;
@@ -185,8 +188,8 @@ class HomeController extends Controller
             $ShopCart->email            = $request->email;
             $ShopCart->phone            = $request->phone;
             $ShopCart->address          = $request->address;
-            $ShopCart->city             = $request->province;
-            $ShopCart->province         = $request->city;
+            $ShopCart->province         = $province->sehir_title;
+            $ShopCart->city             = $request->city;
             $ShopCart->note             = $request->note;
             $ShopCart->order_medium     = $medium;
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
@@ -442,5 +445,10 @@ class HomeController extends Controller
             ->whereIn('id', $Favorite)->get();
 
         return view(config('app.tema').'/frontend.dashboard.index', compact('FavoriteBooks'));
+    }
+
+    public function getDistricts(City $city)
+    {
+        return response()->json($city->districts);
     }
 }

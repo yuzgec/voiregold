@@ -6,6 +6,9 @@ use App\Models\ProductCategoryPivot;
 use App\Models\Publisher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+    Route::get('/districts/{city}', 'HomeController@getDistricts');
+
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/urun/{path}', 'HomeController@urun')->where('path', '.*')->name('urun');
     Route::get('/profilim', 'HomeController@profilim')->middleware('auth')->name('profilim');
@@ -36,6 +39,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/mail', function (){
        return view('frontend.mail.siparis');
     });
+
+
 Auth::routes();
     Route::group(["prefix"=>"go", 'middleware' => ['auth','web', 'admin']],function() {
         Route::get('/', 'DashboardController@index')->name('go');

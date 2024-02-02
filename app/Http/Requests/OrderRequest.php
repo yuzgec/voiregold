@@ -16,7 +16,7 @@ class OrderRequest extends FormRequest
             'address'              => 'required|min:25',
             'email'                => 'nullable|email',
             'province'             => 'required',
-            'city'                 => 'required|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ\s]+$/',
+            'city'                 => 'required',
         ];
     }
 
@@ -44,7 +44,6 @@ class OrderRequest extends FormRequest
 
             'province.required'        => 'İl alanı boş bırakılamaz',
             'city.required'            => 'İlçe alanı boş bırakılamaz',
-            'city.regex'               => 'Geçerli bir ilçe adı giriniz',
 
 
         ];

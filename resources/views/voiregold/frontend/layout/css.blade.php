@@ -14,4 +14,6 @@
 <link rel="stylesheet" type="text/css" href="/frontend/css/style.min.css">
 <link rel="stylesheet" type="text/css" href="/frontend/css/{{ config('app.tema') }}.min.css?ver=2">
 <meta name="facebook-domain-verification" content="{{ config('settings.facebookDomainVerification') }}" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 

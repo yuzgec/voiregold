@@ -209,13 +209,15 @@
                                                         <div class="invalid-feedback valid">{{$errors->first('address')}}</div>
                                                     @endif
                                                 </div>
-
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label"> İl <span class="text-danger">*</span></label>
-                                                    <select class="form-control @if($errors->has('province')) is-invalid @endif" name="province">
+                                                    <select class="form-control @if($errors->has('province')) is-invalid @endif" id="city-select" name="province">
                                                         <option value="">İl Seçiniz</option>
                                                         @foreach($Province as $item)
-                                                            <option value="{{ $item->sehir_title }}" {{ (old('province') == $item->sehir_title) ? 'selected' : null }} }}>{{ $item->sehir_title }}</option>
+                                                            <option value="{{ $item->id }}" 
+                                                                {{ (old('province') == $item->id) ? 'selected' : null }}>
+                                                                {{ $item->sehir_title }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                     @if($errors->has('province'))
@@ -224,10 +226,11 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">İlçe <span class="text-danger">*</span></label>
-                                                    <input value="{{old('city')}}" type="text" class="form-control @if($errors->has('city')) is-invalid @endif"  name="city" placeholder="İlçe">
-                                                    @if($errors->has('city'))
-                                                        <div class="invalid-feedback valid">{{$errors->first('city')}}</div>
-                                                    @endif
+                                                     <select id="district-select" class="form-control @if($errors->has('province')) is-invalid @endif" name="city" >
+                                                    </select>   
+                                                    @if($errors->has('province'))
+                                                    <div class="invalid-feedback valid">{{$errors->first('province')}}</div>
+                                                @endif
                                                 </div>
 
                                                 <div class="form-group place-order">
@@ -313,9 +316,42 @@
     </div>
 @endsection
 @section('customJS')
+
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })
+
+        
+        $(document).ready(function() {
+            $('#city-select').on('change', function() {
+                var cityId = $(this).val();
+                $.ajax({
+                    url: '/districts/' + cityId,
+                    type: 'GET',
+                    success: function(districts) {
+                        var districtSelect = $('#district-select');
+                        districtSelect.empty();
+
+                        $.each(districts, function(key, district) {
+                            districtSelect.append($('<option></option>').attr('value', district.ilce_title).text(district.ilce_title));
+                        });
+                    },
+                    error: function(request, status, error) {
+                        console.error('AJAX Error:', error);
+                    }
+                });
+            });
+        });
+
     </script>
 @endsection

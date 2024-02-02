@@ -312,9 +312,42 @@
     @endsection
 
 @section('customJS')
+
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $(".short ul").addClass("list-type-check list-style-none");
         })
+
+        
+        $(document).ready(function() {
+            $('#city-select').on('change', function() {
+                var cityId = $(this).val();
+                $.ajax({
+                    url: '/districts/' + cityId,
+                    type: 'GET',
+                    success: function(districts) {
+                        var districtSelect = $('#district-select');
+                        districtSelect.empty();
+
+                        $.each(districts, function(key, district) {
+                            districtSelect.append($('<option></option>').attr('value', district.ilce_title).text(district.ilce_title));
+                        });
+                    },
+                    error: function(request, status, error) {
+                        console.error('AJAX Error:', error);
+                    }
+                });
+            });
+        });
+
     </script>
 @endsection
