@@ -188,8 +188,8 @@ class HomeController extends Controller
             $ShopCart->email            = $request->email;
             $ShopCart->phone            = $request->phone;
             $ShopCart->address          = $request->address;
-            $ShopCart->province         = $request->city;
-            $ShopCart->city             = $province->sehir_title;
+            $ShopCart->province         = $province->sehir_title;
+            $ShopCart->city             = $request->city;
             $ShopCart->note             = $request->note;
             $ShopCart->order_medium     = $medium;
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
