@@ -229,8 +229,8 @@
                                                      <select id="district-select" class="form-control @if($errors->has('province')) is-invalid @endif" name="city" >
                                                     </select>   
                                                     @if($errors->has('province'))
-                                                    <div class="invalid-feedback valid">{{$errors->first('province')}}</div>
-                                                @endif
+                                                        <div class="invalid-feedback valid">{{$errors->first('province')}}</div>
+                                                    @endif
                                                 </div>
 
                                                 <div class="form-group place-order">
