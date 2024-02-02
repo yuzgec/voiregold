@@ -210,14 +210,13 @@
                                                         <div class="invalid-feedback valid">{{$errors->first('address')}}</div>
                                                     @endif
                                                 </div>
-
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label"> İl <span class="text-danger">*</span></label>
                                                     <select class="form-control @if($errors->has('province')) is-invalid @endif" id="city-select" name="province">
                                                         <option value="">İl Seçiniz</option>
                                                         @foreach($Province as $item)
                                                             <option value="{{ $item->id }}" 
-                                                                {{ (old('province') == $item->sehir_title) ? 'selected' : null }}>
+                                                                {{ (old('province') == $item->id) ? 'selected' : null }}>
                                                                 {{ $item->sehir_title }}
                                                             </option>
                                                         @endforeach
@@ -228,9 +227,13 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">İlçe <span class="text-danger">*</span></label>
-                                                     <select id="district-select" class="form-control" >
+                                                     <select id="district-select" class="form-control @if($errors->has('city')) is-invalid @endif" name="city" >
                                                     </select>   
+                                                    @if($errors->has('city'))
+                                                        <div class="invalid-feedback valid">{{$errors->first('city')}}</div>
+                                                    @endif
                                                 </div>
+            
 
                                                 <div class="form-group place-order">
                                                     <button type="submit" class="btn gold btn-block btn-rounded text-white">
