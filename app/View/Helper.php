@@ -6,7 +6,7 @@
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
     define('CARGO_LIMIT', 1000);
-    define('CARGO_PRICE', 119.9);
+    define('CARGO_PRICE', 119);
     define('MAIL_SEND', 'olcayy@gmail.com');
 
     function cartControl($id, $text = null){
