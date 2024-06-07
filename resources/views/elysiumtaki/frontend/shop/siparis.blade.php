@@ -100,7 +100,8 @@
                                         <tr class="bb-no">
                                             <td class="product-name">{{ $cart->name }} <i
                                                     class="fas fa-times"></i> <span
-                                                    class="product-quantity">{{ $cart->qty }}</span></td>
+                                                    class="product-quantity">{{ $cart->qty }}</span>
+                                                </td>
                                             <td class="product-total">{{ $cart->price }}</td>
                                         </tr>
                                         @endforeach
@@ -130,7 +131,7 @@
                                                 <b>Toplam</b>
                                             </th>
                                             <td>
-                                                <b>{{cargoToplam(Cart::instance('shopping')->total())}}₺</b>
+                                                <b>{{ cargoToplam(Cart::instance('shopping')->total()) }}₺</b>
                                             </td>
                                         </tr>
                                         </tfoot>
