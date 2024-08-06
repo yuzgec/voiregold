@@ -31,7 +31,6 @@
                         <th>Başlık</th>
                         <th>Durum</th>
                         <th class="d-none d-lg-table-cell">Fiyat</th>
-                        <th class="d-none d-lg-table-cell">Oluşturma Tarihi</th>
                         <th class="w-1"></th>
                     </tr>
                     </thead>
@@ -63,11 +62,7 @@
                                 <span class="badge bg-red">{{ $item->old_price }}</span>
                                 @endif
                             </td>
-
-
-                            <td class="d-none d-lg-table-cell">
-                                {{ $item->created_at->diffForHumans() }}
-                            </td>
+                      
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <div class="dropdown">

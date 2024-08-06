@@ -137,7 +137,6 @@
     </div>
 
     <div class="col-12 col-md-3">
-
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
@@ -174,7 +173,7 @@
 @endsection
 @section('customJS')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+    <script src="/backend/ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function() {
@@ -196,8 +195,10 @@
             toolbar: [
                 { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
                 { name: 'paragraph',items: [ 'BulletedList']},
-                { name: 'colors', items: [ 'TextColor' ]},
+                { name: 'colors', items: [ 'TextColor', 'BGColor' ] },  // Renk butonları burada
                 { name: 'styles', items: [ 'Format', 'FontSize']},
+                { name: 'links', items: [ 'Link', 'Unlink' ] },
+                { name: 'document', groups: [ 'mode' ], items: [ 'Source' ] },
 
             ],
         });
@@ -205,16 +206,7 @@
             filebrowserUploadUrl: "{{ route('product.postUpload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
             height : 300,
-            toolbar: [
-                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
-                { name: 'paragraph',items: [ 'BulletedList']},
-                { name: 'colors', items: [ 'TextColor' ]},
-                { name: 'styles', items: [ 'Format', 'FontSize']},
-                { name: 'links', items : [ 'Link', 'Unlink'] },
-                { name: 'insert', items : [ 'Image', 'Table']},
-                { name: 'document', items : [ 'Source','Maximize' ]},
-                { name: 'clipboard', items : [ 'PasteText', 'PasteFromWord' ]},
-            ],
+           
         });
     </script>
 @endsection

@@ -95,9 +95,7 @@
                     <p class="copyright text-white">Copyright © {{ date('Y') }} {{ config('app.name') }}. Sitedeki resimleri izinsiz kullanmak yasaktır.</p>
                 </div>
                 <div class="footer-right">
-                    <figure class="payment bg-white">
-                        <img src="/iyzico.png" alt="payment" width="500"/>
-                    </figure>
+                   
                 </div>
             </div>
         </div>

@@ -170,7 +170,7 @@
                     </span>
                     <div class="icon-box-content">
                         <h4 class="icon-box-title">Ücretsiz Kargo</h4>
-                        <p class="text-default">250₺ ve Üzeri Alışverişlerinizde</p>
+                        <p class="text-default">{{config('settings.cargo_limit')}}₺ ve Üzeri Alışverişlerinizde</p>
                     </div>
                 </div>
                 <div class="swiper-slide icon-box icon-box-side text-dark">

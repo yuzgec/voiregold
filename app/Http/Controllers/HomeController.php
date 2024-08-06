@@ -192,7 +192,7 @@ class HomeController extends Controller
             $ShopCart->city             = $province->sehir_title;
             $ShopCart->note             = $request->note;
             $ShopCart->order_medium     = $medium;
-            $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
+            $ShopCart->order_cargo      = (Cart::total() < config('settings.cargo_limit')) ? config('settings.cargo_price') : null;
 
             $details = [];
             foreach (Cart::instance('shopping')->content() as $c) {
@@ -291,12 +291,12 @@ class HomeController extends Controller
     }
     public function cartdelete($rowId){
         Cart::instance('shopping')->remove($rowId);
-        alert()->info('Sepetinizdeki ürün çıkarıldı', 'Başarıyla '.SWEETALERT_MESSAGE_DELETE);
+        alert()->info('Sepetinizdeki ürün çıkarıldı', 'Başarıyla Silindi.');
         return redirect()->route('sepet');
     }
     public function cartdestroy(){
         Cart::instance('shopping')->destroy();
-        alert()->info('Sepetinizdeki tüm ürünler çıkarıldı', 'Başarıyla '.SWEETALERT_MESSAGE_DELETE);
+        alert()->info('Sepetinizdeki tüm ürünler çıkarıldı', 'Başarıyla Silindi.');
         return redirect()->route('home');
     }
     public function search(SearchRequest $request){
@@ -339,7 +339,7 @@ class HomeController extends Controller
                     'url' => $p->slug
                 ]
             ]);
-        alert()->success($p->title.' sepetinize eklendi', 'Başarıyla '.SWEETALERT_MESSAGE_CREATE);
+        alert()->success($p->title.' sepetinize eklendi', 'Başarıyla Eklendi.');
         //alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height','Image Alt');
 
         return redirect()->route('sepet');
@@ -366,14 +366,14 @@ class HomeController extends Controller
                 ]
             ]);
 
-        toast(SWEETALERT_MESSAGE_CREATE,'success');
+        toast('Eklendi','success');
         return redirect()->route('siparis');
 
     }
     public function favoriekle(Request $request){
         $p = Product::find($request->id);
         $New = Favorite::updateOrCreate(['user_id' => auth()->user()->id, 'product_id' => $p->id]);
-        alert()->success($p->title.' favorilerinize eklendi', 'Başarıyla '.SWEETALERT_MESSAGE_CREATE);
+        alert()->success($p->title.' favorilerinize eklendi', 'Başarıyla Eklendi.');
         return redirect()->route('favori');
     }
     public function favori(){
@@ -451,4 +451,5 @@ class HomeController extends Controller
     {
         return response()->json($city->districts);
     }
+
 }
