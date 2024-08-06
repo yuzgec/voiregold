@@ -47,7 +47,7 @@
                                         @if ($Detay->getFirstMediaUrl('video'))
                                             <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
                                         @endif
-                                        
+
                                     </div>
                                     <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {
@@ -232,7 +232,7 @@
                                             }">
                                             <div class="swiper-wrapper">
                                                 <div class="widget-col swiper-slide">
-                                                    @foreach($Product->where('bestselling', 1) as $item)
+                                                    @foreach($Product->where('bestselling', 1)->take(4) as $item)
                                                     <div class="product product-widget">
                                                         <figure class="product-media">
                                                             <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">

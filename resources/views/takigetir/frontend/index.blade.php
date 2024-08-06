@@ -344,7 +344,7 @@
                                             }">
                                     <div class="swiper-wrapper">
                                         <div class="widget-col swiper-slide">
-                                            @foreach($Product->where('bestselling', 1) as $item)
+                                            @foreach($Product->where('bestselling', 1)->take(4) as $item)
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="{{ route('urun' , $item->slug)}}" title="{{ $item->title }}">
