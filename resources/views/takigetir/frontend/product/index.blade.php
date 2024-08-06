@@ -44,9 +44,10 @@
                                         </div>
 
 
-                                        @if ($Detay->getFirstMediaUrl('video')) )
-                                        <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
+                                        @if ($Detay->getFirstMediaUrl('video'))
+                                            <a href="#" class="product-gallery-btn product-video-viewer" title="Product Video Thumbnail"><i class="w-icon-movie"></i></a>
                                         @endif
+                                        
                                     </div>
                                     <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
                                     'navigation': {

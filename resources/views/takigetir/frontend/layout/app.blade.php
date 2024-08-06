@@ -15,8 +15,7 @@
             @include(config('app.tema').'/frontend.layout.header')
 
             <main class="main">
-
-                    @yield('content')
+                @yield('content')
             </main>
 
             @include(config('app.tema').'/frontend.layout.footer')

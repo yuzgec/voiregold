@@ -70,22 +70,14 @@
 @endsection
 
 @section('customJS')
-    <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+    <script src="/backend/ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace( 'aciklama', {
-            filebrowserUploadUrl: "{{ route('page.postUpload', ['_token' => csrf_token()]) }}",
+          CKEDITOR.replace( 'aciklama', {
+            filebrowserUploadUrl: "{{ route('product.postUpload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
-            height : 400,
-            toolbar: [
-                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
-                { name: 'paragraph',items: [ 'BulletedList']},
-                { name: 'colors', items: [ 'TextColor' ]},
-                { name: 'styles', items: [ 'Format', 'FontSize']},
-                { name: 'links', items : [ 'Link', 'Unlink'] },
-                { name: 'insert', items : [ 'Image', 'Table']},
-                { name: 'document', items : [ 'Source','Maximize' ]},
-                { name: 'clipboard', items : [ 'PasteText', 'PasteFromWord' ]},
-            ],
+            height : 300,
+            allowContent: true,
+            
         });
     </script>
 @endsection

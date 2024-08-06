@@ -59,7 +59,7 @@
 @endsection
 
 @section('customJS')
-    <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+    <script src="/backend/ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
 
         CKEDITOR.replace( 'aciklama', {
