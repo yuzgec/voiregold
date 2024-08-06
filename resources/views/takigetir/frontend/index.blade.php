@@ -76,7 +76,7 @@
                     <div class="col-md-12 col-sm-6 mb-4">
                         <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
                             <figure  style="border:2px solid #1B1612;" >
-                                <img src="/kargo.jpg" alt="{{config('app.name')}}"/>
+                                <img src="/kargo1.jpg" alt="{{config('app.name')}}"/>
                             </figure>
                             <div class="banner-content content-top">
 
