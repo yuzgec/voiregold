@@ -54,8 +54,6 @@
                                             <div class="invalid-feedback">{{$errors->first('address')}}</div>
                                         @endif
                                     </div>
-
-                     
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label"> İl <span class="text-danger">*</span></label>
                                         <select class="form-control @if($errors->has('province')) is-invalid @endif" id="city-select" name="province">

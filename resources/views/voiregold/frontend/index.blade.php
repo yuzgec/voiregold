@@ -34,7 +34,7 @@
                     </div>
                     <div class="banner banner-fixed intro-banner intro-banner2 br-sm mb-4">
                         <figure class="br-sm">
-                            <img src="/frontend/images/{{ config('app.tema') }}/kargobanner.jpg" alt="{{config('app.name')}}"/>
+                            <img src="/frontend/images/{{ config('app.tema') }}/kargobanner1.jpg" alt="{{config('app.name')}}"/>
                         </figure>
                     </div>
                 </div>
@@ -64,36 +64,36 @@
                             }
                         }
                     }">
-            <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
-                <div class="swiper-slide icon-box icon-box-side text-dark">
-                    <span class="icon-box-icon icon-shipping">
-                        <i class="w-icon-truck"></i>
-                    </span>
-                    <div class="icon-box-content">
-                        <h4 class="icon-box-title">Ücretsiz Kargo</h4>
-                        <p class="text-default">250₺ ve Üzeri Alışverişlerinizde</p>
+                    <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon icon-shipping">
+                                <i class="w-icon-truck"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title">Ücretsiz Kargo</h4>
+                                <p class="text-default">{{config('settings.cargo_limit')}}₺ ve Üzeri Alışverişlerinizde</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon icon-payment">
+                                <i class="w-icon-bag"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title">Güvenli Ödeme</h4>
+                                <p class="text-default">Kapıda Ödeme Seçeneği</p>
+                            </div>
+                        </div>
+                 
+                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                            <span class="icon-box-icon icon-chat">
+                                <i class="w-icon-chat"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
+                                <p class="text-default">7/24 Müşteri Destek Hattı</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide icon-box icon-box-side text-dark">
-                    <span class="icon-box-icon icon-payment">
-                        <i class="w-icon-bag"></i>
-                    </span>
-                    <div class="icon-box-content">
-                        <h4 class="icon-box-title">Güvenli Ödeme</h4>
-                        <p class="text-default">Kapıda Ödeme Seçeneği</p>
-                    </div>
-                </div>
-
-                <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                    <span class="icon-box-icon icon-chat">
-                        <i class="w-icon-chat"></i>
-                    </span>
-                    <div class="icon-box-content">
-                        <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
-                        <p class="text-default">7/24 Müşteri Destek Hattı</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="category-banner-wrapper2 row cols-md-3 appear-animate fadeIn appear-animation-visible" style="animation-duration: 1.2s;">
