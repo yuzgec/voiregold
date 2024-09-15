@@ -39,13 +39,27 @@
         return;
     }
 
-    function cargoToplam($toplam){
 
-        if($toplam < config('settings.cargo_limit')){
-            return money($toplam + config('settings.cargo_price'));
-        }else{
-            return $toplam;
+    function cargoToplam($toplam){
+        $cargo_limit = (float)config('settings.cargo_limit'); // Float'a çeviriyoruz
+        $cargo_price = (float)config('settings.cargo_price'); // Float'a çeviriyoruz
+        $toplam = (float)$toplam; // Float'a çeviriyoruz
+
+        if ($toplam < $cargo_limit) {
+            return money($toplam + $cargo_price);
+        } else {
+            return money($toplam);
         }
     }
+
+    
+    // function cargoToplam($toplam){
+
+    //     if($toplam < config('settings.cargo_limit')){
+    //         return money($toplam + config('settings.cargo_price'));
+    //     }else{
+    //         return $toplam;
+    //     }
+    // }
 
 
