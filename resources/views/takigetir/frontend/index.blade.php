@@ -187,7 +187,7 @@
             </div>
         </div>
 
-        @if ($loop->index == 1)
+        {{-- @if ($loop->index == 1)
             <div class="swiper-container swiper-theme shadow-swiper pb-10"
                 data-swiper-options="{
                         'spaceBetween': 20,
@@ -222,7 +222,7 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-        @endif
+        @endif --}}
 
         @if ($loop->index == 3)
             <div class="row category-banner-2cols cols-md-2 appear-animate">
