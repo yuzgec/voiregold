@@ -46,7 +46,7 @@
                     <i class="w-icon-heart"></i>
                     <span class="wishlist-label d-lg-show">Favori</span>
                 </a>
-
+                @if(Cart::instance('shopping')->content()->count() > 0)
                 <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
                     <div class="cart-overlay"></div>
                     <a href="#" class="cart-toggle label-down link">
@@ -95,6 +95,7 @@
                     </div>
 
                 </div>
+                @endif
             </div>
         </div>
     </div>

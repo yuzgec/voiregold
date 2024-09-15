@@ -146,104 +146,105 @@
 </div>
 
     @foreach($Product_Categories as $row)
-    <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
-        <h2 class="title title-link">{{ $row->title }}</h2>
-        <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
-    </div>
-
-    <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
-            'spaceBetween': 10,
-            'slidesPerView': 2,
-            'breakpoints': {
-                '576': {
-                    'slidesPerView': 3
-                },
-                '768': {
-                    'slidesPerView': 4
-                },
-                '992': {
-                    'slidesPerView': 5
-                }
-            }
-        }">
-        <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-
-            @php
-                $ProductList = \App\Models\Product::with(['getCategory'])
-                ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
-                ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
-                ->where('product_category_pivots.category_id',  $row->id)
-                ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id')
-                ->where('products.status', 1)
-                ->orderBy("products.created_at", 'desc')
-                ->get();
-            @endphp
-            @foreach($ProductList as $item)
-                <div class="swiper-slide product-wrap">
-                    <x-shop.product-item :item="$item"/>
-                </div>
-            @endforeach
+        
+        <div class="title-link-wrapper title-deals appear-animate mb-2 d-flex justify-content-between">
+            <h2 class="title title-link">{{ $row->title }}</h2>
+            <a href="{{  route('kategori', [$row->slug, 'id' => $row->id]) }}" class="ml-0">Hepsini Görüntüle<i class="w-icon-long-arrow-right"></i></a>
         </div>
-    </div>
 
-    @if ($loop->index == 1)
-          <div class="swiper-container swiper-theme shadow-swiper pb-10"
-               data-swiper-options="{
-                    'spaceBetween': 20,
-                    'slidesPerView': 2,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 3
-                        },
-                        '768': {
-                            'slidesPerView': 4
-                        },
-                        '992': {
-                            'slidesPerView': 5
-                        },
-                        '1200': {
-                            'slidesPerView': 6
-                        }
+        <div class="swiper-container swiper-theme appear-animate mb-2" data-swiper-options="{
+                'spaceBetween': 10,
+                'slidesPerView': 2,
+                'breakpoints': {
+                    '576': {
+                        'slidesPerView': 3
+                    },
+                    '768': {
+                        'slidesPerView': 4
+                    },
+                    '992': {
+                        'slidesPerView': 5
                     }
-                }">
-              <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                  @foreach($Product_Categories as $item)
-                  <div class="swiper-slide category-wrap">
-                      <div class="category category-classic category-absolute overlay-zoom br-sm">
-                          <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
-                              <figure class="category-media">
-                                  <img src="{{ $item->getFirstMediaUrl('page') }}" alt="{{ $item->title }}"/>
-                              </figure>
-                          </a>
-                      </div>
-                  </div>
-                  @endforeach
-              </div>
-              <div class="swiper-pagination"></div>
-          </div>
-      @endif
+                }
+            }">
+            <div class="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
 
-    @if ($loop->index == 3)
-        <div class="row category-banner-2cols cols-md-2 appear-animate">
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" />
-                    </figure>
-                </div>
-
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="banner banner-fixed br-sm">
-                    <figure>
-                        <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" />
-
-                    </figure>
-
-                </div>
+                @php
+                    $ProductList = \App\Models\Product::with(['getCategory'])
+                    ->join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
+                    ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
+                    ->where('product_category_pivots.category_id',  $row->id)
+                    ->select('products.id','products.title','products.rank','products.slug','products.price','products.old_price','products.slug','products.sku','product_category_pivots.category_id', 'product_categories.parent_id')
+                    ->where('products.status', 1)
+                    ->orderBy("products.created_at", 'desc')
+                    ->get();
+                @endphp
+                @foreach($ProductList as $item)
+                    <div class="swiper-slide product-wrap">
+                        <x-shop.product-item :item="$item"/>
+                    </div>
+                @endforeach
             </div>
         </div>
-    @endif
+
+        @if ($loop->index == 1)
+            <div class="swiper-container swiper-theme shadow-swiper pb-10"
+                data-swiper-options="{
+                        'spaceBetween': 20,
+                        'slidesPerView': 2,
+                        'breakpoints': {
+                            '576': {
+                                'slidesPerView': 3
+                            },
+                            '768': {
+                                'slidesPerView': 4
+                            },
+                            '992': {
+                                'slidesPerView': 5
+                            },
+                            '1200': {
+                                'slidesPerView': 6
+                            }
+                        }
+                    }">
+                <div class="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach($Product_Categories as $item)
+                    <div class="swiper-slide category-wrap">
+                        <div class="category category-classic category-absolute overlay-zoom br-sm">
+                            <a href="{{  route('kategori', [$item->slug, 'id' => $item->id]) }}" title="{{ $item->title }}">
+                                <figure class="category-media">
+                                    <img src="{{ $item->getFirstMediaUrl('page') }}" alt="{{ $item->title }}"/>
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        @endif
+
+        @if ($loop->index == 3)
+            <div class="row category-banner-2cols cols-md-2 appear-animate">
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner1.jpg" alt="{{ config('app.name') }}" />
+                        </figure>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="banner banner-fixed br-sm">
+                        <figure>
+                            <img src="/arabanner2.jpg" alt="{{ config('app.name') }}" />
+
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+        @endif
 
     @endforeach
 

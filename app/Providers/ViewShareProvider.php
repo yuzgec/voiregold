@@ -32,7 +32,7 @@ class ViewShareProvider extends ServiceProvider
             config()->set('settings', Setting::pluck('value','item')->all());
             $Pages =  Page::with('getCategory')->get();
             $Page_Categories = PageCategory::all();
-            $Product_Categories = ProductCategory::with('cat')->get()->toFlatTree();
+            $Product_Categories = ProductCategory::with('cat')->get()->where('status',1)->toFlatTree();
 
             $Product = Product::with(['getCategory'])
                 ->select('id', 'title', 'price', 'old_price', 'slug','bestselling','status','sku','offer','short', 'opportunity', 'created_at')
