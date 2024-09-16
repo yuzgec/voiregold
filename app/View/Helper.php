@@ -23,27 +23,55 @@
         $son = mb_substr(end($parcala), 0,3);
         return $ilk.'***'.' '.$son.'***';
     }
-    function money($deger){
-        return number_format((float)$deger, 2, '.', '');
+    function formatValue($value) {
+        // Binlik ayracını kaldır (virgül)
+        $value = str_replace(',', '', $value);
+    
+        // Sayıyı float'a çevir
+        $value = (float)$value;
+    
+        return $value;
+    }
+    
+    function money($deger) {
+        $deger = formatValue($deger); // Veriyi formatla
+        return number_format($deger, 2, '.', ''); // Formatla
     }
 
     function cargo($toplam)
     {
+        $toplam = parseMoney($toplam); // Veriyi standartlaştır
+        $cargo_limit = (float)config('settings.cargo_limit'); // Float'a çeviriyoruz
+        $cargo_price = (float)config('settings.cargo_price'); // Float'a çeviriyoruz
+
         if ($toplam >= 0){
-            if ($toplam >= config('settings.cargo_limit')) {
+            if ($toplam >= $cargo_limit) {
                 return 'Ücretsiz Kargo';
             } else {
-                return money(config('settings.cargo_price')).'₺';
+                return money($cargo_price).'₺';
             }
         }
         return;
     }
 
 
+    function parseMoney($value) {
+        // Binlik ayracı (virgül) kaldır ve ondalık ayracı (nokta) uygula
+        $value = str_replace(',', '', $value); // Binlik ayracını kaldır
+        $value = str_replace('.', '.', $value); // Ondalık ayracını kontrol et (genelde bu adım gereksizdir)
+        return (float)$value;
+    }
+
+
     function cargoToplam($toplam){
+        $toplam = parseMoney($toplam); // Veriyi standartlaştır
         $cargo_limit = (float)config('settings.cargo_limit'); // Float'a çeviriyoruz
         $cargo_price = (float)config('settings.cargo_price'); // Float'a çeviriyoruz
         $toplam = (float)$toplam; // Float'a çeviriyoruz
+
+        error_log("Cargo limit: $cargo_limit");
+        error_log("Cargo price: $cargo_price");
+        error_log("Toplam: $toplam");
 
         if ($toplam < $cargo_limit) {
             return money($toplam + $cargo_price);
