@@ -1,149 +1,58 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
     <div class="container">
-        
-        <div class="intro-wrapper">
-            <div class="row">
-            <div class="col-md-8 mb-4">
-                <div class="swiper-container swiper-theme pg-inner pg-white animation-slider"
-                    data-swiper-options="{
-                                'slidesPerView': 1,
-                                'autoplay': {
-                                    'delay': 8000,
-                                    'disableOnInteraction': false
-                                }
-                            }">
-                    <div class="swiper-wrapper row gutter-no cols-1">
-                        <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
-                            <img src="/Slider03.png" class="img-fluid" title="{{config('app.name')}}">
-                            <div class="banner-content y-50">
-                                <div class="slide-animate" data-animation-options="{
-                                                'name': 'zoomIn', 'duration': '1s'
-                                            }">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
-                            <img src="/Slider01.png" class="img-fluid" title="{{config('app.name')}}">
-                            <div class="banner-content y-50">
-                                <div class="slide-animate" data-animation-options="{
-                                                'name': 'zoomIn', 'duration': '1s'
-                                            }">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
-                        <img src="/Slider02.png" class="img-fluid" title="{{config('app.name')}}">
-
-                            <div class="banner-content y-50">
-                                <div class="slide-animate" data-animation-options="{
-                                                'name': 'zoomIn', 'duration': '1s'
-                                            }">
-
-                                </div>
-                            </div>
-                        </div>
 
 
-                        <div class="swiper-slide banner banner-fixed intro-slide intro-slide1 br-sm">
-                            <img src="/Slider04.png" class="img-fluid" title="{{config('app.name')}}">
-                            <div class="banner-content y-50">
-                                <div class="slide-animate" data-animation-options="{
-                                                'name': 'zoomIn', 'duration': '1s'
-                                            }">
-
-                                </div>
-                            </div>
-                        </div>
+        <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6 mb-3"data-swiper-options="{
+                'loop': true,
+                'slidesPerView': 1,
+                'autoplay': {
+                    'delay': 4000,
+                    'disableOnInteraction': false
+                },
+                'breakpoints': {
+                    '576': {
+                        'slidesPerView': 2
+                    },
+                    '768': {
+                        'slidesPerView': 3
+                    },
+                    '1200': {
+                        'slidesPerView': 3
+                    }
+                }
+            }">
+            <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                <div class="swiper-slide icon-box icon-box-side text-dark">
+                    <span class="icon-box-icon icon-shipping">
+                        <i class="w-icon-truck"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Ücretsiz Kargo</h4>
+                        <p class="text-default">{{config('settings.cargo_limit')}}₺ ve Üzeri Alışverişlerinizde</p>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 mb-4">
-                        <div class="intro-banner banner banner-fixed overlay-light overlay-zoom br-sm">
-                            <figure  style="border:2px solid #1B1612;" >
-                                <img src="/kapidaodeme.jpg" alt="{{config('app.name')}}"/>
-                            </figure>
-                            <div class="banner-content content-bottom">
-
-                            </div>
-                        </div>
+                <div class="swiper-slide icon-box icon-box-side text-dark">
+                    <span class="icon-box-icon icon-payment">
+                        <i class="w-icon-bag"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Güvenli Ödeme</h4>
+                        <p class="text-default">Kapıda Ödeme Seçeneği</p>
                     </div>
-                    <div class="col-md-12 col-sm-6 mb-4">
-                        <div class="intro-banner banner banner-fixed overlay-dark overlay-zoom br-sm">
-                            <figure  style="border:2px solid #1B1612;" >
-                                <img src="/kargo1.jpg" alt="{{config('app.name')}}"/>
-                            </figure>
-                            <div class="banner-content content-top">
+                </div>
 
-                            </div>
-                        </div>
+                <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                    <span class="icon-box-icon icon-chat">
+                        <i class="w-icon-chat"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
+                        <p class="text-default">7/24 Müşteri Destek Hattı</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-   {{-- <div class="notification-wrapper br-sm mb-10 appear-animate gold mt-2">
-        <p class="text-center">Güzelliğinize ışıltı katacak muhteşem tasarımlara sahip takı modellerimiz ile dikkatler üzerinizde olacak.</p>
-    </div>--}}
-
-
-    <div class="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm mt-6 mb-3"
-    data-swiper-options="{
-               'loop': true,
-               'slidesPerView': 1,
-               'autoplay': {
-                   'delay': 4000,
-                   'disableOnInteraction': false
-               },
-               'breakpoints': {
-                   '576': {
-                       'slidesPerView': 2
-                   },
-                   '768': {
-                       'slidesPerView': 3
-                   },
-                   '1200': {
-                       'slidesPerView': 3
-                   }
-               }
-           }">
-   <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
-       <div class="swiper-slide icon-box icon-box-side text-dark">
-           <span class="icon-box-icon icon-shipping">
-               <i class="w-icon-truck"></i>
-           </span>
-           <div class="icon-box-content">
-               <h4 class="icon-box-title">Ücretsiz Kargo</h4>
-               <p class="text-default">{{config('settings.cargo_limit')}}₺ ve Üzeri Alışverişlerinizde</p>
-           </div>
-       </div>
-       <div class="swiper-slide icon-box icon-box-side text-dark">
-           <span class="icon-box-icon icon-payment">
-               <i class="w-icon-bag"></i>
-           </span>
-           <div class="icon-box-content">
-               <h4 class="icon-box-title">Güvenli Ödeme</h4>
-               <p class="text-default">Kapıda Ödeme Seçeneği</p>
-           </div>
-       </div>
-
-       <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-           <span class="icon-box-icon icon-chat">
-               <i class="w-icon-chat"></i>
-           </span>
-           <div class="icon-box-content">
-               <h4 class="icon-box-title">Müşteri Hizmetleri</h4>
-               <p class="text-default">7/24 Müşteri Destek Hattı</p>
-           </div>
-       </div>
-   </div>
-</div>
 
     @foreach($Product_Categories as $row)
         
@@ -381,4 +290,6 @@
             </div>
         </div>
     </div>
+    
+</div>
 @endsection
