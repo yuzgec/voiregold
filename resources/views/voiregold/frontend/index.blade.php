@@ -1,6 +1,6 @@
 @extends(config('app.tema').'/frontend.layout.app')
 @section('content')
-    <div class="container">
+    {{-- <div class="container">
         <div class="intro-section">
             <div class="row">
                 <div class="intro-wrapper col-lg-9">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="container">
